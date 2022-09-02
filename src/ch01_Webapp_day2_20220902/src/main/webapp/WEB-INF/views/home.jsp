@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Hi world!  
+	Hi gitHub싸만코!  
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
