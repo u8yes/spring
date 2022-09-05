@@ -3,11 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="tv" class="ex04.springcontainer.di.constructor.LgTV">
-		<constructor-arg ref="apple"></constructor-arg>
-		<constructor-arg value="500000"></constructor-arg>
+	<bean id="tv" class="ex05.springcontainer.di.setter.LgTV">
+		<property name="speaker" ref="sony"></property>	<!-- setter 메서드 전용 -->
 	</bean>
-	<bean id="sony" class="ex04.springcontainer.di.constructor.SonySpeaker"></bean>
-	<bean id="apple" class="ex04.springcontainer.di.constructor.AppleSpeaker"></bean>
+	
+	<bean id="sony" class="ex05.springcontainer.di.setter.SonySpeaker"></bean>
+	<bean id="apple" class="ex05.springcontainer.di.setter.AppleSpeaker"></bean>
 </beans>
 <!-- 스프링에서 작업을 시킬 파일 -->

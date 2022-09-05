@@ -1,4 +1,4 @@
-package ex04.springcontainer.di.constructor;
+package ex05.springcontainer.di.setter;
 
 public class SonySpeaker implements Speaker {
 	

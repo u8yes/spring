@@ -1,10 +1,9 @@
-package ex04.springcontainer.di.constructor;
+package ex05.springcontainer.di.setter;
 
 public class LgTV implements TV{
 	
-	//SonySpeaker speaker;
-	//AppleSpeaker speaker;
-	Speaker speaker;
+	
+	Speaker speaker;	// 멤버변수 = 필드<동일한 이름>
 	int price;
 	
 	public LgTV() {	// 초기화할 목적으로 생성자를 만들어줌.
@@ -12,21 +11,10 @@ public class LgTV implements TV{
 		
 	}
 	
-	//public LgTV(SonySpeaker speaker) {
-	public LgTV(Speaker speaker) {	
+	public void setSpeaker(Speaker speaker) {
+		this.speaker = speaker;
+	}
 
-		// speaker = new SonySpeaker();
-		this.speaker = speaker;
-	}
-	
-	//public LgTV(SonySpeaker speaker, int price) {	
-	public LgTV(Speaker speaker, int price) {	
-		// speaker = new SonySpeaker();
-		this.speaker = speaker;
-		this.price = price;
-		System.out.println("price : " + this.price);
-	}
-		
 	@Override
 	public void powerOn() {
 		System.out.println("LgTV power On.");
