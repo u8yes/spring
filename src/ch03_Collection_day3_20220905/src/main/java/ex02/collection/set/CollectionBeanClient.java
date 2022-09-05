@@ -1,6 +1,6 @@
-package ex01.collection.list;
+package ex02.collection.set;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -9,13 +9,13 @@ public class CollectionBeanClient {
 
 	public static void main(String[] args) {
 		AbstractApplicationContext factory = 
-		new GenericXmlApplicationContext("applicationContext01.xml");
+		new GenericXmlApplicationContext("applicationContext02.xml");
 		
 		CollectionBean bean = (CollectionBean)factory.getBean("collectionBean");
 		
-		List<String> list = bean.getAddressList();
+		Set<String> set = bean.getAddressList();
 		
-		for(String address : list) {
+		for(String address : set) {
 			System.out.println(address);	// 향상된 for문에 toString이 정의돼있다.
 		}
 		

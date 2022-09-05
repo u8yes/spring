@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="collectionBean" class="ex02.collection.set.CollectionBean">
+		<property name="addressList">
+			<set>
+				<value>서울시 종로구 이화동</value>	
+				<value>서울시 마포구 합정동</value>	
+				<value>서울시 강남구 역삼동</value>	
+				<value>서울시 마포구 합정동</value> <!-- set은 중복이 허용되지 않는다. 따라서 출력 때 나오지 않는다. -->
+			</set>
+		</property>
+	</bean>
+
+</beans>
