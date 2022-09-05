@@ -14,6 +14,4 @@ public class CollectionBean {
 		this.addressList = addressList;
 	}
 	
-	
-	
 }
