@@ -4,25 +4,25 @@ public class LgTV implements TV{
 
 	@Override
 	public void powerOn() {
-		// TODO Auto-generated method stub
+		System.out.println("LgTV power On.");
 		
 	}
 
 	@Override
 	public void powerOff() {
-		// TODO Auto-generated method stub
+		System.out.println("LgTV power Off.");
 		
 	}
 
 	@Override
 	public void volumeUp() {
-		// TODO Auto-generated method stub
+		System.out.println("LgTV Volume Up.");
 		
 	}
 
 	@Override
 	public void volumeDown() {
-		// TODO Auto-generated method stub
+		System.out.println("LgTV volume Down.");
 		
 	}
 	
