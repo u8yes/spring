@@ -1,4 +1,4 @@
-package ex05.springcontainer.di.setter;
+package ex06.springcontainer.di.xmlns.p;
 
 public class LgTV implements TV{
 	
