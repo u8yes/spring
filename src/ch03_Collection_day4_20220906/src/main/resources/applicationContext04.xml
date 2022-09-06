@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="collectionBean" class="ex04.collection.properties.CollectionBean">
+		<property name="addressList">
+			<props>
+				<prop key="홍길동">서울시 종로구 이화동</prop>
+				<prop key="이순신">서울시 종로구 이화동</prop>	<!-- 순서는 랜덤으로 나온다. 신경쓰지말자. -->
+			</props>
+		</property>
+	</bean>
+
+</beans>

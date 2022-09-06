@@ -16,7 +16,7 @@ public class CollectionBeanClient {
 		List<String> list = bean.getAddressList();
 		
 		for(String address : list) {
-			System.out.println(address);	// 향상된 for문에 toString이 정의돼있다.
+			System.out.println(address);	// 향상된 for문에는 언제나 toString이 정의돼있다.
 		}
 		
 		

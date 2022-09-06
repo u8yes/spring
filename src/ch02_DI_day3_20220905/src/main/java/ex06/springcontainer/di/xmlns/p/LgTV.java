@@ -3,7 +3,7 @@ package ex06.springcontainer.di.xmlns.p;
 public class LgTV implements TV{
 	
 	
-	Speaker speaker;	// 멤버변수 = 필드<동일한 이름>
+	Speaker speaker;	// 멤버변수와 필드는 동일한 이름
 	int price;
 	
 	public LgTV() {	// 초기화할 목적으로 생성자를 만들어줌.
