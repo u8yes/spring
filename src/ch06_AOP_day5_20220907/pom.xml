@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.springproj</groupId>
 	<artifactId>cotroller</artifactId>
-	<name>ch01_Webapp_day1_20220902</name>
+	<name>ch06_AOP_day5_20220907</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -14,7 +14,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-	
+		
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 --> <!-- DB와 연결할 수 있게 Java11버전에 맞춘 -->
 		
 		<dependency>
@@ -22,6 +22,7 @@
 		    <artifactId>ojdbc6</artifactId>
 		    <version>11.2.0.4</version>
 		</dependency>
+	
 	
 	
 		<!-- Spring -->
