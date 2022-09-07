@@ -1,13 +1,15 @@
 package com.springproj.biz.board.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import org.springframework.stereotype.Repository;
 
 import com.springproj.biz.board.BoardVO;
 import com.springproj.biz.common.JDBCUtil;
 
+@Repository("boardDAO")
 public class BoardDAO {	// DAO(Data Access Object)
 	
 	

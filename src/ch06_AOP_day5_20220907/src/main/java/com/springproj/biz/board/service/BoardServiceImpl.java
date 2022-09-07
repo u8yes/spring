@@ -1,15 +1,19 @@
 package com.springproj.biz.board.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.springproj.biz.board.BoardVO;
 import com.springproj.biz.board.dao.BoardDAO;
+import com.springproj.biz.common.LogAdvice;
 
+@Service("boardService")
 public class BoardServiceImpl implements BoardService {
 	
+	@Autowired
 	private BoardDAO dao;
-	
-	public BoardServiceImpl() {
-		dao = new BoardDAO();
-	}
+	private LogAdvice log;
+		
 	
 	@Override
 	public void insertService(BoardVO vo) {
