@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springproj.biz.board.BoardVO;
 import com.springproj.biz.common.JDBCUtil;
+import com.springproj.biz.common.LogAdvice;
 
 @Repository("boardDAO")
 public class BoardDAO {	// DAO(Data Access Object)
@@ -21,12 +23,13 @@ public class BoardDAO {	// DAO(Data Access Object)
 	
 	Connection conn;
 	
-	
+	@Autowired
+	private LogAdvice log;
 	
 	// CRUD 기능의 메서드 구현
 	// 글 등록(insert문)
 	public void insertBoard(BoardVO vo) {	// DTO(DO)
-		
+		log.printLog("== insertBoardDAO() ==");
 		conn = JDBCUtil.getConnection();	// JDBCUtil에서의 return 한 값을 그대로 받아줌.
 		
 		PreparedStatement pstmt = null;	// 지역변수라서 null로 선언해야하는데 안 하면 쓰레기가 쌓이게 됨.
@@ -58,16 +61,21 @@ public class BoardDAO {	// DAO(Data Access Object)
 	
 	// 목록보기(select문)
 	public void getBoard(int seq) {
+		log.printLog("== getBoardDAO() ==");
+
 		conn = JDBCUtil.getConnection();	// JDBCUtil에서의 return 한 값을 그대로 받아줌.
 	}
 
 	public void getBoardList() {
+		log.printLog("== getBoardListDAO() ==");
+
 		conn = JDBCUtil.getConnection();	// JDBCUtil에서의 return 한 값을 그대로 받아줌.
 	}
 	
 	
 	// 글 수정(update문)
 	public void updateBoard(BoardVO vo) {	// DTO(DO)
+		log.printLog("== updateBoardDAO() ==");
 
 		PreparedStatement pstmt = null;	// 지역변수라서 null로 선언해야하는데 안 하면 쓰레기가 쌓이게 됨.
 		
@@ -102,6 +110,8 @@ public class BoardDAO {	// DAO(Data Access Object)
 	
 	// 글 삭제(delete문)
 	public void deleteBoard(int seq) {
+		log.printLog("== deleteBoardDAO() ==");
+
 		conn = JDBCUtil.getConnection();	// JDBCUtil에서의 return 한 값을 그대로 받아줌.
 	}
 }
