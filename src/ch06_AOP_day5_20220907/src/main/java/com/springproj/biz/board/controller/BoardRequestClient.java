@@ -19,7 +19,7 @@ public class BoardRequestClient {
 		BoardVO vo = new BoardVO();
 		
 		vo.setTitle("첫 게시글");
-		vo.setWriter("홍길동");
+		vo.setWriter("민용기");
 		vo.setContent("드디어 나는 개발자");
 		
 		service.insertService(vo);

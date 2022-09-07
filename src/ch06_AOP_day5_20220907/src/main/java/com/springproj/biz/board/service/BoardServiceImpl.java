@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.springproj.biz.board.BoardVO;
 import com.springproj.biz.board.dao.BoardDAO;
-import com.springproj.biz.common.Log4jAdvice;
+import com.springproj.biz.common.LogAdvice;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
@@ -13,38 +13,38 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO dao;
 	@Autowired
-	//private LogAdvice log;
-	private Log4jAdvice log;
+	private LogAdvice log;
+	//private Log4jAdvice log;
 	
 	@Override
 	public void insertService(BoardVO vo) {
-		//log.printLog("= insertService() =");
-		log.printLogging("= insertService() =");
+		log.printLog("= insertService() =");
+		//log.printLogging("= insertService() =");
 		dao.insertBoard(vo);
 		
 	}
 
 	@Override
 	public void getService(int seq) {
-		log.printLogging("= getService() =");
+		log.printLog("= getService() =");
 		dao.getBoard(seq);
 	}
 
 	@Override
 	public void getServiceList() {
-		log.printLogging("= getServiceList() =");
+		log.printLog("= getServiceList() =");
 		dao.getBoardList();
 	}
 
 	@Override
 	public void updateService(BoardVO vo) {
-		log.printLogging("= updateService() =");
+		log.printLog("= updateService() =");
 		dao.updateBoard(vo);// BoardDAO에서 가져오고 있음
 	}
 
 	@Override
 	public void deleteService(int seq) {
-		log.printLogging("= deleteService() =");
+		log.printLog("= deleteService() =");
 		dao.deleteBoard(seq);
 	}
 	
