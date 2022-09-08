@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+<!-- 스프링이 참조하도록 양식으로 만들어놓은 것, 스피링에 최적화됨 -->
+	<context:component-scan base-package="com.springproj.biz"/>
+
+	<bean id="log" class="com.springproj.biz.common.LogAdvice"/>
+	<!-- <bean id="log" class="com.springproj.biz.common.Log4jAdvice"/> -->
+
+	<bean id="beforeAdvice" class="com.springproj.biz.common.BeforeAdvice"></bean> <!-- 자바빈 규약에 맞춰서 클래스 이름 앞 글자만 소문자로 바꾸면 알아서 실행되기도 함 -->
+	
+	<!-- configuration(환경설정, 구성) -->
+	<aop:config>
+		<aop:pointcut id="implPointcut" expression="execution(* com.springproj.biz.board..*Impl.insert*(..))" />		
+		<!-- 적용되는 메서드, 필드 // not void 리턴값이 반드시 있다, void 리턴값이 없다, * 전체를 지정,
+		 .. 패키지 안, 하위까지 포함대상이다., *Impl 로 끝나는 글자들(클래스)이 대상이다.,
+		  *(..) 메서드 매개변수 타입을 제한을 두지 않겠고 모두 적용하리, *(*) 메서드 안에 한 개만 받겠다.,
+		  *(Integer, ..) 한 개만 적용하겠고 더 와도 되고 안 와도 된다. 일단 Integer는 오긴 와야함., 
+		  *Impl.insert*(..) Impl로 끝나는 클래스에서 insert... 메서드를 적용한다. --> 
+		
+		<aop:aspect ref="beforeAdvice"> <!-- 설정 -->
+			<aop:before pointcut-ref="implPointcut" method="beforeLog"/>
+		
+		</aop:aspect>	<!-- pointcut 설정 -->
+	
+	</aop:config>
+	
+	
+	
+	<bean id="afterReturningAdvice" class="com.springproj.biz.common.AfterReturningAdvice"></bean>
+
+	<!-- configuration(환경설정, 구성) -->
+	<aop:config>
+		<aop:pointcut id="getPointcut" expression="execution(* com.springproj.biz.board..*Impl.get*(..))" />		
+				
+		<aop:aspect ref="afterReturningAdvice"> <!-- 설정 -->
+			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj"/>
+		
+		</aop:aspect>	<!-- pointcut 설정 -->
+	
+	</aop:config>
+
+
+
+	<bean id="afterThrowAdvice" class="com.springproj.biz.common.AfterThrowAdvice"></bean>
+
+	<!-- configuration(환경설정, 구성) -->
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springproj.biz.board..*Impl.*(..))" />		
+				
+		<aop:aspect ref="afterThrowAdvice"> <!-- 설정 -->
+			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" throwing="exception"/>
+			
+		</aop:aspect>	<!-- pointcut 설정 -->
+	
+	</aop:config>
+
+	
+	<bean id="aroundAdvice" class="com.springproj.biz.common.AroundAdvice"></bean>
+
+	<!-- configuration(환경설정, 구성) -->
+	<aop:config>
+		<aop:pointcut id="aroundPointcut" expression="execution(* com.springproj.biz.board..*Impl.*(..))" />		
+				
+		<aop:aspect ref="aroundAdvice"> <!-- 설정 -->
+			<aop:around pointcut-ref="aroundPointcut" method="aroundLog" />
+			
+		</aop:aspect>	<!-- pointcut 설정 -->
+	
+	</aop:config>
+	
+	
+	
+</beans>
