@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.springproj</groupId>
 	<artifactId>cotroller</artifactId>
-	<name>ch06_AOP_day5_20220907</name>
+	<name>ch07_AOP_annotation_day7_20220913</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
