@@ -1,5 +1,7 @@
 package com.springproj.biz.board.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,40 +19,36 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void insertService(BoardVO vo) {
-		//log.printLog("= insertService() =");
-		//log.printLogging("= insertService() =");
+		
 		
 		/*
 		  if(vo.getSeq() == 0) { throw new IllegalArgumentException("0번 글은 등록할 수 없다");
 		  }
-		 //*/
+		//*/
 		dao.insertBoard(vo);
 		
 	}
 
 	@Override
 	public BoardVO getService(int seq) {
-		//log.printLog("= getService() =");
 		BoardVO board = dao.getBoard(seq);
 		
 		return board;
 	}
 
 	@Override
-	public void getServiceList() {
-		//log.printLog("= getServiceList() =");
-		dao.getBoardList();
+	public List<BoardVO> getServiceList() {
+		
+		return dao.getBoardList();
 	}
 
 	@Override
 	public void updateService(BoardVO vo) {
-		//log.printLog("= updateService() =");
 		dao.updateBoard(vo);// BoardDAO에서 가져오고 있음
 	}
 
 	@Override
 	public void deleteService(int seq) {
-		//log.printLog("= deleteService() =");
 		dao.deleteBoard(seq);
 	}
 	

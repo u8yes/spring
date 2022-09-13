@@ -1,5 +1,7 @@
 package com.springproj.biz.board.service;
 
+import java.util.List;
+
 import com.springproj.biz.board.BoardVO;
 
 public interface BoardService {
@@ -9,7 +11,7 @@ public interface BoardService {
 	void insertService(BoardVO vo); 
 	// 글 목록 조회
 	BoardVO getService(int seq);
-	void getServiceList();
+	List<BoardVO> getServiceList();
 	// 글 수정
 	void updateService(BoardVO vo);
 	// 글 삭제

@@ -18,6 +18,6 @@ public class BeforeAdvice {
 		Object[] args = jp.getArgs();
 		
 		System.out.println("[공통로그] " + method + "(Before) 비즈니스 로직 수행 전 동작");
-		System.out.println("args 정보 : " + args[0].toString());
+		//System.out.println("args 정보 : " + args[0].toString());
 	}
 }

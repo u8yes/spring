@@ -1,11 +1,12 @@
 package com.springproj.biz.board.controller;
 
+import java.util.List;
+
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.springproj.biz.board.BoardVO;
 import com.springproj.biz.board.service.BoardService;
-import com.springproj.biz.board.service.BoardServiceImpl;
 
 public class BoardRequestClient {
 
@@ -24,8 +25,17 @@ public class BoardRequestClient {
 		
 		service.insertService(vo);
 		
-		BoardVO board = service.getService(1);
-		System.out.println(board);
+		//BoardVO board = service.getService(1);
+		//System.out.println(board);
+		
+		//글 목록 검색 기능
+		List<BoardVO> list = service.getServiceList();
+		System.out.println("==================================================================================================");
+		for(BoardVO board : list) {
+			System.out.println(board);
+		}
+				
+		service.deleteService(8);	// 계속 삭제가 되게끔 번호 지정
 		
 		factory.close();   // main에서는 close 안해줘도 알아서 닫아준다.
 	}

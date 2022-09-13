@@ -1,15 +1,12 @@
 package com.springproj.biz.board.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.springproj.biz.board.BoardVO;
-import com.springproj.biz.common.JDBCUtil;
 
 @Repository("boardDAO")
 public class BoardDAO {	// DAO(Data Access Object)
@@ -27,7 +24,8 @@ public class BoardDAO {	// DAO(Data Access Object)
 	private final String BOARD_SELECT
 	= "select * from board where seq = ?";
 	
-	
+	private final String BOARD_LIST
+	= "select * from board order by seq";
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -35,34 +33,40 @@ public class BoardDAO {	// DAO(Data Access Object)
 	// CRUD 기능의 메서드 구현
 	// 글 등록(insert문)
 	public void insertBoard(BoardVO vo) {	// DTO(DO)
-		jdbcTemplate.update(BOARD_INSERT, vo.getTitle(), vo.getWriter(), vo.getContent());
+		Object[] args = {vo.getTitle(), vo.getWriter(), vo.getContent()};
+		
+		jdbcTemplate.update(BOARD_INSERT, args);	// close까지 함께 같이 처리해줌.
 		
 		
 	}
 	
 	// 목록보기(select문)
 	public BoardVO getBoard(int seq) {
+		Object[] args = {seq};
 		
-
-		return null;
+		return jdbcTemplate.queryForObject(BOARD_SELECT, args, new BoardRowMapper()); 	// 하나의 결과(행)만을 반환 받을 때
+				
 	}
 
-	public void getBoardList() {
-
+	public List<BoardVO> getBoardList() {
+		
+		return jdbcTemplate.query(BOARD_LIST, new BoardRowMapper());
 		
 	}
 	
 	
 	// 글 수정(update문)
 	public void updateBoard(BoardVO vo) {	// DTO(DO)
-		jdbcTemplate.update(BOARD_UPDATE, vo.getTitle(), vo.getContent(), vo.getSeq());
+		Object[] args = {vo.getTitle(), vo.getContent(), vo.getSeq()};
 
+		jdbcTemplate.update(BOARD_UPDATE, args);
+		
 		
 	}
 	
 	// 글 삭제(delete문)
 	public void deleteBoard(int seq) {
 
-		jdbcTemplate.update(BOARD_UPDATE, seq);
+		jdbcTemplate.update(BOARD_DELETE, seq);
 	}
 }
