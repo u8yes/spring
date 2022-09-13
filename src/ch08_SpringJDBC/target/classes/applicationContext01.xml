@@ -14,9 +14,19 @@
 	<!-- AOP annotation을 위한 설정 -->
 	<aop:aspectj-autoproxy/>	<!-- Aspect 어노테이션을 적용 -->
 	
+	<!-- 스프링 JDBC 설정 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- setter메서드를 불러주는 프로퍼티, setDriverClassName을 부르기 위해서 name을 정해줌 -->
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username"  value="scott"/>
+		<property name="password"  value="tiger"/>
+	</bean>
 	
-	
-	
+	<!-- springJDBC 기능을 탑재하고 있음 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	
 	
 	
 	
