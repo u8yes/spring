@@ -10,11 +10,13 @@ import com.springproj.biz.board.BoardVO;
 
 @Repository("boardDAO")
 public class BoardDAO {	// DAO(Data Access Object)
-	
-	
+	/*
 	private final String BOARD_INSERT 
 	= "insert into board(seq, title, writer, content) values (" + "(select nvl(max(seq),0)+1 from board), ?, ?, ?)";	// nvl: Null값이면 0으로 실행해라
-	
+	//*/
+	private final String BOARD_INSERT 
+	= "insert into board(?, ?, ?, ?)";
+		
 	private final String BOARD_UPDATE
 	= "update board set title = ?, content = ? where seq = ?";
 	
@@ -33,8 +35,9 @@ public class BoardDAO {	// DAO(Data Access Object)
 	// CRUD 기능의 메서드 구현
 	// 글 등록(insert문)
 	public void insertBoard(BoardVO vo) {	// DTO(DO)
-		Object[] args = {vo.getTitle(), vo.getWriter(), vo.getContent()};
-		
+		//Object[] args = {vo.getTitle(), vo.getWriter(), vo.getContent()};
+		Object[] args = {vo.getSeq(), vo.getTitle(), vo.getWriter(), vo.getContent()};
+
 		jdbcTemplate.update(BOARD_INSERT, args);	// close까지 함께 같이 처리해줌.
 		
 		

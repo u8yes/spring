@@ -19,6 +19,7 @@ public class BoardRequestClient {
 		// TODO Auto-generated method stub
 		BoardVO vo = new BoardVO();
 		
+		vo.setSeq(50);
 		vo.setTitle("첫 게시글");
 		vo.setWriter("민용기");
 		vo.setContent("드디어 나는 개발자");

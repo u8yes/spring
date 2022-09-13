@@ -4,9 +4,11 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- 스프링이 참조하도록 양식으로 만들어놓은 것, 스피링에 최적화됨 -->
 	<context:component-scan base-package="com.springproj.biz"/>
@@ -14,16 +16,7 @@
 	<!-- AOP annotation을 위한 설정 -->
 	<aop:aspectj-autoproxy/>	<!-- Aspect 어노테이션을 적용 -->
 	
-	<!-- 스프링 JDBC 설정 방법 1. -->
-	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		setter메서드를 불러주는 프로퍼티, setDriverClassName을 부르기 위해서 name을 정해줌
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-		<property name="username"  value="scott"/>
-		<property name="password"  value="tiger"/>
-	</bean> -->
-	 
-	<!-- 스프링 JDBC 설정 방법 2. -->
+	<!-- 스프링 JDBC 설정 방법 -->
 	<context:property-placeholder location="classpath:config/database.properties"/>	<!-- classpath가 나오면 resource 폴더를 말한다는 것을 인식해야 함. -->
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -39,7 +32,25 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>	
 	
+	<!-- Transaction 설정, Spring이 정의한 것을 이용하는 것 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>	<!-- get은 제외시킴 -->
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
 	
+	<aop:config>
+		<aop:pointcut id="txPointcut" expression="execution(* com.springproj.biz..*Impl.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>	<!-- aspect와 똑같은 기능을 구현, 왜냐하면 정확히 지정한 메서드가 없음 -->
+	</aop:config>
 	
 </beans>
+
+
+
+
