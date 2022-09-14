@@ -38,7 +38,7 @@ public class BoardRequestClient {
 			System.out.println(board);
 		}
 				
-		service.deleteService(50);	// 계속 삭제가 되게끔 번호 지정
+		//service.deleteService(50);	// 계속 삭제가 되게끔 번호 지정
 		
 		factory.close();   // main에서는 close 안해줘도 알아서 닫아준다.
 	}
