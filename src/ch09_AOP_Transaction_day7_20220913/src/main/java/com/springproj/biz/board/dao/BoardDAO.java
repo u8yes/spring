@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.springproj.biz.board.BoardVO;
+import com.springproj.biz.board.vo.BoardVO;
 
 @Repository("boardDAO")
 public class BoardDAO {	// DAO(Data Access Object)

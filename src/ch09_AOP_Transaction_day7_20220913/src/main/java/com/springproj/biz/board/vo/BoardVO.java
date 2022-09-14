@@ -1,4 +1,4 @@
-package com.springproj.biz.board;
+package com.springproj.biz.board.vo;
 
 import java.sql.Date;
 

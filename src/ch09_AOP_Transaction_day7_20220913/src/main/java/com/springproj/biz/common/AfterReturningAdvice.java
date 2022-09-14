@@ -5,10 +5,10 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Service;
 
-import com.springproj.biz.board.BoardVO;
+import com.springproj.biz.board.vo.BoardVO;
 
 @Service
-//@Aspect
+@Aspect
 public class AfterReturningAdvice {
 	/*
 	@Pointcut("execution(* com.springproj.biz..*Impl.get*(..))")

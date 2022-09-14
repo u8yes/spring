@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
 @Service
-//@Aspect
+@Aspect
 public class BeforeAdvice {
 	@Pointcut("execution(* com.springproj.biz..*Impl.*(..))")
 	public void allPointcut() {}	// 추상메서드는 반환타입 있다. 일반적으로는 인터페이스 안에 정의할 수 있는 추상메서드.

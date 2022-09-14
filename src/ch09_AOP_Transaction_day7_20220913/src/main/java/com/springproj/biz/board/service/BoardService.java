@@ -2,7 +2,7 @@ package com.springproj.biz.board.service;
 
 import java.util.List;
 
-import com.springproj.biz.board.BoardVO;
+import com.springproj.biz.board.vo.BoardVO;
 
 public interface BoardService {
 	// CRUD 기능 수행을 위한 메서드 호출 기능

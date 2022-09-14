@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
 @Service
-//@Aspect
+@Aspect
 public class AfterThrowAdvice {
 	@Pointcut("execution(* com.springproj.biz..*Impl.*(..))")
 	public void allPointcut() {}

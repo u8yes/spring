@@ -9,7 +9,7 @@ import org.springframework.util.StopWatch;
 
 
 @Service
-//@Aspect
+@Aspect
 public class AroundAdvice {	// 일단은 실행문 실행되기 전에 호출된다.
 	@Pointcut("execution(* com.springproj.biz..*Impl.*(..))")
 	public void getPointcut() {}

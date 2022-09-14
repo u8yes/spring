@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import com.springproj.biz.board.BoardVO;
 import com.springproj.biz.board.service.BoardService;
+import com.springproj.biz.board.vo.BoardVO;
 
 public class BoardRequestClient {
 
@@ -19,12 +19,14 @@ public class BoardRequestClient {
 		// TODO Auto-generated method stub
 		BoardVO vo = new BoardVO();
 		
-		vo.setSeq(40);
+		int seq = 100;
+		
+		vo.setSeq(seq);
 		vo.setTitle("첫 게시글");
-		vo.setWriter("민용기");
+		vo.setWriter("민용기" + seq);
 		vo.setContent("드디어 나는 개발자");
 		
-		service.insertService(vo);
+		//service.insertService(vo);
 		
 		//BoardVO board = service.getService(1);
 		//System.out.println(board);
@@ -36,7 +38,7 @@ public class BoardRequestClient {
 			System.out.println(board);
 		}
 				
-		service.deleteService(8);	// 계속 삭제가 되게끔 번호 지정
+		service.deleteService(50);	// 계속 삭제가 되게끔 번호 지정
 		
 		factory.close();   // main에서는 close 안해줘도 알아서 닫아준다.
 	}
