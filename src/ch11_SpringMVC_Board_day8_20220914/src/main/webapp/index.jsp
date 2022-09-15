@@ -7,8 +7,8 @@
 <title>홈페이지</title>
 </head>
 <body>
-
-   <h1 align="center">게시판 프로그램</h1> 
+   <img src="resources/img/me.jpg" />
+   <h1 align="center">게시판 프로그램(민용기)</h1> 
    <hr>
    
    <div align="center">
