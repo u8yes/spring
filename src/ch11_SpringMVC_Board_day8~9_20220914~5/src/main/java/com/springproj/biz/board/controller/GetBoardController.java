@@ -14,8 +14,7 @@ public class GetBoardController implements Controller {
 	
 	@Autowired
 	BoardService boardService;
-	
-	
+		
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//System.out.println("GetBoardController 처리.");	// 혹시나 모를 문제발생을 대비하기 위해 출력 Check!! Debugging 
