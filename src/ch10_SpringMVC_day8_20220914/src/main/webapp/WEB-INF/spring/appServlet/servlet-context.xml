@@ -17,8 +17,8 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />	<!-- property는 set 메서드 넣어줄 value --> 
-		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="prefix" value="/WEB-INF/views/" />	<!-- 접두사, property는 set 메서드 넣어줄 value --> 
+		<beans:property name="suffix" value=".jsp" />				<!-- 접미사 -->
 	</beans:bean>
 	
 	<!-- 빈 객체를 생성하려고 자동으로 만들어진 것 -->
