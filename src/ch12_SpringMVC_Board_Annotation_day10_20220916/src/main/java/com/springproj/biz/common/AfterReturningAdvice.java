@@ -1,11 +1,11 @@
-package com.springproj.biz.domain;
+package com.springproj.biz.common;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Service;
 
-import com.springproj.biz.board.vo.BoardVO;
+import com.springproj.biz.domain.BoardVO;
 
 @Service
 @Aspect

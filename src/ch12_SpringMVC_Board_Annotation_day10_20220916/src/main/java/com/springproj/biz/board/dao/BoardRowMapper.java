@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.springproj.biz.board.vo.BoardVO;
+import com.springproj.biz.domain.BoardVO;
 
 public class BoardRowMapper implements RowMapper<BoardVO>{
 	

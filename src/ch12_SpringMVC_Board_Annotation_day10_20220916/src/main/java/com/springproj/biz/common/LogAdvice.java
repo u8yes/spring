@@ -1,4 +1,4 @@
-package com.springproj.biz.domain;
+package com.springproj.biz.common;
 
 
 public class LogAdvice {

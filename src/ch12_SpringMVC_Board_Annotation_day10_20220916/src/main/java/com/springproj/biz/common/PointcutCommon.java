@@ -1,4 +1,4 @@
-package com.springproj.biz.domain;
+package com.springproj.biz.common;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springproj.biz.board.dao.BoardDAO;
-import com.springproj.biz.board.vo.BoardVO;
+import com.springproj.biz.domain.BoardVO;
 import com.springproj.biz.service.BoardService;
 
 @Service("boardService")	// 다른 클래스에서 @Autowired를 통해 사용할 수 있게 해줌
