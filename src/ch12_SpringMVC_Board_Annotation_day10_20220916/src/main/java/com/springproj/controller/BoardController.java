@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springproj.biz.board.vo.BoardVO;
-import com.springproj.service.BoardService;
+import com.springproj.biz.service.BoardService;
 
 @Controller		//  implements Controller 삭제하면서 Controller 사용가능해짐.
 public class BoardController {	

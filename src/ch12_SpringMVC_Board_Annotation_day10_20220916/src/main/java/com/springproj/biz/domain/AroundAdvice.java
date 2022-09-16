@@ -1,4 +1,4 @@
-package com.springproj.biz.common;
+package com.springproj.biz.domain;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

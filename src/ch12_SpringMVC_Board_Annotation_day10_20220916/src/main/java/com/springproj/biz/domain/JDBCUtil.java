@@ -1,4 +1,4 @@
-package com.springproj.biz.common;
+package com.springproj.biz.domain;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

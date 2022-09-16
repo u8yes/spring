@@ -1,4 +1,4 @@
-package com.springproj.biz.common;
+package com.springproj.biz.domain;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;

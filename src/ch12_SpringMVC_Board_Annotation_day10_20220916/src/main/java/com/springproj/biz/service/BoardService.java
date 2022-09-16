@@ -1,4 +1,4 @@
-package com.springproj.service;
+package com.springproj.biz.service;
 
 import java.util.List;
 
