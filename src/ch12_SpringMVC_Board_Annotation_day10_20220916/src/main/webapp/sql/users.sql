@@ -1,3 +1,5 @@
+drop table users purge;
+
 create table users(
 	id		    varchar2(20)		primary key,
 	password 	varchar2(20),

@@ -20,7 +20,7 @@
 		<!-- 검색 종료 -->
 		
 		<!-- 목록 출력 -->
-		<div class="table-responsive" >
+		<div class="container w-50 table-responsive"  >
 		<table border="1" cellpadding="0" cellspacing="0" width="700" class="table table-striped table-sm text-center">
 			<tr>
 				<th bgcolor="orange" width="100">번호</th>
