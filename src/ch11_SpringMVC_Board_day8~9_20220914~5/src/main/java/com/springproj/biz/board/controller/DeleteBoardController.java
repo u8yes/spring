@@ -16,7 +16,7 @@ public class DeleteBoardController implements Controller {
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("글 삭제 처리");
+		//System.out.println("글 삭제 처리");
 		
 		String seq = request.getParameter("seq"); 		// request 안에 자료를 담고 있음.
 		
@@ -27,7 +27,7 @@ public class DeleteBoardController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:getBoardList.do");
 		
-		return null;
+		return mav;
 	}
 
 }
