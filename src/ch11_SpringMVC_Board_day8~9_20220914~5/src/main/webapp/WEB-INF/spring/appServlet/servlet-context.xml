@@ -38,7 +38,7 @@
 				<beans:prop key="/insertBoard.do">insertBoardController</beans:prop>
 				<beans:prop key="/insertBoardProc.do">insertBoardProcController</beans:prop>
 				<beans:prop key="/updateBoard.do">updateBoardProcController</beans:prop>
-				<beans:prop key="/deleteBoard.do">deleteBoardProcController</beans:prop>
+				<beans:prop key="/deleteBoard.do">deleteBoardController</beans:prop>
 				
 			</beans:props>
 		</beans:property>
@@ -49,7 +49,7 @@
 	<beans:bean id="insertBoardController" class="com.springproj.biz.board.controller.InsertBoardController" />
 	<beans:bean id="insertBoardProcController" class="com.springproj.biz.board.controller.InsertBoardProcController" />
 	<beans:bean id="updateBoardProcController" class="com.springproj.biz.board.controller.UpdateBoardProcController" />
-	<beans:bean id="deleteBoardProcController" class="com.springproj.biz.board.controller.DeleteBoardProcController" />
+	<beans:bean id="deleteBoardController" class="com.springproj.biz.board.controller.DeleteBoardProcController" />
 	<!-- default 자체가 beans로 돼있으니까 그 컨셉에 맞게 작성해주는 것뿐 -->
 	
 </beans:beans>

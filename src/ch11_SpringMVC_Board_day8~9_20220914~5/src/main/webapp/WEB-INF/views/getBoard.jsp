@@ -5,8 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 상세</title>
+
+<style type="text/css">
+
+</style>
+
+
+
 </head>
 <body>
+
+
 	<center>
 		<h1>글 상세</h1>
 		<a href="logout.do">Log-out</a>
@@ -46,9 +55,11 @@
 			</table>
 		</form>
 		<hr>
-		<a href="insertBoard.do">글등록</a>&nbsp;&nbsp;&nbsp; 
-		<a href="deleteBoard.do?seq=${ board.seq }">글삭제</a>&nbsp;&nbsp;&nbsp;
-		<a href="getBoardList.do">글목록</a>
+		<a href="insertBoard.do" >글등록</a>&nbsp;&nbsp;&nbsp; 
+		<a href="deleteBoard.do?seq=${ board.seq }" >글삭제</a>&nbsp;&nbsp;&nbsp;
+		<a href="getBoardList.do" >글목록</a>
 	</center>
+	
+	
 </body>
 </html>
