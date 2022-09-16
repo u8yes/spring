@@ -1,8 +1,5 @@
 package com.springproj.biz.service;
 
-import java.util.List;
-
-import com.springproj.biz.domain.BoardVO;
 import com.springproj.biz.domain.UserVO;
 
 public interface UserService {
@@ -10,7 +7,7 @@ public interface UserService {
 		
 		
 		// 글 목록 조회
-		UserVO getService(String id);
+		UserVO getService(String id, String password);
 		
 			
 }

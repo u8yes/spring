@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.springproj.biz.domain.BoardVO;
 import com.springproj.biz.domain.UserVO;
 
 @Repository("userDAO")
@@ -22,4 +23,6 @@ public class UserDAO {
 		return jdbcTemplate.queryForObject(USER_GET, args, new UserRowMapper());
 				
 	}
+
+	
 }
