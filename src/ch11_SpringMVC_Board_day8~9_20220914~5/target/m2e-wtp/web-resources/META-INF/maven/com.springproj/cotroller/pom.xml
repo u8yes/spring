@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.springproj</groupId>
 	<artifactId>cotroller</artifactId>
-	<name>ch09_AOP_Transaction</name>	<!-- Transaction: database 핵심 기능 중 하나 -->
+	<name>ch11_SpringMVC_Board_day8~9_20220914~5</name>	<!-- Transaction: database 핵심 기능 중 하나 -->
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
