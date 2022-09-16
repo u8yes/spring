@@ -12,11 +12,10 @@ public class UserServiceImpl {
 	@Autowired
 	private UserDAO dao;
 	
-	public UserVO getService(String id) {
+	public UserVO getService() {
 		
-		UserVO user = dao.getUser(id);
 		
-		return user;
+		return null;
 	}
 	
 	
