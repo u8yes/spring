@@ -17,10 +17,10 @@
 
 
 	<center>
-		<h1>글 상세</h1>
+		<h1>글 등록</h1>
 		<a href="logout.do">Log-out</a>
 		<hr>
-		<form action="updateBoard.do" method="post">
+		<form action="updateBoard.do" method="post" enctype="multipart/form-data">
 			<input name="seq" type="hidden" value="${board.seq}" />		<!-- update를 서버로 전송하고 싶을 때 현재 sequence를 hidden 숨겨놓는 것 -->
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
@@ -38,6 +38,10 @@
 					<td align="left">
 						<textarea name="content" cols="40" rows="10">${board.content}</textarea>
 					</td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">파일첨부</td>
+					<td><input type="file" name="uploadFile"></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">등록일</td>

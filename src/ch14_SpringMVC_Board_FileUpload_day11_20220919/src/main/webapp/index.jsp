@@ -57,9 +57,9 @@
    </div>
 
 <!-- footer -->
-   <div class="b-example-divider"></div>
+<footer class="py-3 my-4">
 
-  <div class="bg-dark text-secondary px-4 py-5 text-center">
+  <div class="bg-dark text-secondary px-4 py-5 text-center        nav justify-content-center border-bottom pb-3 mb-3">
     <div class="py-5">
       <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
       <div class="col-lg-6 mx-auto">
@@ -72,8 +72,7 @@
     </div>
   </div>
 
-  <div class="b-example-divider mb-0"></div>
-   
+</footer>
   
 
 

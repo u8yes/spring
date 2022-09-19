@@ -1,8 +1,12 @@
 package com.springproj.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springproj.biz.domain.BoardVO;
 import com.springproj.biz.service.BoardService;
@@ -34,8 +39,19 @@ public class BoardController {
 	
 	//@RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)	// /insertBoard.do를 부르면 바로 Controller 작업 들어가라
 	@PostMapping("/insertBoard.do")
-	public String insertBoard(BoardVO board){
-		System.out.println("글 등록 처리");
+	public String insertBoard(BoardVO board, HttpSession session) throws IOException{
+		//System.out.println("글 등록 처리");
+		
+		//파일 업로드 처리
+		String fileSaveFolder = session.getServletContext().getRealPath("/boardUpload/");
+		System.out.println("=> " + fileSaveFolder);
+		
+		MultipartFile uploadFile = board.getUploadFile();
+		
+		if(!uploadFile.isEmpty()) {
+			String fileName = uploadFile.getOriginalFilename();
+			uploadFile.transferTo(new File(fileSaveFolder + fileName));
+		}
 				
 		boardService.insertService(board);
 				

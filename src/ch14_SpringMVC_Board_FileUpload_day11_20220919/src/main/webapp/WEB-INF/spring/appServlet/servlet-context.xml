@@ -30,5 +30,9 @@
 	<!-- 빈 객체를 생성하려고 자동으로 만들어진 것 -->
 	<context:component-scan base-package="com.springproj.controller" /> 
 	
+	<!-- File 업로드 설정, 식별자 multipartResolver이름은 절대적이다. -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<beans:property name="maxUploadSize" value="100000" />	<!-- value="-1"은 제한없이 올리겠다. -->
+	</beans:bean>
 		
 </beans:beans>

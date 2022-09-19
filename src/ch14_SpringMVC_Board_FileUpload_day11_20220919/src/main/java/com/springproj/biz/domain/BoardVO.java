@@ -2,6 +2,8 @@ package com.springproj.biz.domain;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {	// javaBean
 	private int seq; 
 	private String title;
@@ -9,10 +11,11 @@ public class BoardVO {	// javaBean
 	private String content;
 	private Date regdate;
 	private int cnt;
-	
 	// 검색 기능 추가
 	private String searchCondition;
 	private String searchKeyword;
+	// 파일 업로드 추가
+	private MultipartFile uploadFile;
 	
 	public int getSeq() {
 		return seq;
@@ -50,7 +53,7 @@ public class BoardVO {	// javaBean
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	
+	// 검색 기능 
 	public String getSearchCondition() {
 		return searchCondition;
 	}
@@ -62,6 +65,13 @@ public class BoardVO {	// javaBean
 	}
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+	// 파일 업로드 
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 	
 	@Override
