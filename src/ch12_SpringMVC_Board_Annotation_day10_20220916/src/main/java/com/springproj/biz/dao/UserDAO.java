@@ -1,7 +1,11 @@
 package com.springproj.biz.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.springproj.biz.domain.BoardVO;
@@ -23,6 +27,23 @@ public class UserDAO {
 		return jdbcTemplate.queryForObject(USER_GET, args, new UserRowMapper());
 				
 	}
+	
+	class UserRowMapper implements RowMapper<UserVO>{		// UserRowMapper를 내부 클래스로 옮겨서 가독성을 높여줌.
+		
+		@Override
+		public UserVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			
+			UserVO user = new UserVO();
+			
+			user.setId(rs.getString("id"));
+			user.setPassword(rs.getString("password"));
+			user.setName(rs.getString("name"));
+			user.setRole(rs.getString("role"));
+			
+			return user;
+		}
+	}
+
 
 	
 }
