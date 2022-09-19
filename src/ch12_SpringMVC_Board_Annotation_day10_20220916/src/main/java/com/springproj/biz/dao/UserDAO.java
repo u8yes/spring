@@ -24,7 +24,7 @@ public class UserDAO {
 		//System.out.println("getUser() 호출...");
 		Object[] args = {user.getId(), user.getPassword()};
 		
-		return jdbcTemplate.queryForObject(USER_GET, args, new UserRowMapper());
+		return jdbcTemplate.queryForObject(USER_GET, args, new UserRowMapper());	// 프리젠테이션 레이어
 				
 	}
 	

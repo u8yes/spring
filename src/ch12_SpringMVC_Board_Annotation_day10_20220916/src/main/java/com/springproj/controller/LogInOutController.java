@@ -25,14 +25,17 @@ public class LogInOutController {
 	@PostMapping("/login.me")
 	public String loginProc(UserVO user, Model model) {
 		//System.out.println("loginProc() 호출.");
+		String retVal = null;
+		
 		
 		// 1. user의 id 존재 여부를 db에서 가져오기.
+		UserVO vo = userService.getService(user);
 		
-		UserVO vo = userService.getService(user.getId(),user.getPassword());	
-		
-		model.addAttribute("user", vo);
-		
-		return "getUser";
-				
+		if((vo != null) && vo.getPassword().equals(user.getPassword())) {
+			retVal = "redirect:getBoardList.do";
+		}else {
+			retVal = "redirect:login.me";
+		}		
+		return retVal;			
 	}
 }
