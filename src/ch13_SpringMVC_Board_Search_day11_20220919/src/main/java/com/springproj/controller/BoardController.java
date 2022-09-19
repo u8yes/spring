@@ -69,13 +69,20 @@ public class BoardController {
 	// 글 목록 검색 처리
 	@RequestMapping("/getBoardList.do")	// /insertBoard.do를 부르면 바로 Controller 작업 들어가라
 	// value는 전달되어지는 값
-	public String getBoardList(@RequestParam(value = "searchCondition", defaultValue = "TITLE", required = false) String condition, 
-								@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword, 
-								Model model) {	
+	public String getBoardList(BoardVO vo) {	
 		//System.out.println("글 목록 검색 처리");
 		
-		System.out.println("검색 조건 : " + condition);
-		System.out.println("검색 조건 : " + keyword);
+		System.out.println("검색 조건 : " + vo.getSearchCondition());
+		System.out.println("검색 조건 : " + vo.getSearchKeyword());
+		
+		if(vo.getSearchCondition() == null) {
+			vo.setSearchCondition("TITLE");
+		}
+		
+		if(vo.getSearchKeyword() == null) {
+			vo.setSearchKeyword("");
+		}
+		
 		List<BoardVO> list = boardService.getServiceList();
 
 		model.addAttribute("boardList", list);

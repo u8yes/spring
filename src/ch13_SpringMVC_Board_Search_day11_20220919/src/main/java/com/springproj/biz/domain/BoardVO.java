@@ -10,6 +10,10 @@ public class BoardVO {	// javaBean
 	private Date regdate;
 	private int cnt;
 	
+	// 검색 기능 추가
+	private String searchCondition;
+	private String searchKeyword;
+	
 	public int getSeq() {
 		return seq;
 	}
@@ -45,6 +49,19 @@ public class BoardVO {	// javaBean
 	}
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
 	}
 	
 	@Override
