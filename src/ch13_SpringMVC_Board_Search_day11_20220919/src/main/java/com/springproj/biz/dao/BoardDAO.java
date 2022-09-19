@@ -33,7 +33,7 @@ public class BoardDAO {	// DAO(Data Access Object)
 	// 검색 기능 추가
 	private final String BOARD_LIST_T
 	= "select * from BOARD where title like '%'||?||'%' order by seq desc";	
-	// || 연산자는 합치는 연산자같은 역할을 한다. // % 무슨 문자이던 상관없다. 없어도 됨.
+	// || 연산자는 합치는(+) 연산자같은 역할을 한다. // % 무슨 문자이던 상관없다. 없어도 됨.
 	
 	private final String BOARD_LIST_C
 	= "select * from BOARD where content like '%'||?||'%' order by seq desc";	// 

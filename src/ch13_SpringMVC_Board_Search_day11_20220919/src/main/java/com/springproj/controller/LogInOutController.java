@@ -38,7 +38,7 @@ public class LogInOutController {
 		UserVO vo = userService.getService(user);
 		
 		if((vo != null) && 
-				vo.getPassword().equals(user.getPassword())) {
+			vo.getPassword().equals(user.getPassword())) {
 			session.setAttribute("userName", vo.getName());
 			
 			retVal = "redirect:getBoardList.do";
