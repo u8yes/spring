@@ -6,7 +6,6 @@ public class UserVO {
 	private String password;
 	private String name;
 	private String role;
-	
 	public String getId() {
 		return id;
 	}

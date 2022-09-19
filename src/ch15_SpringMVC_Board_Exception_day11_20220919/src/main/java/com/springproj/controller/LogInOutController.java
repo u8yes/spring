@@ -31,13 +31,18 @@ public class LogInOutController {
 	@PostMapping("/login.me")
 	public String loginProc(UserVO user, HttpSession session) {
 		//System.out.println("loginProc() 호출.");
+		if(user.getId() == null || user.getId().equals("")) {
+			throw new IllegalArgumentException("아이디는 반드시 입력해야 합니다.");	// 문법적인 오류가 있었을 때 발생시킴.
+		}
+		
 		String retVal = null;
-				
+		
+		
 		// 1. user의 id 존재 여부를 db에서 가져오기.
 		UserVO vo = userService.getService(user);
 		
 		if((vo != null) && 
-			vo.getPassword().equals(user.getPassword())) {
+				vo.getPassword().equals(user.getPassword())) {
 			session.setAttribute("userName", vo.getName());
 			
 			retVal = "redirect:getBoardList.do";
