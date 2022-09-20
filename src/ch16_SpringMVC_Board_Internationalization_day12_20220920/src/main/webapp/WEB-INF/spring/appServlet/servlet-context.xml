@@ -49,7 +49,7 @@
 	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">	
 		<beans:property name="basenames">
 			<beans:list>
-				<beans:value>message.messageSource</beans:value> <!-- 스케일 정보와 확장자는 빼줌. 브라우저에 셋팅이 돼있기 때문에 -->
+				<beans:value>message.messageSource</beans:value> <!-- 스케일 정보와 확장자는 빼줌(_ko, _en 등등). 브라우저에 셋팅이 돼있기 때문에 -->
 			</beans:list>
 		</beans:property>
 	</beans:bean>
