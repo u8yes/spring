@@ -53,5 +53,15 @@
 			</beans:list>
 		</beans:property>
 	</beans:bean>
+	
+	<!-- LocaleResolver 등록 -->
+	<beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></beans:bean>
+		
+	<!-- LocaleChangeInterceptor 등록 -->
+	<interceptors>
+		<beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<beans:property name="paramName" value="lang" />
+		</beans:bean>
+	</interceptors>
 		
 </beans:beans>
