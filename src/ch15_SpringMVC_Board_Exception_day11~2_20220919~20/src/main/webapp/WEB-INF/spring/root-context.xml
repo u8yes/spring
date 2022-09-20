@@ -55,7 +55,9 @@
 		<aop:pointcut id="txPointcut" expression="execution(* com.springproj.biz..*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>	 aspect와 똑같은 기능을 구현, 왜냐하면 정확히 지정한 메서드가 없음 
 	</aop:config> 
-	
 	-->
+	
+	
+	
 	
 </beans>
