@@ -140,7 +140,7 @@
 <footer class="fixed-bottom bg-secondary">
 
   <div class="bg-dark text-secondary px-4 py-1 text-center   nav justify-content-center  ">
-    <div class="py-5">
+    <div class="py-2">
       <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
       <div class="col-lg-6 mx-auto">
        

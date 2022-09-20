@@ -23,7 +23,7 @@
 			<a href="logout.do">Log-out</a>
 		</h3>
 		<!-- 검색 시작 -->
-		<form action="getBoardList.do" method="post">
+		<form action="getBoardList.do" method="post" >
 			
 			<!-- 언어 선택 -->
    			<div>
@@ -44,7 +44,8 @@
 							<option value="${option.value }">${option.key }
 						</c:forEach>							
 					</select> 
-					<input list="datalistOptions" id="exampleDataList" placeholder="Type to search..." name="searchKeyword" type="text" />
+					
+					<input list="datalistOptions" id="exampleDataList" placeholder="검색하세요" name="searchKeyword" type="text" />
 					<input type="submit" value="<spring:message code="message.board.list.search.condition.btn"/>"/>
 					</td>
 				</tr>
