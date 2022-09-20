@@ -44,5 +44,14 @@
 		</beans:property>
 		<beans:property name="defaultErrorView" value="common/error"/>
 	</beans:bean>
+	
+	<!-- 다多국어 설정, id는 고정된 id를 작성해야 한다. ResourceBundleMessageSource를 바라보게 하려면 id는 반드시 messageSource -->
+	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">	
+		<beans:property name="basenames">
+			<beans:list>
+				<beans:value>message.messageSource</beans:value> <!-- 스케일 정보와 확장자는 빼줌. 브라우저에 셋팅이 돼있기 때문에 -->
+			</beans:list>
+		</beans:property>
+	</beans:bean>
 		
 </beans:beans>
