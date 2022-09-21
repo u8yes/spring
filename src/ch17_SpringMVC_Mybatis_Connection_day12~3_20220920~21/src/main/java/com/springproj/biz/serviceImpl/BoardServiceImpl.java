@@ -15,20 +15,10 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	//private BoardDAO dao;
 	private BoardDAOMybatis dao;
-	
-	
-	//@Autowired
-	//private LogAdvice log;
-	//private Log4jAdvice log;
+		
 	
 	@Override
 	public void insertService(BoardVO vo) {
-		
-		/*
-		  if(vo.getSeq() == 0) { throw new IllegalArgumentException("0번 글은 등록할 수 없다");
-		  }
-		//*/
-		
 		dao.insertBoard(vo);
 		
 	}
@@ -42,7 +32,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> getServiceList(BoardVO vo) {
-		
 		return dao.getBoardList(vo);
 	}
 

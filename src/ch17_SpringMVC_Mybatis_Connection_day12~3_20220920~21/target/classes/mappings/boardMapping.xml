@@ -40,7 +40,6 @@
 	  		and content like '%'||#{searchKeyword}||'%' 
 	  	</if>
 	  	order by seq desc
-
 	  </select>
 	  
 	  

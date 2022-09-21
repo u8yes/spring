@@ -120,7 +120,7 @@ public class BoardController {
 	
 	@RequestMapping("/deleteBoard.do")	// /insertBoard.do를 부르면 바로 Controller 작업 들어가라
 	public String deleteBoard(BoardVO board) {
-		//System.out.println("글 삭제 처리");
+		//System.out.println("board.getSeq("+board.getSeq()+")");
 				
 		boardService.deleteService(board.getSeq());
 					

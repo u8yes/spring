@@ -43,16 +43,16 @@ public class BoardDAOMybatis {
 	
 	// 글 수정(update문)
 	public void updateBoard(BoardVO vo) {	// DTO(DO)
-		mybatis.update("Board.updateBoard");
+		mybatis.update("Board.updateBoard", vo);
 		
 		
 	}
 	
 	// 글 삭제(delete문)
 	public void deleteBoard(int seq) {
-		//System.out.println("BoardDAOMybatis.deleteBoard 실행");
+		//System.out.println("BoardDAOMybatis.deleteBoard 실행" + seq);
 		
-		mybatis.delete("Board.deleteBoard");
+		mybatis.delete("Board.deleteBoard", seq);
 		
 	}
 }
