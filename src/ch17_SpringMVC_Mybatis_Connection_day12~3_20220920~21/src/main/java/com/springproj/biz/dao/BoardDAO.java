@@ -41,13 +41,14 @@ public class BoardDAO extends SqlSessionDaoSupport{	// DAO(Data Access Object) �
 	
 	// 글 수정(update문)
 	public void updateBoard(BoardVO vo) {	// DTO(DO)
-				
+		getSqlSession().update("Board.updateBoard");
+		
 		
 	}
 	
 	// 글 삭제(delete문)
 	public void deleteBoard(int seq) {
-
+		getSqlSession().delete("Board.deleteBoard");
 		
 	}
 	
