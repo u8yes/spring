@@ -57,11 +57,16 @@
 	</aop:config> 
 	-->
 	
-	<!-- Spring과 Mybatis 연동 설정 -->
+	<!-- Spring과 Mybatis 연동 설정 방법 (1) -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property> <!-- name="dataSource" Set호출하면서 ref="dataSource"자료를 전달한다 -->
 		<property name="configLocation" value="classpath:sqlMapConfig.xml" />	
 		<!-- Mybatis설정에 대한 위치정보를 value="classpath:sqlMapConfig.xml"라고 알려주는 것 -->
+	</bean>
+	
+	<!-- Spring과 Mybatis 연동 설정 방법 (2) -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"/>	<!-- constructor-arg = 생성자 호출// 객체 생성은 ref="" -->
 	</bean>
 	
 	

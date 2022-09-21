@@ -57,16 +57,16 @@
    </div>
 
 <!-- footer -->
-<footer class="py-3 my-4 fixed-bottom bg-secondary">
+<footer class="fixed-bottom">
 
-  <div class="bg-dark text-secondary px-4 py-5 text-center        nav justify-content-center border-bottom pb-3 mb-3">
-    <div class="py-5">
+  <div class="bg-dark text-secondary px-4 text-center        nav justify-content-center border-bottom ">
+    <div class="py-3">
       <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
-          <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+        <p class="fs-5 mb-4"></p>
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center ">
+          <button type="button" class="btn btn-outline-info btn-lg px-6 me-sm-3 fw-bold">Custom button</button>
+          <button type="button" class="btn btn-outline-light btn-lg px-6">Secondary</button>
         </div>
       </div>
     </div>

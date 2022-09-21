@@ -27,15 +27,22 @@ public class BoardDAO extends SqlSessionDaoSupport{	// DAO(Data Access Object) �
 	
 	// 목록보기(select문)
 	public BoardVO getBoard(int seq) {
-		
-		
-		return null;
+		return getSqlSession().selectOne("Board.getBoard", seq);
 	}
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
+		System.out.println("DAO getBoardList");
 		
+		/*
+		 * if(vo.getSearchCondition().equals("TITLE")) { return
+		 * getSqlSession().selectList("Board.getBoardList_T", vo); // TITLE이 맞으면 실행. 요구한
+		 * 것을 vo에 담아서 SQL로 넘겨줌. selectList로 전부 리턴해줌. }else
+		 * if(vo.getSearchCondition().equals("CONTENT")) { return
+		 * getSqlSession().selectList("Board.getBoardList_C", vo); }else { return
+		 * getSqlSession().selectList("Board.getBoardList_T", vo); }
+		 */
 		
-		return null;
+		return getSqlSession().selectList("Board.getBoardList", vo);
 	}
 	
 	
