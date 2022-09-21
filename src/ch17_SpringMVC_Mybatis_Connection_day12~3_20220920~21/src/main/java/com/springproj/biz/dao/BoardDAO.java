@@ -31,7 +31,7 @@ public class BoardDAO extends SqlSessionDaoSupport{	// DAO(Data Access Object) �
 	}
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		System.out.println("DAO getBoardList");
+		//System.out.println("DAO getBoardList");
 		
 		/*
 		 * if(vo.getSearchCondition().equals("TITLE")) { return
@@ -48,14 +48,14 @@ public class BoardDAO extends SqlSessionDaoSupport{	// DAO(Data Access Object) �
 	
 	// 글 수정(update문)
 	public void updateBoard(BoardVO vo) {	// DTO(DO)
-		getSqlSession().update("Board.updateBoard");
+		getSqlSession().update("Board.updateBoard", vo);
 		
 		
 	}
 	
 	// 글 삭제(delete문)
 	public void deleteBoard(int seq) {
-		getSqlSession().delete("Board.deleteBoard");
+		getSqlSession().delete("Board.deleteBoard", seq);
 		
 	}
 	
