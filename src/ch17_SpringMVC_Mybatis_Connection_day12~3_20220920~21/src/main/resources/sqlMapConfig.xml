@@ -3,4 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
-  <configuration></configuration>
+  <configuration>
+  
+  	<!-- Alias(별명, 가명) 설정 -->
+  	<typeAliases>
+  		<typeAlias alias="board" type="com.springproj.biz.domain.BoardVO"/>  	<!-- 만들 때 나타나는 속성(type)은 무조건 써줘야 하는 속성 -->
+  	</typeAliases>
+  	
+  	<!-- SQL Mapper 설정 -->
+  	<mappers>
+  		<mapper resource="mappings/boardMapping.xml"/>
+  	</mappers>
+  
+  </configuration>
