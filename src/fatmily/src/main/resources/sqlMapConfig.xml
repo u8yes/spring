@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+  <configuration>
+  
+  	<!-- Alias(별명, 가명) 설정 -->
+  	<typeAliases>
+  		<typeAlias alias="brand" type="com.springproj.biz.domain.BrandVO"/>  	<!-- 만들 때 나타나는 속성(type)은 무조건 써줘야 하는 속성 -->
+  	</typeAliases>
+  	
+  	<!-- SQL Mapper 설정 -->
+  	<mappers>
+  		<mapper resource="mappings/brandMapping.xml"/>
+  	</mappers>
+  
+  </configuration>
