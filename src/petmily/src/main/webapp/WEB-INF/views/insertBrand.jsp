@@ -14,20 +14,16 @@
 		<form action="insertBrand.do" method="post" enctype="multipart/form-data">	<!-- method는 디폴트가 get방식이다. -->
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input type="text" name="title" /></td>
+					<td bgcolor="orange" width="150">회사</td>
+					<td align="left"><input type="text" name="b_corp" size="38" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">작성자</td>
-					<td align="left"><input type="text" name="writer" size="10" /></td>
+					<td bgcolor="orange">주소</td>
+					<td align="left"><input type="text" name="b_corp_addr" size="38" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="content" cols="40" rows="10"></textarea></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">가격</td>
-					<td align="left"><input type="text" name="price" size="10" /></td>
+					<td align="left"><textarea name="b_desc" cols="40" rows="10"></textarea></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">파일첨부</td>

@@ -13,7 +13,7 @@
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">	
 	
-	<img alt="" src="/brandUpload/topM.jpg" height="450">
+	<!-- <img alt="" src="/brandUpload/topM.jpg" width="100%" > -->
 	
 	
 	<center>
@@ -53,8 +53,8 @@
 			</tr>
 			<c:forEach items="${brandList}" var="brand">	<!-- 1. JSTL 기능 중 items는 데이터, 2. var는 새 변수 선언 -->
 			<tr>
-				<td align="center"><img src="${brand.b_image }" width="180px" ></td>
-				<td><a href="getBrand.do?seq=${brand.b_no}">${brand.b_corp}</a></td>	<!-- ?seq= 라는 건 바로 쿼리문으로 연결되는 것 -->
+				<td align="center"><img src="./brandUpload/${brand.b_image}" width="180px" ></td>
+				<td><a href="getBrand.do?b_no=${brand.b_no}">${brand.b_corp}</a></td>	<!-- ?seq= 라는 건 바로 쿼리문으로 연결되는 것 -->
 				<td align="center">${brand.b_desc}</td>
 				<td align="center">${brand.b_regdate}</td>
 				
@@ -78,7 +78,7 @@
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <image href="${brand.b_image}"></image>
+            <image href="./brandUpload/${brand.b_image}" width="100%"></image>
             <title>Placeholder</title></svg>
 
             <div class="card-body">
@@ -86,8 +86,7 @@
               <p class="card-text">${brand.b_desc}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="getBrand.do?b_no=${brand.b_no}">View</a></button>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>

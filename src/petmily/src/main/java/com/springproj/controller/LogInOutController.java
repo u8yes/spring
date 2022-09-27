@@ -22,8 +22,8 @@ public class LogInOutController {
 	public String loginForm(@ModelAttribute("usr") UserVO vo) {	// 식별자를 usr로 지정해줘서 UserVO vo에 나오는 걸 대신해줌.
 		//System.out.println("loginForm() 호출.");
 		
-		vo.setId("test");
-		vo.setPassword("test1234");
+		vo.setId(vo.getId());
+		vo.setPassword(vo.getPassword());
 		
 		return "login";
 	}

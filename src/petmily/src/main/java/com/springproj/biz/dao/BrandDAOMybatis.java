@@ -22,8 +22,8 @@ public class BrandDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public BrandVO getBrand(int seq) {
-		return mybatis.selectOne("Brand.getBrand", seq);
+	public BrandVO getBrand(int b_no) {
+		return mybatis.selectOne("Brand.getBrand", b_no);
 	}
 
 	public List<BrandVO> getBrandList(BrandVO vo) {
@@ -45,12 +45,11 @@ public class BrandDAOMybatis {
 	public void updateBrand(BrandVO vo) {	// DTO(DO)
 		mybatis.update("Brand.updateBrand", vo);
 		
-		
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteBrand(int seq) {
-		mybatis.delete("Brand.deleteBrand", seq);
+	public void deleteBrand(int b_no) {
+		mybatis.delete("Brand.deleteBrand", b_no);
 		
 	}
 }

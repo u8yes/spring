@@ -7,8 +7,8 @@
   <mapper namespace="Brand">
 	  <insert id="insertBrand" parameterType="brand"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
 	  <![CDATA[
-	  		insert into brand(seq, title, writer, content, price, brand_uploadFile) 
-	  		values ((select nvl(max(seq),0)+1 from brand), #{title}, #{writer}, #{content}, #{price}, #{brand_uploadFile})
+	  		insert into brand(b_no, b_image, b_corp, b_desc, b_corp_addr) 
+	  		values ((select nvl(max(b_no),0)+1 from brand), #{b_image}, #{b_corp}, #{b_desc}, #{b_corp_addr})
 	  ]]>
 	  </insert>	
 	  <!-- '<', '>'는 비교 연산자로 인식하지 않고 여기에서는 꺽쇠로 본다. 설정을 <![CDATA[]]>로 --> <!-- // SQL문 - nvl: Null값이면 0으로 실행해라 -->
@@ -33,34 +33,34 @@
 		select * 
 	  	from brand 
 	  	where 1 = 1
-	  	<if test="searchCondition == 'TITLE'">
-	  		and title like '%'||#{searchKeyword}||'%' 
+	  	<if test="searchCondition == 'B_CORP'">
+	  		and b_corp like '%'||#{searchKeyword}||'%' 
 	  	</if>
-	  	<if test="searchCondition == 'CONTENT'">
-	  		and content like '%'||#{searchKeyword}||'%' 
+	  	<if test="searchCondition == 'B_DESC'">
+	  		and b_desc like '%'||#{searchKeyword}||'%' 
 	  	</if>
-	  	order by seq desc
+	  	order by b_no desc
 	  </select>
 	  
 	  
 	  <!-- List 보여주기 -->
 	  <select id="getBrand" resultType="brand">
 	  <![CDATA[
-	  	select * from brand where seq = #{seq}
+	  	select * from brand where b_no = #{b_no}
 	  ]]>
 	  </select>
 	  
 	  
 	  <update id="updateBrand">
 	  <![CDATA[
-	  	update brand set title = #{title}, content = #{content}, price = #{price} where seq = #{seq}
+	  	update brand set b_image = #{b_image}, b_corp = #{b_corp}, b_desc = #{b_desc}, b_corp_addr = #{b_corp_addr} where b_no = #{b_no}
 	  ]]>
 	  </update>
 	  
 	  
 	  <delete id="deleteBrand">
 	  <![CDATA[
-	  	delete from brand where seq = #{seq}
+	  	delete from brand where b_no = #{b_no}
 	  ]]>
 	  </delete>
 	  

@@ -51,7 +51,9 @@ public class BrandController {
 			String fileName = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File(fileSaveFolder + fileName));
 		    
-			brand.setB_image("/brandUpload/"+fileName);
+			brand.setB_image(fileName);
+			
+			System.out.println("fileName =>"+fileName);
 		}
 		
 		
@@ -76,8 +78,8 @@ public class BrandController {
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
 		
-		conditionMap.put("제목", "TITLE");
-		conditionMap.put("내용", "CONTENT");
+		conditionMap.put("회사", "B_CORP");
+		conditionMap.put("설명", "B_DESC");
 		
 		return conditionMap;
 	}
@@ -92,7 +94,7 @@ public class BrandController {
 		System.out.println("검색 조건 : " + vo.getSearchKeyword());
 		
 		if(vo.getSearchCondition() == null) {
-			vo.setSearchCondition("TITLE");
+			vo.setSearchCondition("B_CORP");
 		}
 		
 		if(vo.getSearchKeyword() == null) {
@@ -107,14 +109,38 @@ public class BrandController {
 	}
 	
 		
-	@RequestMapping("/updateBrand.do")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
-	public String updateBrandProc(@ModelAttribute("brand") BrandVO vo) {
-		//System.out.println("글 수정 처리");
-								
-		brandService.updateService(vo);
+	/*
+	 * @RequestMapping("/updateBrand.do") // /insertBrand.do를 부르면 바로 Controller 작업
+	 * 들어가라 public String updateBrandProc(@ModelAttribute("brand") BrandVO vo) {
+	 * //System.out.println("글 수정 처리");
+	 * 
+	 * brandService.updateService(vo);
+	 * 
+	 * System.out.println("브랜드컨트롤 => "+vo);
+	 * 
+	 * return "redirect:getBrandList.do"; }
+	 */
+	
+	@PostMapping("/updateBrand.do")
+	public String updateBrand(BrandVO brand, HttpSession session) throws IOException{
+		//System.out.println("글 등록 처리");
 		
-		System.out.println(vo);
-				
+		//파일 업로드 처리
+		String fileSaveFolder = session.getServletContext().getRealPath("/brandUpload/");
+		
+		MultipartFile uploadFile = brand.getUploadFile();
+		
+		if(!uploadFile.isEmpty()) {
+			String fileName = uploadFile.getOriginalFilename();
+			uploadFile.transferTo(new File(fileSaveFolder + fileName));
+		    
+			brand.setB_image(fileName);
+			
+			System.out.println("updateBrand Controller fileName =>"+fileName);
+		}
+		
+		
+		brandService.updateService(brand);
 		return "redirect:getBrandList.do";
 	}
 	

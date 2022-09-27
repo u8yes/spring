@@ -111,8 +111,6 @@ public class BoardController {
 		//System.out.println("글 수정 처리");
 								
 		boardService.updateService(vo);
-		
-		System.out.println(vo);
 				
 		return "redirect:getBoardList.do";
 	}

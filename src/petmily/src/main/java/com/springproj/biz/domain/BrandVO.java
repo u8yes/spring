@@ -12,7 +12,7 @@ public class BrandVO {	// javaBean
 	private String b_font_name;
 	private String b_color_name;
 	private String b_image;
-	private Date regdate;
+	private Date b_regdate;
 	// 검색 기능 추가
 	private String searchCondition;
 	private String searchKeyword;
@@ -61,11 +61,11 @@ public class BrandVO {	// javaBean
 	public void setB_image(String b_image) {
 		this.b_image = b_image;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getB_regdate() {
+		return b_regdate;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setB_regdate(Date b_regdate) {
+		this.b_regdate = b_regdate;
 	}
 	public String getSearchCondition() {
 		return searchCondition;
@@ -90,8 +90,8 @@ public class BrandVO {	// javaBean
 	public String toString() {
 		return "BrandVO [b_no=" + b_no + ", b_corp=" + b_corp + ", b_corp_addr=" + b_corp_addr + ", b_desc=" + b_desc
 				+ ", b_font_name=" + b_font_name + ", b_color_name=" + b_color_name + ", b_image=" + b_image
-				+ ", regdate=" + regdate + ", searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword
-				+ ", uploadFile=" + uploadFile + "]";
+				+ ", b_regdate=" + b_regdate + ", searchCondition=" + searchCondition + ", searchKeyword="
+				+ searchKeyword + ", uploadFile=" + uploadFile + "]";
 	}
 	
 	

@@ -24,8 +24,8 @@ public class BrandServiceImpl implements BrandService {
 	}
 
 	@Override
-	public BrandVO getService(int seq) {
-		BrandVO brand = dao.getBrand(seq);
+	public BrandVO getService(int b_no) {
+		BrandVO brand = dao.getBrand(b_no);
 		
 		return brand;
 	}
@@ -41,8 +41,8 @@ public class BrandServiceImpl implements BrandService {
 	}
 
 	@Override
-	public void deleteService(int seq) {
-		dao.deleteBrand(seq);
+	public void deleteService(int b_no) {
+		dao.deleteBrand(b_no);
 	}
 	
 }

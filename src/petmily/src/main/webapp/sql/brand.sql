@@ -11,4 +11,4 @@ create table brand(
 
 select * from brand order by b_no desc;
 
-drop table brand;
+
