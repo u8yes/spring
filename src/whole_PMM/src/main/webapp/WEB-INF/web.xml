@@ -53,6 +53,9 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>	<!-- '/'표시는 모든 요청이다. tomcat이 아니라 Spring이 직접 처리하겠다는 선언 -->
 		<url-pattern>*.me</url-pattern> 
+		<url-pattern>*.md</url-pattern> 
+		<url-pattern>*.bt</url-pattern> 
+		<url-pattern>*.bi</url-pattern> 
 	</servlet-mapping>
 
 </web-app>

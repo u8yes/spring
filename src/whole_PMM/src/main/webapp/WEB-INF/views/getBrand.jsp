@@ -42,7 +42,7 @@
 				<tr>
 					<td bgcolor="orange" rowspan="2">이미지</td>
 					<td align="left">
-					<input name=uploadFile type="file" size="38"/><br></td>
+					<input name="uploadFile" type="file" size="38"/><br></td>
 				</tr>
 				<tr>
 					<td align="left">${brand.b_image}</td>
