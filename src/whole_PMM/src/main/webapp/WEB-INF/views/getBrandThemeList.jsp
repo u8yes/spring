@@ -23,7 +23,7 @@
 		<!-- 검색 시작 -->
 		<div class="container w-50" >
 		<form action="getBrandThemeList.bt" method="post">
-			<table border="1" cellpadding="0" cellspacing="0" width="700" class="table table-striped table-sm text-center">
+			<table border="1" cellpadding="0" cellspacing="0" width="900" class="table table-striped table-sm text-center">
 				<tr>
 					<td align="right">
 						<select name="searchCondition">
@@ -44,7 +44,7 @@
 		
 		<!-- 목록 출력 -->
 		<div class="container w-50 table-responsive"  >
-		<table border="1" cellpadding="0" cellspacing="0" width="800" class="table table-striped table-sm text-center">
+		<table border="1" cellpadding="0" cellspacing="0" width="900" class="table table-striped table-sm text-center">
 			<tr>
 				<th bgcolor="orange" width="200">bt_no</th>
 				<th bgcolor="orange" width="150">bm_no</th>

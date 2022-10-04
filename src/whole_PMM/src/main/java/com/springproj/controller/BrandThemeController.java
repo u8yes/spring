@@ -85,7 +85,7 @@ public class BrandThemeController {
 	}
 	
 	// 글 목록 검색 처리
-	@RequestMapping("/getBrandThemeList.do")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
+	@RequestMapping("/getBrandThemeList.bt")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
 	// value는 전달되어지는 값
 	public String getBrandThemeList(BrandThemeVO bt, Model model) {	
 		//System.out.println("글 목록 검색 처리");
@@ -151,7 +151,7 @@ public class BrandThemeController {
 				
 		brandThemeService.deleteService(brandTheme.getBt_no());
 					
-		return "redirect:getBrandThemeList.do";
+		return "redirect:getBrandThemeList.bt";
 	}
 	
 	

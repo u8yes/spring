@@ -39,28 +39,29 @@
 	  	<if test="searchCondition == 'BT_NO'">
 	  		and BT_NO like '%'||#{searchKeyword}||'%' 
 	  	</if>
-	  	order by b_no desc
+	  	order by bt_no desc
 	  </select>
 	  
 	  
 	  <!-- List 보여주기 -->
 	  <select id="getBrandTheme" resultType="brandTheme">
 	  <![CDATA[
-	  	select * from BrandTheme where b_no = #{b_no}
+	  	select * from BrandTheme where bt_no = #{bt_no}
 	  ]]>
 	  </select>
 	  
 	  
-	  <update id="updateBrand">
+	  <update id="updateBrandTheme">
 	  <![CDATA[
-	  	update brand set b_image = #{b_image}, b_corp = #{b_corp}, b_desc = #{b_desc}, b_corp_addr = #{b_corp_addr} where b_no = #{b_no}
+	  	update BrandTheme set bm_no = #{bm_no}, bt_no = #{bt_no}, bt_color = #{bt_color}, bt_font = #{bt_font}, 
+	  	bt_logo = ${bt_logo} where bt_no = #{bt_no}
 	  ]]>
 	  </update>
 	  
 	  
-	  <delete id="deleteBrand">
+	  <delete id="deleteBrandTheme">
 	  <![CDATA[
-	  	delete from brand where b_no = #{b_no}
+	  	delete from BrandTheme where bt_no = #{bt_no}
 	  ]]>
 	  </delete>
 	  
