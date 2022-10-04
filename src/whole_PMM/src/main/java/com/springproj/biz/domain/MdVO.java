@@ -6,9 +6,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MdVO {	// javaBean
 	private int md_no;
-	private int md_bno;
-	private int md_pno;
+	private int bm_no;
+	private int p_no;
 	private Date md_regidate;
+	
+	// 검색 기능 추가
+	private String searchCondition;
+	private String searchKeyword;
+	// 파일 업로드 추가
+	private MultipartFile uploadFile;
 	
 	public int getMd_no() {
 		return md_no;
@@ -16,17 +22,17 @@ public class MdVO {	// javaBean
 	public void setMd_no(int md_no) {
 		this.md_no = md_no;
 	}
-	public int getMd_bno() {
-		return md_bno;
+	public int getBm_no() {
+		return bm_no;
 	}
-	public void setMd_bno(int md_bno) {
-		this.md_bno = md_bno;
+	public void setBm_no(int bm_no) {
+		this.bm_no = bm_no;
 	}
-	public int getMd_pno() {
-		return md_pno;
+	public int getP_no() {
+		return p_no;
 	}
-	public void setMd_pno(int md_pno) {
-		this.md_pno = md_pno;
+	public void setP_no(int p_no) {
+		this.p_no = p_no;
 	}
 	public Date getMd_regidate() {
 		return md_regidate;
@@ -34,13 +40,30 @@ public class MdVO {	// javaBean
 	public void setMd_regidate(Date md_regidate) {
 		this.md_regidate = md_regidate;
 	}
-	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	@Override
 	public String toString() {
-		return "MdVO [md_no=" + md_no + ", md_bno=" + md_bno + ", md_pno=" + md_pno + ", md_regidate=" + md_regidate
-				+ "]";
+		return "MdVO [md_no=" + md_no + ", bm_no=" + bm_no + ", p_no=" + p_no + ", md_regidate=" + md_regidate
+				+ ", searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", uploadFile="
+				+ uploadFile + "]";
 	}
 	
-		
 	
 }

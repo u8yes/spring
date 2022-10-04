@@ -20,23 +20,23 @@
 		<h1>글 등록</h1>
 		<a href="logout.do">Log-out</a>
 		<hr>
-		<form action="updateBrandTheme.bt" method="post" enctype="multipart/form-data">
-			<input name="bt_no" type="hidden" value="${brandTheme.bt_no}" />		<!-- update를 서버로 전송하고 싶을 때 현재 sequence를 hidden 숨겨놓는 것 -->
+		<form action="updateBrand.do" method="post" enctype="multipart/form-data">
+			<input name="b_no" type="hidden" value="${brand.b_no}" />		<!-- update를 서버로 전송하고 싶을 때 현재 sequence를 hidden 숨겨놓는 것 -->
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
-					<td bgcolor="orange">bm_no</td>
+					<td bgcolor="orange">회사</td>
 					<td align="left">
-					<input name="bm_no" type="text" size="38" value="${brandTheme.bm_no}" /></td>
+					<input name="b_corp" type="text" size="38" value="${brand.b_corp}" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">주소</td>
 					<td align="left">
-					<input name="b_corp_addr" type="text" size="38" value="${brandTheme.b_corp_addr}" /></td>
+					<input name="b_corp_addr" type="text" size="38" value="${brand.b_corp_addr}" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">설명</td>
 					<td align="left">
-						<textarea name="b_desc" cols="40" rows="10">${brandTheme.b_desc}</textarea>
+						<textarea name="b_desc" cols="40" rows="10">${brand.b_desc}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -45,15 +45,15 @@
 					<input name="uploadFile" type="file" size="38"/><br></td>
 				</tr>
 				<tr>
-					<td align="left">${brandTheme.b_image}</td>
+					<td align="left">${brand.b_image}</td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">사진</td>
-					<td align="left"><img src="./brandUpload/${brandTheme.b_image}" width="300"/></td>
+					<td align="left"><img src="./brandUpload/${brand.b_image}" width="300"/></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">등록일</td>
-					<td align="left">${brandTheme.b_regdate}</td>
+					<td align="left">${brand.b_regdate}</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
@@ -64,7 +64,7 @@
 		</form>
 		<hr>
 		<a href="insertBrand.do" >글등록</a>&nbsp;&nbsp;&nbsp; 
-		<a href="deleteBrand.do?b_no=${brandTheme.b_no}" >글삭제</a>&nbsp;&nbsp;&nbsp;
+		<a href="deleteBrand.do?b_no=${brand.b_no}" >글삭제</a>&nbsp;&nbsp;&nbsp;
 		<a href="getBrandList.do" >글목록</a>
 	</center>
 	
