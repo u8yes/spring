@@ -18,7 +18,7 @@
       
       <br><br>
       
-      <a href="getBrandThemeList.bt">글 목록 바로가기</a>
+      <a href="getBrandInfoList.bi">글 목록 바로가기</a>
    </div>
 
 </body>

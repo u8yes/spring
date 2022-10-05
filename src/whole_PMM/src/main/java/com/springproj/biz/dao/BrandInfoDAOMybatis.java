@@ -6,28 +6,28 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.springproj.biz.domain.BrandThemeVO;
+import com.springproj.biz.domain.BrandInfoVO;
 import com.springproj.biz.domain.BrandVO;
 
 @Repository
-public class BrandThemeDAOMybatis {
+public class BrandInfoDAOMybatis {
 	
 	@Autowired
 	SqlSessionTemplate mybatis;
 	 	
 	// CRUD 기능의 메서드 구현
 	// 글 등록(insert문)
-	public void insertBrandTheme(BrandThemeVO bt) {	// DTO(DO), 매개변수를 파라미터라고도 한다. 전달되어지는 타입 (BoardVO vo)
+	public void insertBrandInfo(BrandInfoVO bi) {	// DTO(DO), 매개변수를 파라미터라고도 한다. 전달되어지는 타입 (BoardVO vo)
 		
-		mybatis.insert("BrandTheme.insertBrandTheme", bt);	// get메서드로 요청하면 마이바티스가 반환해준다.
+		mybatis.insert("BrandInfo.insertBrandInfo", bi);	// get메서드로 요청하면 마이바티스가 반환해준다.
 	}
 	
 	// 목록보기(select문)
-	public BrandThemeVO getBrandTheme(int bt_no) {
-		return mybatis.selectOne("BrandTheme.getBrandTheme", bt_no);
+	public BrandInfoVO getBrandInfo(int bm_no) {
+		return mybatis.selectOne("BrandInfo.getBrandInfo", bm_no);
 	}
 
-	public List<BrandThemeVO> getBrandThemeList(BrandThemeVO bt) {
+	public List<BrandInfoVO> getBrandInfoList(BrandInfoVO bi) {
 				
 		/*
 		 * if(vo.getSearchCondition().equals("TITLE")) { return
@@ -38,19 +38,19 @@ public class BrandThemeDAOMybatis {
 		 * mybatis.selectList("Board.getBoardList_T", vo); }
 		 */
 
-		return mybatis.selectList("BrandTheme.getBrandThemeList", bt);
+		return mybatis.selectList("BrandInfo.getBrandInfoList", bi);
 	}
 	
 	
 	// 글 수정(update문)
-	public void updateBrandTheme(BrandThemeVO bt) {	// DTO(DO)
-		mybatis.update("BrandTheme.updateBrandTheme", bt);
+	public void updateBrandInfo(BrandInfoVO bi) {	// DTO(DO)
+		mybatis.update("BrandInfo.updateBrandInfo", bi);
 		
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteBrandTheme(int bt_no) {
-		mybatis.delete("BrandTheme.deleteBrandTheme", bt_no);
+	public void deleteBrandInfo(int bm_no) {
+		mybatis.delete("BrandInfo.deleteBrandInfo", bm_no);
 		
 	}
 }
