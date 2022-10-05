@@ -11,7 +11,7 @@
   	<typeAliases>
   		<typeAlias alias="brand" type="com.springproj.biz.domain.BrandVO"/>  	<!-- 만들 때 나타나는 속성(type)은 무조건 써줘야 하는 속성 -->
   		<typeAlias alias="md" type="com.springproj.biz.domain.MdVO"/>
-  		<typeAlias alias="brandTheme" type="com.springproj.biz.domain.BrandThemeVO"/>
+  		<!-- <typeAlias alias="brandTheme" type="com.springproj.biz.domain.BrandThemeVO"/> -->
   		<typeAlias alias="brandInfo" type="com.springproj.biz.domain.BrandInfoVO"/>
   	</typeAliases>
   	
@@ -19,8 +19,8 @@
   	<mappers>
   		<mapper resource="mappings/brandMapping.xml"/>
   		<mapper resource="mappings/mdMapping.xml"/>
-  		<mapper resource="mappings/brandThemeMapping.xml"/>
-  		<!-- <mapper resource="mappings/brandInfoMapping.xml"/>  -->
+  		<!-- <mapper resource="mappings/brandThemeMapping.xml"/>  -->
+  		<mapper resource="mappings/brandInfoMapping.xml"/>
   	</mappers>
   
   </configuration>

@@ -134,8 +134,6 @@ public class BrandInfoController {
 			String fileName = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File(fileSaveFolder + fileName));
 		    
-			brandInfo.setBi_img(fileName);
-			
 			System.out.println("updateBrand Controller fileName =>"+fileName);
 		}
 		
