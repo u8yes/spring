@@ -31,7 +31,7 @@
 	  <!-- resultType="Brand" 반환받는 타입을 명시하고 있어야 한다. 짧게 별명alias로 Brand로 -->
 	  <select id="getBrandList" resultType="brand">	
 		select * 
-	  	from brand 
+	  	from brandInfo 
 	  	where 1 = 1
 	  	<if test="searchCondition == 'B_CORP'">
 	  		and b_corp like '%'||#{searchKeyword}||'%' 
@@ -46,21 +46,21 @@
 	  <!-- List 보여주기 -->
 	  <select id="getBrand" resultType="brand">
 	  <![CDATA[
-	  	select * from brand where b_no = #{b_no}
+	  	select * from brandInfo where bm_no = #{bm_no}
 	  ]]>
 	  </select>
 	  
 	  
 	  <update id="updateBrand">
 	  <![CDATA[
-	  	update brand set b_image = #{b_image}, b_corp = #{b_corp}, b_desc = #{b_desc}, b_corp_addr = #{b_corp_addr} where b_no = #{b_no}
+	  	update brandInfo set b_image = #{b_image}, b_corp = #{b_corp}, b_desc = #{b_desc}, b_corp_addr = #{b_corp_addr} where b_no = #{b_no}
 	  ]]>
 	  </update>
 	  
 	  
 	  <delete id="deleteBrand">
 	  <![CDATA[
-	  	delete from brand where b_no = #{b_no}
+	  	delete from brandInfo where bm_no = #{bm_no}
 	  ]]>
 	  </delete>
 	  
