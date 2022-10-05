@@ -3,12 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">	
   <!-- 쿼리가 담기는 설정 파일이다 -->
-  
-  <mapper namespace="BrandInfo">
-	  <insert id="insertBrandInfo" parameterType="brandInfo"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
+  		
+  <mapper namespace="BrandTheme">
+	  <insert id="insertBrandTheme" parameterType="brandTheme"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
 	  <![CDATA[
-	  		insert into brandInfo(bm_no, bi_no, bi_biznum, bi_compname, bi_comptel, bi_repr, bi_compurnum, bi_addr, bi_desc, bi_bizlic, bi_shop, bi_snsinsta, bi_snsaso, bi_fax) 
-	  		values ((select nvl(max(bm_no),0)+1 from brandInfo), #{bi_no}, #{bi_biznum}, #{bi_compname}, #{bi_comptel}, #{bi_repr}, #{bi_compurnum}, #{bi_addr}, #{bi_desc}, #{bi_bizlic}, #{bi_shop}, #{bi_snsinsta}, #{bi_snsaso}, #{bi_fax})
+	  		insert into brandTheme(bm_no, bt_no, bt_color, bt_color_desc, bt_font, bt_font_desc) 
+	  		values ((select nvl(max(bm_no),0)+1 from brandInfo), #{bt_no}, #{bt_color}, #{bt_color_desc}, #{bt_font}, #{bt_font_desc})
 	  ]]>
 	  </insert>	
 	  <!-- '<', '>'는 비교 연산자로 인식하지 않고 여기에서는 꺽쇠로 본다. 설정을 <![CDATA[]]>로 --> <!-- // SQL문 - nvl: Null값이면 0으로 실행해라 -->
@@ -29,42 +29,38 @@
 	  
 	  <!-- Mybatis가 제공하는 동적(Dynamic) SQL 쿼리문을 추가적으로 제공해줌. Spring(X) -->
 	  <!-- resultType="Brand" 반환받는 타입을 명시하고 있어야 한다. 짧게 별명alias로 Brand로 -->
-	  <select id="getBrandInfoList" resultType="brandInfo">	
+	  <select id="getBrandThemeList" resultType="brandTheme">	
 		select * 
-	  	from brandInfo 
+	  	from brandTheme 
 	  	where 1 = 1
 	  	<if test="searchCondition == 'BM_NO'">
 	  		and BM_NO like '%'||#{searchKeyword}||'%' 
 	  	</if>
-	  	<if test="searchCondition == 'BI_NO'">
-	  		and BI_NO like '%'||#{searchKeyword}||'%' 
+	  	<if test="searchCondition == 'BT_NO'">
+	  		and BT_NO like '%'||#{searchKeyword}||'%' 
 	  	</if>
 	  	order by BM_NO desc
 	  </select>
 	  
 	  
 	  <!-- List 보여주기 -->
-	  <select id="getBrandInfo" resultType="brandInfo">
+	  <select id="getBrandTheme" resultType="brandTheme">
 	  <![CDATA[
-	  	select * from brandInfo where bm_no = #{bm_no}
+	  	select * from brandTheme where bm_no = #{bm_no}
 	  ]]>
 	  </select>
 	  
 	  
-	  <update id="updateBrandInfo">
+	  <update id="updateBrandTheme">
 	  <![CDATA[
-	  	update brandInfo set bm_no = #{bm_no}, bi_no = #{bi_no}, bi_biznum = #{bi_biznum}, 
-	  	bi_compname = #{bi_compname}, bi_comptel = #{bi_comptel}, bi_repr = #{bi_repr}, 
-	  	bi_compurnum = #{bi_compurnum}, bi_addr = #{bi_addr}, bi_desc = #{bi_desc}, 
-	  	bi_bizlic = #{bi_bizlic}, bi_shop = #{bi_shop}, bi_snsinsta = #{bi_snsinsta}, 
-	  	bi_snsaso = #{bi_snsaso}, bi_fax = #{bi_fax} where bm_no = #{bm_no}
+	  	update brandTheme set bm_no = #{bm_no}, bt_no = #{bt_no}, bt_color = #{bt_color}, 
+	  	bt_color_desc = #{bt_color_desc}, bt_font = #{bt_font}, bt_font_desc = #{bt_font_desc} where bm_no = #{bm_no}
 	  ]]> 
 	  </update>
 	  
-	  
-	  <delete id="deleteBrandInfo">
+	  <delete id="deleteBrandTheme">
 	  <![CDATA[
-	  	delete from brandInfo where bm_no = #{bm_no}
+	  	delete from brandTheme where bm_no = #{bm_no}
 	  ]]>
 	  </delete>
 	  
