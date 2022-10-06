@@ -18,59 +18,59 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.springproj.biz.domain.MdVO;
-import com.springproj.biz.service.MdService;
+import com.springproj.biz.domain.CodeVO;
+import com.springproj.biz.service.CodeService;
 
 @Controller		//  implements Controller 삭제하면서 Controller 사용가능해짐.
-@SessionAttributes("md")	// Brand라는 이름으로 모델에 저장하는 순간 session에 같이 저장해줌.
-public class MdController {	
+@SessionAttributes("code")	// Brand라는 이름으로 모델에 저장하는 순간 session에 같이 저장해줌.
+public class CodeController {	
 
 	@Autowired
-	MdService mdService;
+	CodeService codeService;
 		
 	//@RequestMapping(value = "/insertBrand.do", method = RequestMethod.GET)	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
-	@GetMapping("/insertMd.md")
-	public String mdBrand() {
+	@GetMapping("/insertCode.co")
+	public String insertCode() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "insertMd";
+		return "insertCode";
 	}
 	
 	
 	//@RequestMapping(value = "/insertBrand.do", method = RequestMethod.POST)	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
-	@PostMapping("/insertMd.md")
-	public String insertMd(MdVO md, HttpSession session) throws IOException{
+	@PostMapping("/insertCode.co")
+	public String insertCode(CodeVO code, HttpSession session) throws IOException{
 		//System.out.println("글 등록 처리");
 		
 		//파일 업로드 처리
-		String fileSaveFolder = session.getServletContext().getRealPath("/mdUpload/");
+		String fileSaveFolder = session.getServletContext().getRealPath("/codeUpload/");
 		
-		MultipartFile uploadFile = md.getUploadFile();
+		MultipartFile uploadFile = code.getUploadFile();
 		
 		if(!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File(fileSaveFolder + fileName));
 		    
 			
-			
 			System.out.println("fileName =>"+fileName);
 		}
 		
 		
-		mdService.insertService(md);
-		return "redirect:getMdList.md";
+		codeService.insertService(code);
+		System.out.println("컨트롤 insertCode=>" + code);
+		return "redirect:getCodeList.co";
 	}
 		
 	
-	@RequestMapping("/getMd.md")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
-	public String getMd(MdVO md, Model model) {	// command 객체를 Spring에서 만들어줘서 Brand, model 구분해서 따로 작업해줄 수가 있다.
-		System.out.println("brand 상세페이지 처리.");	// 혹시나 모를 문제발생을 대비하기 위해 출력 Check!! Debugging 
+	@RequestMapping("/getCode.co")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
+	public String getCode(CodeVO code, Model model) {	// command 객체를 Spring에서 만들어줘서 Brand, model 구분해서 따로 작업해줄 수가 있다.
+		System.out.println("code 상세페이지 처리.");	// 혹시나 모를 문제발생을 대비하기 위해 출력 Check!! Debugging 
 		
-		md = mdService.getService(md.getMd_no());	
+		CodeVO co = codeService.getService(code.getP_pno());	
 		
-		model.addAttribute("md", md);
+		model.addAttribute("code", co);
 		
-		return "getMd";
+		return "getCode";
 	}
 	
 	// 검색 조건 목록 설정
@@ -78,34 +78,34 @@ public class MdController {
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
 		
-		conditionMap.put("회사", "MD_NO");
-		conditionMap.put("설명", "BM_NO");
+		conditionMap.put("P_PNO", "P_PNO");
+		conditionMap.put("DC_PCNO", "DC_PCNO");
 		
 		return conditionMap;
 	}
 	
 	// 글 목록 검색 처리
-	@RequestMapping("/getMdList.md")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
+	@RequestMapping("/getCodeList.co")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
 	// value는 전달되어지는 값
-	public String getMdList(MdVO md, Model model) {	
+	public String getCodeList(CodeVO co, Model model) {	
 		//System.out.println("글 목록 검색 처리");
 		
-		System.out.println("검색 조건 : " + md.getSearchCondition());
-		System.out.println("검색 조건 : " + md.getSearchKeyword());
+		System.out.println("검색 조건 : " + co.getSearchCondition());
+		System.out.println("검색 조건 : " + co.getSearchKeyword());
 		
-		if(md.getSearchCondition() == null) {
-			md.setSearchCondition("MD_NO");
+		if(co.getSearchCondition() == null) {
+			co.setSearchCondition("P_PNO");
 		}
 		
-		if(md.getSearchKeyword() == null) {
-			md.setSearchKeyword("");
+		if(co.getSearchKeyword() == null) {
+			co.setSearchKeyword("");
 		}
 		
-		List<MdVO> list = mdService.getServiceList(md);
+		List<CodeVO> list = codeService.getServiceList(co);
 
-		model.addAttribute("mdList", list);
+		model.addAttribute("codeList", list);
 				
-		return "getMdList";
+		return "getCodeList";
 	}
 	
 		
@@ -121,38 +121,36 @@ public class MdController {
 	 * return "redirect:getBrandList.do"; }
 	 */
 	
-	@PostMapping("/updateMd.md")
-	public String updateMd(MdVO md, HttpSession session) throws IOException{
+	@PostMapping("/updateCode.co")
+	public String updateCode(CodeVO code, HttpSession session) throws IOException{
 		//System.out.println("글 등록 처리");
 		
 		//파일 업로드 처리
-		String fileSaveFolder = session.getServletContext().getRealPath("/mdUpload/");
+		String fileSaveFolder = session.getServletContext().getRealPath("/codeUpload/");
 		
-		MultipartFile uploadFile = md.getUploadFile();
+		MultipartFile uploadFile = code.getUploadFile();
 		
 		if(!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File(fileSaveFolder + fileName));
 		    
 			
-			
-			System.out.println("updateMd Controller fileName =>"+fileName);
+			System.out.println("updateCode Controller fileName =>"+fileName);
 		}
 		
 		
-		mdService.updateService(md);
-		System.out.println("MD컨트롤 => "+ md);
-		return "redirect:getMdList.md";
+		codeService.updateService(code);
+		return "redirect:getCodeList.co";
 	}
 	
 	
-	@RequestMapping("/deleteMd.md")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
-	public String deleteMd(MdVO md) {
+	@RequestMapping("/deleteCode.co")	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
+	public String deleteCode(CodeVO code) {
 		//System.out.println("Brand.getSeq("+Brand.getSeq()+")");
 				
-		mdService.deleteService(md.getMd_no());
+		codeService.deleteService(code.getP_pno());
 					
-		return "redirect:getMdList.md";
+		return "redirect:getCodeList.co";
 	}
 	
 	

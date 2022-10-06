@@ -20,4 +20,5 @@ create table BrandInfo(
 
 select * from BrandInfo order by bi_no desc;
 
+drop table BrandInfo;
 

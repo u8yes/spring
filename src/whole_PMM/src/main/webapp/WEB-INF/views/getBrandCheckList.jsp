@@ -22,7 +22,7 @@
 		
 		<!-- 검색 시작 -->
 		<div class="container w-50" >
-		<form action="getMdList.md" method="post">
+		<form action="getBrandCheckList.bc" method="post">
 			<table border="1" cellpadding="0" cellspacing="0" width="700" class="table table-striped table-sm text-center">
 				<tr>
 					<td align="right">
@@ -46,24 +46,21 @@
 		<div class="container w-50 table-responsive"  >
 		<table border="1" cellpadding="0" cellspacing="0" width="800" class="table table-striped table-sm text-center">
 			<tr>
-				<th bgcolor="orange" width="150">MD번호</th>
-				<th bgcolor="orange" width="150">BM번호</th>
-				<th bgcolor="orange" width="100">P번호</th>
+				<th bgcolor="orange" width="200">ab_no</th>
+				<th bgcolor="orange" width="150">bm_no</th>
+				
 			</tr>
-			<c:forEach items="${mdList}" var="md">	<!-- 1. JSTL 기능 중 items는 데이터, 2. var는 새 변수 선언 -->
+			<c:forEach items="${brandCheckList}" var="brandCheck">	<!-- 1. JSTL 기능 중 items는 데이터, 2. var는 새 변수 선언 -->
 			<tr>
-				<td><a href="getMd.md?md_no=${md.md_no}">${md.md_no}</a></td>	<!-- ?seq= 라는 건 바로 쿼리문으로 연결되는 것 -->
-				<td align="center">${md.bm_no}</td>
-				<td align="center">${md.p_pno}</td>
+				<td><a href="getBrandCheck.bc?ab_no=${brandCheck.ab_no}">${brandCheck.ab_no}</a></td>	<!-- ?seq= 라는 건 바로 쿼리문으로 연결되는 것 -->
+				<td align="center">${brandCheck.bm_no}</td>
 				
 			</tr>
 			</c:forEach>
 		</table>
 		</div>
 		<br>
-		<a href="insertMd.md">글쓰기</a>
-		
-		
+		<a href="insertBrandCheck.bc">글쓰기</a>
 		
 		
 		

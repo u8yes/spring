@@ -36,7 +36,7 @@
 				<tr>
 					<td bgcolor="orange">P번호</td>
 					<td align="left">
-						<textarea name="p_no" cols="40" rows="10">${md.p_no}</textarea>
+						<textarea name="p_pno" cols="40" rows="10">${md.p_pno}</textarea>
 					</td>
 				</tr>
 				<tr>

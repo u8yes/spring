@@ -11,19 +11,15 @@
 		<h1>글 등록</h1>
 		<a href="logout.do">Log-out</a>
 		<hr>
-		<form action="insertMd.md" method="post" enctype="multipart/form-data">	<!-- method는 디폴트가 get방식이다. -->
+		<form action="insertBrandCheck.bc" method="post" enctype="multipart/form-data">	<!-- method는 디폴트가 get방식이다. -->
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
-					<td bgcolor="orange" width="150">md_no</td>
-					<td align="left"><input type="text" name="md_no" size="38" /></td>
+					<td bgcolor="orange" width="150">ab_no</td>
+					<td align="left"><input type="text" name="ab_no" size="38" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">bm_no</td>
 					<td align="left"><input type="text" name="bm_no" size="38" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">p_pno</td>
-					<td align="left"><textarea name="p_pno" cols="40" rows="10"></textarea></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">파일첨부</td>
@@ -37,7 +33,7 @@
 			</table>
 		</form>
 		<hr>
-		<a href="getMdList.md">글 목록 가기</a>
+		<a href="getBrandCheckList.bc">글 목록 가기</a>
 	</center>
 </body>
 </html>

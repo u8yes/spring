@@ -4,11 +4,11 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class MdVO {	// javaBean
-	private int md_no;
-	private int bm_no;
+public class CodeVO {	// javaBean
 	private int p_pno;
-	private Date md_regidate;
+	private int dc_pcno;
+	private String c_name;
+	private String c_ex;
 	
 	// 검색 기능 추가
 	private String searchCondition;
@@ -16,29 +16,29 @@ public class MdVO {	// javaBean
 	// 파일 업로드 추가
 	private MultipartFile uploadFile;
 	
-	public int getMd_no() {
-		return md_no;
-	}
-	public void setMd_no(int md_no) {
-		this.md_no = md_no;
-	}
-	public int getBm_no() {
-		return bm_no;
-	}
-	public void setBm_no(int bm_no) {
-		this.bm_no = bm_no;
-	}
 	public int getP_pno() {
 		return p_pno;
 	}
 	public void setP_pno(int p_pno) {
 		this.p_pno = p_pno;
 	}
-	public Date getMd_regidate() {
-		return md_regidate;
+	public int getDc_pcno() {
+		return dc_pcno;
 	}
-	public void setMd_regidate(Date md_regidate) {
-		this.md_regidate = md_regidate;
+	public void setDc_pcno(int dc_pcno) {
+		this.dc_pcno = dc_pcno;
+	}
+	public String getC_name() {
+		return c_name;
+	}
+	public void setC_name(String c_name) {
+		this.c_name = c_name;
+	}
+	public String getC_ex() {
+		return c_ex;
+	}
+	public void setC_ex(String c_ex) {
+		this.c_ex = c_ex;
 	}
 	public String getSearchCondition() {
 		return searchCondition;
@@ -61,7 +61,7 @@ public class MdVO {	// javaBean
 	
 	@Override
 	public String toString() {
-		return "MdVO [md_no=" + md_no + ", bm_no=" + bm_no + ", p_pno=" + p_pno + ", md_regidate=" + md_regidate
+		return "CodeVO [p_pno=" + p_pno + ", dc_pcno=" + dc_pcno + ", c_name=" + c_name + ", c_ex=" + c_ex
 				+ ", searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", uploadFile="
 				+ uploadFile + "]";
 	}

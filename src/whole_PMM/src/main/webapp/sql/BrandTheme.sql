@@ -11,3 +11,4 @@ create table BrandTheme(
 
 select * from BrandTheme order by bt_no desc;
 
+drop table BrandTheme;
