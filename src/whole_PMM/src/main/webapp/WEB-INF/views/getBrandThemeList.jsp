@@ -52,7 +52,6 @@
 				<th bgcolor="orange" width="100">bt_color_desc</th>
 				<th bgcolor="orange" width="100">bt_font</th>
 				<th bgcolor="orange" width="100">bt_font_desc</th>
-				<th bgcolor="orange" width="100">bt_logo</th>
 				<th bgcolor="orange" width="100">bt_regidate</th>
 				
 			</tr>
@@ -64,7 +63,6 @@
 				<td align="center">${brandTheme.bt_color_desc}</td>
 				<td align="center">${brandTheme.bt_font}</td>
 				<td align="center">${brandTheme.bt_font_desc}</td>
-				<td align="center">${brandTheme.bt_logo}</td>
 				<td align="center">${brandTheme.bt_regidate}</td>
 				
 			</tr>

@@ -18,7 +18,7 @@
       
       <br><br>
       
-      <a href="getCodeList.co">글 목록 바로가기</a>
+      <a href="getDivisionCodeList.dc">글 목록 바로가기</a>
    </div>
 
 </body>

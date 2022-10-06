@@ -51,6 +51,10 @@
 					<input name="bt_font_desc" type="text" size="38" value="${brandTheme.bt_font_desc}" /></td>
 				</tr>
 				<tr>
+					<td bgcolor="orange">파일첨부</td>
+					<td><input type="file" name="uploadFile"></td>
+				</tr>
+				<tr>
 					<td bgcolor="orange">등록일</td>
 					<td align="left">${brandTheme.bt_regidate}</td>
 				</tr>

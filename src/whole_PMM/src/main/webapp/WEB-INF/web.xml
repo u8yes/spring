@@ -58,6 +58,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 		<url-pattern>*.bi</url-pattern> 
 		<url-pattern>*.bc</url-pattern> 
 		<url-pattern>*.co</url-pattern> 
+		<url-pattern>*.ka</url-pattern> 
+		<url-pattern>*.dc</url-pattern> 
 	</servlet-mapping>
 
 </web-app>

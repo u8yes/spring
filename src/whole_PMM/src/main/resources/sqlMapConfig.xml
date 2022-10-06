@@ -14,6 +14,7 @@
   		<typeAlias alias="brandInfo" type="com.springproj.biz.domain.BrandInfoVO"/>
   		<typeAlias alias="brandCheck" type="com.springproj.biz.domain.BrandCheckVO"/>
   		<typeAlias alias="code" type="com.springproj.biz.domain.CodeVO"/>
+  		<typeAlias alias="divisionCode" type="com.springproj.biz.domain.DivisionCodeVO"/>
   	</typeAliases>
   	
   	<!-- SQL Mapper 설정 -->
@@ -24,6 +25,7 @@
   		<mapper resource="mappings/brandInfoMapping.xml"/>
   		<mapper resource="mappings/brandCheckMapping.xml"/>
   		<mapper resource="mappings/codeMapping.xml"/>
+  		<mapper resource="mappings/divisionCodeMapping.xml"/>
   	</mappers>
   
   </configuration>

@@ -14,13 +14,12 @@ public class BrandThemeVO {	// javaBean
 	private String bt_font_desc;
 	private String bt_logo;
 	private Date bt_regidate;
-	
+		
 	// 검색 기능 추가
 	private String searchCondition;
 	private String searchKeyword;
 	// 파일 업로드 추가
 	private MultipartFile uploadFile;
-	
 	
 	public int getBm_no() {
 		return bm_no;
@@ -96,9 +95,5 @@ public class BrandThemeVO {	// javaBean
 				+ ", bt_regidate=" + bt_regidate + ", searchCondition=" + searchCondition + ", searchKeyword="
 				+ searchKeyword + ", uploadFile=" + uploadFile + "]";
 	}
-	
-	
-	
-	
-	
+		
 }
