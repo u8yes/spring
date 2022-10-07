@@ -14,7 +14,15 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-		
+	
+		<!-- lombok (Getter Setter toString 어노테이션 형성 -->
+	      <dependency>
+	         <groupId>org.projectlombok</groupId>
+	         <artifactId>lombok</artifactId>
+	         <version>1.18.24</version>
+	         <scope>provided</scope>
+	      </dependency>
+			
 		<!-- ch17_SpringMVC_Mybatis_Connection에서 추가, 마이바티스-->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
