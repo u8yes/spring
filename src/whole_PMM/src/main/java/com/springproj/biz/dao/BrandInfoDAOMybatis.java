@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.springproj.biz.domain.BrandInfoVO;
-import com.springproj.biz.domain.BrandVO;
 
 @Repository
 public class BrandInfoDAOMybatis {
@@ -23,7 +22,7 @@ public class BrandInfoDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public BrandInfoVO getBrandInfo(int bm_no) {
+	public BrandInfoVO getBrandInfo(String bm_no) {
 		return mybatis.selectOne("BrandInfo.getBrandInfo", bm_no);
 	}
 
@@ -49,7 +48,7 @@ public class BrandInfoDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteBrandInfo(int bm_no) {
+	public void deleteBrandInfo(String bm_no) {
 		mybatis.delete("BrandInfo.deleteBrandInfo", bm_no);
 		
 	}

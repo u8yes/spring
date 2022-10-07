@@ -10,10 +10,10 @@ public interface BrandThemeService {
 	// 글 등록
 	void insertService(BrandThemeVO bt); 
 	// 글 목록 조회
-	BrandThemeVO getService(int bm_no);
+	BrandThemeVO getService(String bm_no);
 	List<BrandThemeVO> getServiceList(BrandThemeVO bt);
 	// 글 수정
 	void updateService(BrandThemeVO bt);
 	// 글 삭제
-	void deleteService(int bm_no);
+	void deleteService(String bm_no);
 }

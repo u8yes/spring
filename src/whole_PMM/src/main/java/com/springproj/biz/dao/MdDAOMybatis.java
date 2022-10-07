@@ -6,7 +6,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.springproj.biz.domain.BrandVO;
 import com.springproj.biz.domain.MdVO;
 
 @Repository
@@ -23,7 +22,7 @@ public class MdDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public MdVO getMd(int md_no) {
+	public MdVO getMd(String md_no) {
 		return mybatis.selectOne("Md.getMd", md_no);
 	}
 
@@ -49,7 +48,7 @@ public class MdDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteMd(int md_no) {
+	public void deleteMd(String md_no) {
 		mybatis.delete("Md.deleteMd", md_no);
 		
 	}

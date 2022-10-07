@@ -24,7 +24,7 @@ public class MdServiceImpl implements MdService {
 	}
 
 	@Override
-	public MdVO getService(int md_no) {
+	public MdVO getService(String md_no) {
 		MdVO md = dao.getMd(md_no);
 		
 		return md;
@@ -41,7 +41,7 @@ public class MdServiceImpl implements MdService {
 	}
 
 	@Override
-	public void deleteService(int md_no) {
+	public void deleteService(String md_no) {
 		dao.deleteMd(md_no);
 	}
 	

@@ -8,7 +8,7 @@
 	  <insert id="insertDivisionCode" parameterType="divisionCode"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
 	  <![CDATA[
 	  		insert into divisionCode(dc_pcno, dc_name, dc_desc) 
-	  		values ((select nvl(max(dc_pcno),0)+1 from divisionCode), #{dc_name}, #{dc_desc})
+	  		values (#{dc_pcno}, #{dc_name}, #{dc_desc})
 	  ]]>
 	  </insert>	
 	  <!-- '<', '>'는 비교 연산자로 인식하지 않고 여기에서는 꺽쇠로 본다. 설정을 <![CDATA[]]>로 --> <!-- // SQL문 - nvl: Null값이면 0으로 실행해라 -->

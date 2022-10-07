@@ -7,8 +7,8 @@
   <mapper namespace="BrandInfo">
 	  <insert id="insertBrandInfo" parameterType="brandInfo"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
 	  <![CDATA[
-	  		insert into brandInfo(bm_no, bi_no, bi_biznum, bi_compname, bi_comptel, bi_repr, bi_compurnum, bi_addr, bi_desc, bi_bizlic, bi_shop, bi_snsinsta, bi_snsaso, bi_fax) 
-	  		values ((select nvl(max(bm_no),0)+1 from brandInfo), #{bi_no}, #{bi_biznum}, #{bi_compname}, #{bi_comptel}, #{bi_repr}, #{bi_compurnum}, #{bi_addr}, #{bi_desc}, #{bi_bizlic}, #{bi_shop}, #{bi_snsinsta}, #{bi_snsaso}, #{bi_fax})
+	  		insert into brandInfo(bm_no, bi_biznum, bi_name, bi_tel, bi_repr, bi_commnum, bi_addr, bi_desc, bi_bizlic, bi_shop, bi_insta, bi_sns, bi_fax) 
+	  		values (#{bm_no}, #{bi_biznum}, #{bi_name}, #{bi_tel}, #{bi_repr}, #{bi_commnum}, #{bi_addr}, #{bi_desc}, #{bi_bizlic}, #{bi_shop}, #{bi_insta}, #{bi_sns}, #{bi_fax})
 	  ]]>
 	  </insert>	
 	  <!-- '<', '>'는 비교 연산자로 인식하지 않고 여기에서는 꺽쇠로 본다. 설정을 <![CDATA[]]>로 --> <!-- // SQL문 - nvl: Null값이면 0으로 실행해라 -->
@@ -36,8 +36,8 @@
 	  	<if test="searchCondition == 'BM_NO'">
 	  		and BM_NO like '%'||#{searchKeyword}||'%' 
 	  	</if>
-	  	<if test="searchCondition == 'BI_NO'">
-	  		and BI_NO like '%'||#{searchKeyword}||'%' 
+	  	<if test="searchCondition == 'BI_NAME'">
+	  		and BI_NAME like '%'||#{searchKeyword}||'%' 
 	  	</if>
 	  	order by BM_NO desc
 	  </select>
@@ -53,15 +53,14 @@
 	  
 	  <update id="updateBrandInfo">
 	  <![CDATA[
-	  	update brandInfo set bm_no = #{bm_no}, bi_no = #{bi_no}, bi_biznum = #{bi_biznum}, 
-	  	bi_compname = #{bi_compname}, bi_comptel = #{bi_comptel}, bi_repr = #{bi_repr}, 
-	  	bi_compurnum = #{bi_compurnum}, bi_addr = #{bi_addr}, bi_desc = #{bi_desc}, 
-	  	bi_bizlic = #{bi_bizlic}, bi_shop = #{bi_shop}, bi_snsinsta = #{bi_snsinsta}, 
-	  	bi_snsaso = #{bi_snsaso}, bi_fax = #{bi_fax} where bm_no = #{bm_no}
+	  	update brandInfo set bm_no = #{bm_no}, bi_biznum = #{bi_biznum}, 
+	  	bi_name = #{bi_name}, bi_tel = #{bi_tel}, bi_repr = #{bi_repr}, 
+	  	bi_commnum = #{bi_commnum}, bi_addr = #{bi_addr}, bi_desc = #{bi_desc}, 
+	  	bi_bizlic = #{bi_bizlic}, bi_shop = #{bi_shop}, bi_insta = #{bi_insta}, 
+	  	bi_sns = #{bi_sns}, bi_fax = #{bi_fax} where bm_no = #{bm_no}
 	  ]]> 
 	  </update>
-	  
-	  
+	 	  
 	  <delete id="deleteBrandInfo">
 	  <![CDATA[
 	  	delete from brandInfo where bm_no = #{bm_no}

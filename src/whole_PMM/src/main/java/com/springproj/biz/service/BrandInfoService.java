@@ -10,10 +10,10 @@ public interface BrandInfoService {
 	// 글 등록
 	void insertService(BrandInfoVO bi); 
 	// 글 목록 조회
-	BrandInfoVO getService(int bm_no);
+	BrandInfoVO getService(String bm_no);
 	List<BrandInfoVO> getServiceList(BrandInfoVO bi);
 	// 글 수정
 	void updateService(BrandInfoVO bi);
 	// 글 삭제
-	void deleteService(int bm_no);
+	void deleteService(String bm_no);
 }

@@ -22,7 +22,7 @@ public class DivisionCodeDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public DivisionCodeVO getDivisionCode(int dc_pcno) {
+	public DivisionCodeVO getDivisionCode(String dc_pcno) {
 		return mybatis.selectOne("DivisionCode.getDivisionCode", dc_pcno);
 	}
 
@@ -48,7 +48,7 @@ public class DivisionCodeDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteDivisionCode(int dc_pcno) {
+	public void deleteDivisionCode(String dc_pcno) {
 		mybatis.delete("DivisionCode.deleteDivisionCode", dc_pcno);
 		
 	}

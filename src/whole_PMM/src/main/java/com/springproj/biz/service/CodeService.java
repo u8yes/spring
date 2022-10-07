@@ -10,10 +10,10 @@ public interface CodeService {
 	// 글 등록
 	void insertService(CodeVO co); 
 	// 글 목록 조회
-	CodeVO getService(int p_pno);
+	CodeVO getService(String p_pno);
 	List<CodeVO> getServiceList(CodeVO co);
 	// 글 수정
 	void updateService(CodeVO co);
 	// 글 삭제
-	void deleteService(int p_pno);
+	void deleteService(String p_pno);
 }

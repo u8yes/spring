@@ -27,24 +27,19 @@
 					<input name="bm_no" type="text" size="38" value="${brandInfo.bm_no}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_no</td>
-					<td align="left">
-					<input name="bi_no" type="text" size="38" value="${brandInfo.bi_no}" /></td>
-				</tr>
-				<tr>
 					<td bgcolor="orange">bi_biznum</td>
 					<td align="left">
 					<input name="bi_biznum" type="text" size="38" value="${brandInfo.bi_biznum}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_compname</td>
+					<td bgcolor="orange">bi_name</td>
 					<td align="left">
-					<input name="bi_compname" type="text" size="38" value="${brandInfo.bi_compname}" /></td>
+					<input name="bi_name" type="text" size="38" value="${brandInfo.bi_name}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_comptel</td>
+					<td bgcolor="orange">bi_tel</td>
 					<td align="left">
-					<input name="bi_comptel" type="text" size="38" value="${brandInfo.bi_comptel}" /></td>
+					<input name="bi_tel" type="text" size="38" value="${brandInfo.bi_tel}" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">bi_repr</td>
@@ -52,9 +47,9 @@
 					<input name="bi_repr" type="text" size="38" value="${brandInfo.bi_repr}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_compurnum</td>
+					<td bgcolor="orange">bi_commnum</td>
 					<td align="left">
-					<input name="bi_compurnum" type="text" size="38" value="${brandInfo.bi_compurnum}" /></td>
+					<input name="bi_commnum" type="text" size="38" value="${brandInfo.bi_commnum}" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">bi_addr</td>
@@ -78,14 +73,14 @@
 					<input name="bi_shop" type="text" size="38" value="${brandInfo.bi_shop}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_snsinsta</td>
+					<td bgcolor="orange">bi_insta</td>
 					<td align="left">
-					<input name="bi_snsinsta" type="text" size="38" value="${brandInfo.bi_snsinsta}" /></td>
+					<input name="bi_insta" type="text" size="38" value="${brandInfo.bi_insta}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_snsaso</td>
+					<td bgcolor="orange">bi_sns</td>
 					<td align="left">
-					<input name="bi_snsaso" type="text" size="38" value="${brandInfo.bi_snsaso}" /></td>
+					<input name="bi_sns" type="text" size="38" value="${brandInfo.bi_sns}" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">bi_fax</td>
@@ -109,7 +104,6 @@
 		<a href="deleteBrandInfo.bi?bm_no=${brandInfo.bm_no}" >글삭제</a>&nbsp;&nbsp;&nbsp;
 		<a href="getBrandInfoList.bi" >글목록</a>
 	</center>
-	
-	
+		
 </body>
 </html>

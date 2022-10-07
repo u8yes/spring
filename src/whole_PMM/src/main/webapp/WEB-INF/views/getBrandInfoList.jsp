@@ -47,7 +47,6 @@
 		<table border="1" cellpadding="0" cellspacing="0" width="" class="table table-striped table-sm text-center">
 			<tr>
 				<th bgcolor="orange" width="200">bm_no</th>
-				<th bgcolor="orange" width="150">bi_no</th>
 				<th bgcolor="orange" width="150">bi_biznum</th>
 				<th bgcolor="orange" width="100">bi_compname</th>
 				<th bgcolor="orange" width="100">bi_comptel</th>
@@ -65,20 +64,19 @@
 			<tr>
 				
 				<td><a href="getBrandInfo.bi?bm_no=${brandInfo.bm_no}">${brandInfo.bm_no}</a></td>	<!-- ?seq= 라는 건 바로 쿼리문으로 연결되는 것 -->
-				<td align="center">${brandInfo.bi_no}</td>
 				<td align="center">${brandInfo.bi_biznum}</td>
-				<td align="center">${brandInfo.bi_compname}</td>
-				<td align="center">${brandInfo.bi_comptel}</td>
+				<td align="center">${brandInfo.bi_name}</td>
+				<td align="center">${brandInfo.bi_tel}</td>
 				<td align="center">${brandInfo.bi_repr}</td>
-				<td align="center">${brandInfo.bi_compurnum}</td>
+				<td align="center">${brandInfo.bi_commnum}</td>
 				<td align="center">${brandInfo.bi_addr}</td>
 				<td align="center">${brandInfo.bi_desc}</td>
 				<td align="center">${brandInfo.bi_bizlic}</td>
 				<td align="center">${brandInfo.bi_shop}</td>
-				<td align="center">${brandInfo.bi_snsinsta}</td>
-				<td align="center">${brandInfo.bi_snsaso}</td>
+				<td align="center">${brandInfo.bi_insta}</td>
+				<td align="center">${brandInfo.bi_sns}</td>
 				<td align="center">${brandInfo.bi_fax}</td>
-				
+								
 			</tr>
 			</c:forEach>
 		</table>

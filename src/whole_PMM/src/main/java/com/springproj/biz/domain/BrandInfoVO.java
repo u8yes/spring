@@ -12,22 +12,20 @@ import lombok.ToString;
 @Setter
 @ToString
 public class BrandInfoVO {	// javaBean
-	private int bm_no;
-	private int bi_no;
+	private String bm_no;
 	private String bi_biznum;
-	private String bi_compname;
-	private String bi_comptel;
+	private String bi_name;
+	private String bi_tel;
 	private String bi_repr;
-	private String bi_compurnum;
+	private String bi_commnum;
 	private String bi_addr;
 	private String bi_desc;
 	private String bi_bizlic;
 	private String bi_shop;
-	private String bi_snsinsta;
-	private String bi_snsaso;
+	private String bi_insta;
+	private String bi_sns;
 	private String bi_fax;
-	private String bi_img;
-	private Date bi_regidate;
+	private Date bi_date;
 	
 	// 검색 기능 추가
 	private String searchCondition;

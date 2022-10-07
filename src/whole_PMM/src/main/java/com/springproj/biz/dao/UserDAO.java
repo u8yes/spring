@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.springproj.biz.domain.BrandVO;
 import com.springproj.biz.domain.UserVO;
 
 @Repository("userDAO")

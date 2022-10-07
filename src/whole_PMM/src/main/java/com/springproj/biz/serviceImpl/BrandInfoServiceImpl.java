@@ -24,7 +24,7 @@ public class BrandInfoServiceImpl implements BrandInfoService {
 	}
 
 	@Override
-	public BrandInfoVO getService(int bm_no) {
+	public BrandInfoVO getService(String bm_no) {
 		BrandInfoVO brandInfo = dao.getBrandInfo(bm_no);
 		
 		return brandInfo;
@@ -41,7 +41,7 @@ public class BrandInfoServiceImpl implements BrandInfoService {
 	}
 
 	@Override
-	public void deleteService(int bm_no) {
+	public void deleteService(String bm_no) {
 		dao.deleteBrandInfo(bm_no);
 	}
 	

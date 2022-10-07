@@ -18,28 +18,24 @@
 					<td align="left"><input type="text" name="bm_no" size="38" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange" width="150">bi_no</td>
-					<td align="left"><input type="text" name="bi_no" size="38" /></td>
-				</tr>
-				<tr>
 					<td bgcolor="orange" width="150">bi_biznum</td>
 					<td align="left"><input type="text" name="bi_biznum" size="38" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange" width="150">bi_compname</td>
-					<td align="left"><input type="text" name="bi_compname" size="38" /></td>
+					<td bgcolor="orange" width="150">bi_name</td>
+					<td align="left"><input type="text" name="bi_name" size="38" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange" width="150">bi_comptel</td>
-					<td align="left"><input type="text" name="bi_comptel" size="38" /></td>
+					<td bgcolor="orange" width="150">bi_tel</td>
+					<td align="left"><input type="text" name="bi_tel" size="38" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange" width="150">bi_repr</td>
 					<td align="left"><input type="text" name="bi_repr" size="38" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange" width="150">bi_compurnum</td>
-					<td align="left"><input type="text" name="bi_compurnum" size="38" /></td>
+					<td bgcolor="orange" width="150">bi_commnum</td>
+					<td align="left"><input type="text" name="bi_commnum" size="38" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange" width="150">bi_addr</td>
@@ -58,12 +54,12 @@
 					<td align="left"><input type="text" name="bi_shop" size="38" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_snsinsta</td>
-					<td align="left"><input type="text" name="bi_snsinsta" size="38" /></td>
+					<td bgcolor="orange">bi_insta</td>
+					<td align="left"><input type="text" name="bi_insta" size="38" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">bi_snsaso</td>
-					<td align="left"><input type="text" name="bi_snsaso" size="38" /></td>
+					<td bgcolor="orange">bi_sns</td>
+					<td align="left"><input type="text" name="bi_sns" size="38" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">bi_fax</td>

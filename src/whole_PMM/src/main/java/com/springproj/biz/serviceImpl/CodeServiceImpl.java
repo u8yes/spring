@@ -24,7 +24,7 @@ public class CodeServiceImpl implements CodeService {
 	}
 
 	@Override
-	public CodeVO getService(int p_pno) {
+	public CodeVO getService(String p_pno) {
 		CodeVO code = dao.getCode(p_pno);
 		
 		return code;
@@ -41,7 +41,7 @@ public class CodeServiceImpl implements CodeService {
 	}
 
 	@Override
-	public void deleteService(int p_pno) {
+	public void deleteService(String p_pno) {
 		dao.deleteCode(p_pno);
 	}
 	

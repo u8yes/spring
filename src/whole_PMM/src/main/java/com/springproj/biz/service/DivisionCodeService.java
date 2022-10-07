@@ -11,10 +11,10 @@ public interface DivisionCodeService {
 	// 글 등록
 	void insertService(DivisionCodeVO dc); 
 	// 글 목록 조회
-	DivisionCodeVO getService(int dc_pcno);
+	DivisionCodeVO getService(String dc_pcno);
 	List<DivisionCodeVO> getServiceList(DivisionCodeVO dc);
 	// 글 수정
 	void updateService(DivisionCodeVO dc);
 	// 글 삭제
-	void deleteService(int dc_pcno);
+	void deleteService(String dc_pcno);
 }

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.springproj.biz.domain.BrandThemeVO;
-import com.springproj.biz.domain.BrandVO;
 import com.springproj.biz.service.BrandThemeService;
 
 @Controller		//  implements Controller 삭제하면서 Controller 사용가능해짐.

@@ -5,7 +5,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Service;
 
-import com.springproj.biz.domain.BrandVO;
+import com.springproj.biz.domain.BrandInfoVO;
 
 @Service
 @Aspect
@@ -21,8 +21,8 @@ public class AfterReturningAdvice {
 	public void afterLog(JoinPoint jp, Object returnObj) {
 		String method = jp.getSignature().getName();
 		
-		if(returnObj instanceof BrandVO) {
-			BrandVO board = (BrandVO) returnObj;
+		if(returnObj instanceof BrandInfoVO) {
+			BrandInfoVO board = (BrandInfoVO) returnObj;
 			
 			
 		}

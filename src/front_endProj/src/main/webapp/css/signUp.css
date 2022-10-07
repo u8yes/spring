@@ -1,0 +1,11 @@
+<style>
+	/*마우스커서over 브랜드 부각, 다른브랜드 밀리기   */
+	
+	.productcard:hover{
+  transform: translateY(-.5rem);
+	}
+	.productcard:hover ~ .productcard{
+  transform: translateX(1rem);
+	}
+
+</style>
