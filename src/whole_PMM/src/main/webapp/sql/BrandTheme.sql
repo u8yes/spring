@@ -1,12 +1,16 @@
 
 /* 브랜드 테마 */
 CREATE TABLE brandTheme (
-	bm_no VARCHAR2(20) NOT NULL, /* 브랜드번호 */
+	bm_no NUMBER(3) NOT NULL, /* 브랜드번호 */
 	bt_color VARCHAR2(20), /* 색 */
 	bt_logo VARCHAR2(200), /* 로고이미지 */
 	bt_font VARCHAR2(20), /* 폰트 */
-	bt_date DATE DEFAULT SYSDATE /* 등록일 */
+	bt_date DATE DEFAULT SYSDATE/* 등록일 */
 );
+
+insert into brandtheme (bm_no,bt_color,bt_logo,bt_font) values(1,1,1,1);
+
+select * from BRANDTHEME;
 
 COMMENT ON TABLE brandTheme IS '브랜드 테마';
 
@@ -29,17 +33,6 @@ ALTER TABLE brandTheme
 	ADD
 		CONSTRAINT PK_brandTheme
 		PRIMARY KEY (
-			bm_no
-		);
-
-
-ALTER TABLE brandTheme
-	ADD
-		CONSTRAINT FK_brandMember_TO_brandTheme
-		FOREIGN KEY (
-			bm_no
-		)
-		REFERENCES brandMember (
 			bm_no
 		);
 		

@@ -1,16 +1,14 @@
-insert into product (p_pno,bm_no,p_name,p_detail,p_price,p_disprice,p_delivery,p_as,p_ox,p_pimg,p_dimg,p_deldis,p_count) 
-values(1,1,1,1,1,1,1,1,1,1,1,1,1);
 
 /* 상품 */
 CREATE TABLE PRODUCT (
-	p_pno VARCHAR2(50) NOT NULL, /* 상품코드번호 */
-	bm_no VARCHAR2(20), /* 브랜드번호 */
+	p_pno NUMBER(3) NOT NULL, /* 상품코드번호 */
+	bm_no NUMBER(3), /* 브랜드번호 */
 	p_name VARCHAR2(200), /* 상품명 */
 	p_detail VARCHAR2(1000), /* 상품상세정보 */
 	p_price NUMBER(7), /* 정가 */
 	p_disprice NUMBER(7), /* 판매가 */
-	p_start DATE, /* 판매시작일 */
-	p_end DATE, /* 판매종료일 */
+	p_start VARCHAR2(200), /* 판매시작일 */
+	p_end VARCHAR2(200), /* 판매종료일 */
 	p_delivery VARCHAR2(200), /* 배송제약사항 */
 	p_as VARCHAR2(10), /* A/S가능여부 */
 	p_ox VARCHAR2(10), /* 반품가능여부 */
@@ -68,17 +66,6 @@ ALTER TABLE PRODUCT
 		);
 
 
-ALTER TABLE PRODUCT
-	ADD
-		CONSTRAINT FK_brandMember_TO_PRODUCT
-		FOREIGN KEY (
-			bm_no
-		)
-		REFERENCES brandMember (
-			bm_no
-		);
-
-
 
 		
 select * from PRODUCT;
@@ -88,3 +75,5 @@ select * from PRODUCT;
 drop table PRODUCT;
 
 
+insert into product (p_pno,bm_no,p_name,p_detail,p_price,p_disprice,p_delivery,p_as,p_ox,p_pimg,p_dimg,p_deldis,p_count) 
+values(1,1,1,1,1,1,1,1,1,1,1,1,1);

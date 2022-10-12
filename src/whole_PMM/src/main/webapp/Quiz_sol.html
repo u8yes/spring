@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>간단한 회원 정보 입력 양식</title>
+<style>
+	table, td, th{
+		background-color:silver;
+	}
+	
+	table{
+		margin:0 auto;
+		border-collapse:collapse;
+		border-color:green;
+	}
+	
+	td{
+		padding:5px;
+		height:30px;
+	}
+</style>
+<script>
+	window.onload = function(){	
+		document.getElementById('myForm').onsubmit=function(){
+			var output = '';
+			var strGender = '';
+			var strHobby = '';
+			
+			var name = document.getElementById('name').value;
+			var pw = document.getElementById('pw').value;
+			var t1 = document.getElementById('t1').value;
+			var t2 = document.getElementById('t2').value;
+			var t3 = document.getElementById('t3').value;
+			var job = document.getElementById('job').value;
+			var gender = document.getElementsByName('gender');
+			var hobby = document.getElementsByName('hobby');
+			var memo = document.getElementById('memo').value;
+			
+			for(var i=0; i<gender.length;i++){
+				if(gender[i].checked == true){
+					if(gender[i].value == "M"){
+						strGender = "남";
+					}else{
+						strGender = "여";
+					}
+				}
+			}
+			
+			for(var i=0; i < hobby.length; i++){
+				if(hobby[i].checked == true){
+					if(hobby[i].value == "1"){
+						strHobby += '바둑  ';
+					}else if(hobby[i].value == "2"){
+						strHobby += '게임  ';
+					}else if(hobby[i].value == "3"){
+						strHobby += '낚시  ';
+					}else if(hobby[i].value == "4"){
+						strHobby += '독서  ';
+					}
+				}
+			}
+			
+			output += '이름 : '+name+'\n';
+			output += '비밀번호 : '+pw+'\n';
+			output += '전화번호 : '+t1+'-'+t2+'-'+t3+'\n';
+			output += '직업 : '+job+'\n';
+			output += '성별 : '+strGender+'\n';
+			output += '취미 : '+strHobby+'\n';
+			output += '자기 소개하는 글 : '+memo+'\n';
+			
+			alert(output);
+		};
+		
+	};
+	
+</script>
+</head>
+<body>
+	<form id="myForm">
+		<table border="1">
+			<caption align="center" font-size="15pt"; >간단한 회원 정보 입력 양식</caption>
+			<tr>
+				<th>이름</th>
+				<td>
+					<input type="text" id="name" size="30">
+				</td>
+			</tr>
+			<tr>
+				<th>암호</th>
+				<td>
+					<input type="password" id="pw" size="30">
+				</td>
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td>
+					<input type="text" id="t1" size="5"> -
+					<input type="text" id="t2" size="6"> -
+					<input type="text" id="t3" size="6">
+				</td>
+			</tr>
+			<tr>
+				<th>직업</th>
+				<td>
+					<select id="job" name="job">
+						<option value="학생" SELECTED>학생</option>
+						<option value="직장">직장</option>
+						<option value="주부">주부</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>성별</th>
+				<td>
+					<input type="radio" name="gender" value="M" checked>남
+					<input type="radio" name="gender" value="F">여
+				</td>
+			</tr>
+			<tr>
+				<th>취미</th>
+				<td>
+					<input type="checkbox" name="hobby" value="1">바둑 
+					<input type="checkbox" name="hobby" value="2">게임 
+					<input type="checkbox" name="hobby" value="3">낚시 
+					<input type="checkbox" name="hobby" value="4">독서
+				</td>
+			</tr>
+			<tr>
+				<th>자기 소개하는 글</th>
+				<td>
+					<textarea cols="60" rows="4" id="memo" name="memo" placeholder="자기를 소개하는 글을 쓰세요."></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="등록하기"> 
+					<input type="reset" value="취소하기">
+				</td>
+			</tr>
+		</table>
+	</form>
+<body>
+</html>

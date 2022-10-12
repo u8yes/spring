@@ -1,8 +1,8 @@
 
 /* 코드 */
 CREATE TABLE code (
-	p_pno VARCHAR2(50) NOT NULL, /* 상품코드번호 */
-	dc_pcno VARCHAR2(50), /* 코드분류번호 */
+	p_pno NUMBER(3) NOT NULL, /* 상품코드번호 */
+	dc_pcno NUMBER(3), /* 코드분류번호 */
 	c_name VARCHAR2(200), /* 코드명 */
 	c_ex VARCHAR2(500) /* 코드설명 */
 );
@@ -26,27 +26,6 @@ ALTER TABLE code
 	ADD
 		CONSTRAINT PK_code
 		PRIMARY KEY (
-			p_pno
-		);
-
-
-ALTER TABLE code
-	ADD
-		CONSTRAINT FK_divisionCode_TO_code
-		FOREIGN KEY (
-			dc_pcno
-		)
-		REFERENCES divisionCode (
-			dc_pcno
-		);
-
-ALTER TABLE code
-	ADD
-		CONSTRAINT FK_PRODUCT_TO_code
-		FOREIGN KEY (
-			p_pno
-		)
-		REFERENCES PRODUCT (
 			p_pno
 		);
 

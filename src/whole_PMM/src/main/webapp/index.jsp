@@ -6,11 +6,10 @@
 <meta charset="UTF-8">
 <title>홈페이지</title>
 
-    
 </head>
 <body>
 
-	<h1 align="center">게시판 프로그램(민용기)</h1> 
+   <h1 align="center">게시판 프로그램(민용기)</h1> 
    <hr>
    
    <div align="center">
@@ -20,6 +19,5 @@
       
       <a href="getBuyList.po">글 목록 바로가기</a>
    </div>
-
 </body>
 </html>

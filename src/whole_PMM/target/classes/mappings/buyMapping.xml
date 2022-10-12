@@ -13,11 +13,18 @@
 	</insert>
 	
 
-	 <select id="getBuyList" resultType="buy">
-		<![CDATA[
-		select * from buy order by po_no asc
-		]]>
-	</select> 
+	<select id="getBuyList" resultType="buy">	
+		select * 
+	  	from buy 
+	  	where 1 = 1
+	  	<if test="searchCondition == 'PO_NO'">
+	  		and po_no like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	<if test="searchCondition == 'O_ODNO'">
+	  		and o_odno like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	order by po_no desc
+	  </select>
 	
 	 <select id="getBuy" resultType="buy">
 	<![CDATA[

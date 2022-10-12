@@ -76,287 +76,9 @@ ALTER TABLE reply
 			r_no
 		);
 
-/* 상품 */
-CREATE TABLE PRODUCT (
-	p_pno NUMBER(3) NOT NULL, /* 상품코드번호 */
-	bm_no NUMBER(3), /* 브랜드번호 */
-	p_name VARCHAR2(200), /* 상품명 */
-	p_detail VARCHAR2(1000), /* 상품상세정보 */
-	p_price NUMBER(7), /* 정가 */
-	p_disprice NUMBER(7), /* 판매가 */
-	p_start VARCHAR2(200), /* 판매시작일 */
-	p_end VARCHAR2(200), /* 판매종료일 */
-	p_delivery VARCHAR2(200), /* 배송제약사항 */
-	p_as VARCHAR2(10), /* A/S가능여부 */
-	p_ox VARCHAR2(10), /* 반품가능여부 */
-	p_pimg VARCHAR2(200), /* 제품이미지 */
-	p_dimg VARCHAR2(200), /* 상세이미지 */
-	p_deldis NUMBER(2), /* 배송할인 */
-	p_count NUMBER(4), /* 수량 */
-	p_regdate DATE DEFAULT SYSDATE /* 등록일시 */
-);
 
-COMMENT ON TABLE PRODUCT IS '상품';
 
-COMMENT ON COLUMN PRODUCT.p_pno IS '상품코드번호';
 
-COMMENT ON COLUMN PRODUCT.bm_no IS '브랜드번호';
-
-COMMENT ON COLUMN PRODUCT.p_name IS '상품명';
-
-COMMENT ON COLUMN PRODUCT.p_detail IS '상품상세정보';
-
-COMMENT ON COLUMN PRODUCT.p_price IS '정가';
-
-COMMENT ON COLUMN PRODUCT.p_disprice IS '판매가';
-
-COMMENT ON COLUMN PRODUCT.p_start IS '판매시작일';
-
-COMMENT ON COLUMN PRODUCT.p_end IS '판매종료일';
-
-COMMENT ON COLUMN PRODUCT.p_delivery IS '배송제약사항';
-
-COMMENT ON COLUMN PRODUCT.p_as IS 'A/S가능여부';
-
-COMMENT ON COLUMN PRODUCT.p_ox IS '반품가능여부';
-
-COMMENT ON COLUMN PRODUCT.p_pimg IS '제품이미지';
-
-COMMENT ON COLUMN PRODUCT.p_dimg IS '상세이미지';
-
-COMMENT ON COLUMN PRODUCT.p_deldis IS '배송할인';
-
-COMMENT ON COLUMN PRODUCT.p_count IS '수량';
-
-COMMENT ON COLUMN PRODUCT.p_regdate IS '등록일시';
-
-CREATE UNIQUE INDEX PK_PRODUCT
-	ON PRODUCT (
-		p_pno ASC
-	);
-
-ALTER TABLE PRODUCT
-	ADD
-		CONSTRAINT PK_PRODUCT
-		PRIMARY KEY (
-			p_pno
-		);
-
-/* 주문 */
-CREATE TABLE buy (
-	po_no NUMBER(3) NOT NULL, /* 주문번호 */
-	o_odno NUMBER(3), /* 주문상품번호 */
-	po_total NUMBER(7), /* 총가격 */
-	pa_no NUMBER(3), /* 포인트적용 */
-	cpa_no NUMBER(3), /* 쿠폰적용번호 */
-	d_dno NUMBER(3), /* 배송업체번호 */
-	po_drequest VARCHAR2(500), /* 배송요청사항 */
-	po_price NUMBER(7), /* 결제금액 */
-	po_ptype VARCHAR2(100), /* 결제수단코드 */
-	po_name VARCHAR2(50), /* 수령자명 */
-	po_number VARCHAR2(50), /* 수령자전화번호 */
-	po_addr VARCHAR2(200), /* 수령자 주소 */
-	po_status VARCHAR2(20), /* 주문상태 */
-	po_regdate DATE DEFAULT SYSDATE/* 주문일시 */
-);
-
-COMMENT ON TABLE buy IS '주문';
-
-COMMENT ON COLUMN buy.po_no IS '주문번호';
-
-COMMENT ON COLUMN buy.o_odno IS '주문상품번호';
-
-COMMENT ON COLUMN buy.po_total IS '총가격';
-
-COMMENT ON COLUMN buy.pa_no IS '포인트적용';
-
-COMMENT ON COLUMN buy.cpa_no IS '쿠폰적용번호';
-
-COMMENT ON COLUMN buy.d_dno IS '배송업체번호';
-
-COMMENT ON COLUMN buy.po_drequest IS '배송요청사항';
-
-COMMENT ON COLUMN buy.po_price IS '결제금액';
-
-COMMENT ON COLUMN buy.po_ptype IS '결제수단코드';
-
-COMMENT ON COLUMN buy.po_name IS '수령자명';
-
-COMMENT ON COLUMN buy.po_number IS '수령자전화번호';
-
-COMMENT ON COLUMN buy.po_addr IS '수령자 주소';
-
-COMMENT ON COLUMN buy.po_status IS '주문상태';
-
-COMMENT ON COLUMN buy.po_regdate IS '주문일시';
-
-CREATE UNIQUE INDEX PK_buy
-	ON buy (
-		po_no ASC
-	);
-
-ALTER TABLE buy
-	ADD
-		CONSTRAINT PK_buy
-		PRIMARY KEY (
-			po_no
-		);
-
-/* 배송업체 */
-CREATE TABLE delivery (
-	d_dno NUMBER(3) NOT NULL, /* 배송업처번호 */
-	d_cpname VARCHAR2(200), /* 업체명 */
-	d_odno VARCHAR2(50), /* 사업자등록번호 */
-	d_rpnname VARCHAR2(50), /* 대표자명 */
-	d_tel VARCHAR2(50), /* 대표전화번호 */
-	d_addr VARCHAR2(100), /* 주소 */
-	d_register VARCHAR2(50), /* 등록자 */
-	d_regdate DATE DEFAULT SYSDATE, /* 등록일시 */
-	d_price NUMBER(30) /* 배송가격 */
-);
-
-COMMENT ON TABLE delivery IS '배송업체';
-
-COMMENT ON COLUMN delivery.d_dno IS '배송업처번호';
-
-COMMENT ON COLUMN delivery.d_cpname IS '업체명';
-
-COMMENT ON COLUMN delivery.d_odno IS '사업자등록번호';
-
-COMMENT ON COLUMN delivery.d_rpnname IS '대표자명';
-
-COMMENT ON COLUMN delivery.d_tel IS '대표전화번호';
-
-COMMENT ON COLUMN delivery.d_addr IS '주소';
-
-COMMENT ON COLUMN delivery.d_register IS '등록자';
-
-COMMENT ON COLUMN delivery.d_regdate IS '등록일시';
-
-COMMENT ON COLUMN delivery.d_price IS '배송가격';
-
-CREATE UNIQUE INDEX PK_delivery
-	ON delivery (
-		d_dno ASC
-	);
-
-ALTER TABLE delivery
-	ADD
-		CONSTRAINT PK_delivery
-		PRIMARY KEY (
-			d_dno
-		);
-
-/* 주문상품 */
-CREATE TABLE productbuy (
-	o_odno NUMBER(3) NOT NULL, /* 주문상품번호 */
-	p_pno NUMBER(3), /* 상품코드번호 */
-	o_pquantity NUMBER(3), /* 주문 수량 */
-	s_no NUMBER(3), /* 장바구니번호 */
-	o_pno1 VARCHAR2(50), /* 주문상품1 */
-	o_pno2 VARCHAR2(50), /* 주문상품2 */
-	o_pno3 VARCHAR2(50), /* 주문상품3 */
-	o_pno1qu NUMBER(3), /* 주문상품1 수량 */
-	o_pno2qu NUMBER(3), /* 주문상품2 수량 */
-	o_pno3qu NUMBER(3), /* 주문상품3 수량 */
-	um_no NUMBER(3), /* 회원번호 */
-	o_date DATE DEFAULT SYSDATE /* 등록일시 */
-);
-
-COMMENT ON TABLE productbuy IS '주문상품';
-
-COMMENT ON COLUMN productbuy.o_odno IS '주문상품번호';
-
-COMMENT ON COLUMN productbuy.p_pno IS '상품코드번호';
-
-COMMENT ON COLUMN productbuy.o_pquantity IS '주문 수량';
-
-COMMENT ON COLUMN productbuy.s_no IS '장바구니번호';
-
-COMMENT ON COLUMN productbuy.o_pno1 IS '주문상품1';
-
-COMMENT ON COLUMN productbuy.o_pno2 IS '주문상품2';
-
-COMMENT ON COLUMN productbuy.o_pno3 IS '주문상품3';
-
-COMMENT ON COLUMN productbuy.o_pno1qu IS '주문상품1 수량';
-
-COMMENT ON COLUMN productbuy.o_pno2qu IS '주문상품2 수량';
-
-COMMENT ON COLUMN productbuy.o_pno3qu IS '주문상품3 수량';
-
-COMMENT ON COLUMN productbuy.um_no IS '회원번호';
-
-COMMENT ON COLUMN productbuy.o_date IS '등록일시';
-
-CREATE UNIQUE INDEX PK_productbuy
-	ON productbuy (
-		o_odno ASC
-	);
-
-ALTER TABLE productbuy
-	ADD
-		CONSTRAINT PK_productbuy
-		PRIMARY KEY (
-			o_odno
-		);
-
-/* 코드 */
-CREATE TABLE code (
-	p_pno NUMBER(3) NOT NULL, /* 상품코드번호 */
-	dc_pcno NUMBER(3), /* 코드분류번호 */
-	c_name VARCHAR2(200), /* 코드명 */
-	c_ex VARCHAR2(500) /* 코드설명 */
-);
-
-COMMENT ON TABLE code IS '코드';
-
-COMMENT ON COLUMN code.p_pno IS '상품코드번호';
-
-COMMENT ON COLUMN code.dc_pcno IS '코드분류번호';
-
-COMMENT ON COLUMN code.c_name IS '코드명';
-
-COMMENT ON COLUMN code.c_ex IS '코드설명';
-
-CREATE UNIQUE INDEX PK_code
-	ON code (
-		p_pno ASC
-	);
-
-ALTER TABLE code
-	ADD
-		CONSTRAINT PK_code
-		PRIMARY KEY (
-			p_pno
-		);
-
-/* 코드분류 */
-CREATE TABLE divisionCode (
-	dc_pcno NUMBER(3) NOT NULL, /* 코드분류번호 */
-	dc_name VARCHAR2(100), /* 코드분류명 */
-	dc_ex VARCHAR2(500) /* 코드분류설명 */
-);
-
-COMMENT ON TABLE divisionCode IS '코드분류';
-
-COMMENT ON COLUMN divisionCode.dc_pcno IS '코드분류번호';
-
-COMMENT ON COLUMN divisionCode.dc_name IS '코드분류명';
-
-COMMENT ON COLUMN divisionCode.dc_ex IS '코드분류설명';
-
-CREATE UNIQUE INDEX PK_divisionCode
-	ON divisionCode (
-		dc_pcno ASC
-	);
-
-ALTER TABLE divisionCode
-	ADD
-		CONSTRAINT PK_divisionCode
-		PRIMARY KEY (
-			dc_pcno
-		);
 
 /* 장바구니 */
 CREATE TABLE basket (
@@ -431,6 +153,8 @@ CREATE TABLE membership (
 	ms_sale VARCHAR2(30) /* 할인률 */
 );
 
+insert into membership(ms_grade,ms_desc,ms_sale) values(1,1,1); select * from MEMBERSHIP;
+
 COMMENT ON TABLE membership IS '멤버십';
 
 COMMENT ON COLUMN membership.ms_grade IS '멤버십등급';
@@ -451,11 +175,13 @@ ALTER TABLE membership
 			ms_grade
 		);
 
+
+		
 /* 쿠폰 */
 CREATE TABLE coupon (
 	cp_cpno NUMBER(3) NOT NULL, /* 쿠폰번호 */
-	cp_name VARCHAR2( 50), /* 쿠폰명 */
-	cp_content NUMBER(2), /* 쿠폰내용 */
+	cp_name VARCHAR2(50), /* 쿠폰명 */
+	cp_content VARCHAR2(1000), /* 쿠폰내용 */
 	cp_image VARCHAR2(500), /* 이미지 */
 	cp_regdate DATE DEFAULT SYSDATE, /* 등록일자 */
 	cp_enddate DATE  /* 마감날짜 */
@@ -559,35 +285,6 @@ ALTER TABLE review
 			rv_no
 		);
 
-/* MD */
-CREATE TABLE md (
-	md_no NUMBER(3) NOT NULL, /* MD번호 */
-	bm_no NUMBER(3), /* 브랜드번호 */
-	p_pno NUMBER(3), /* 상품코드번호 */
-	md_date DATE DEFAULT SYSDATE /* 등록일 */
-);
-
-COMMENT ON TABLE md IS 'MD';
-
-COMMENT ON COLUMN md.md_no IS 'MD번호';
-
-COMMENT ON COLUMN md.bm_no IS '브랜드번호';
-
-COMMENT ON COLUMN md.p_pno IS '상품코드번호';
-
-COMMENT ON COLUMN md.md_date IS '등록일';
-
-CREATE UNIQUE INDEX PK_md
-	ON md (
-		md_no ASC
-	);
-
-ALTER TABLE md
-	ADD
-		CONSTRAINT PK_md
-		PRIMARY KEY (
-			md_no
-		);
 
 /* 브랜드문의 */
 CREATE TABLE ask (
@@ -633,9 +330,6 @@ ALTER TABLE ask
 		PRIMARY KEY (
 			a_no
 		);
-
-insert into brandmember (bm_no,bm_id,bm_password) values(1,1,1);
-select * from BRANDMEMBER;		
 
 /* 브랜드 */
 CREATE TABLE brandMember (
@@ -691,102 +385,6 @@ ALTER TABLE brandMember
 			bm_id
 		);
 
-/* 브랜드 테마 */
-CREATE TABLE brandTheme (
-	bm_no NUMBER(3) NOT NULL, /* 브랜드번호 */
-	bt_color VARCHAR2(20), /* 색 */
-	bt_logo VARCHAR2(200), /* 로고이미지 */
-	bt_font VARCHAR2(20), /* 폰트 */
-	bt_date DATE DEFAULT SYSDATE/* 등록일 */
-);
-
-COMMENT ON TABLE brandTheme IS '브랜드 테마';
-
-COMMENT ON COLUMN brandTheme.bm_no IS '브랜드번호';
-
-COMMENT ON COLUMN brandTheme.bt_color IS '색';
-
-COMMENT ON COLUMN brandTheme.bt_logo IS '로고이미지';
-
-COMMENT ON COLUMN brandTheme.bt_font IS '폰트';
-
-COMMENT ON COLUMN brandTheme.bt_date IS '등록일';
-
-CREATE UNIQUE INDEX PK_brandTheme
-	ON brandTheme (
-		bm_no ASC
-	);
-
-ALTER TABLE brandTheme
-	ADD
-		CONSTRAINT PK_brandTheme
-		PRIMARY KEY (
-			bm_no
-		);
-		
-		
-insert into brandinfo(bm_no,bi_biznum) values(1,1);
-select * from BRANDINFO;
-
-/* 브랜드 정보 */
-CREATE TABLE brandInfo (
-	bm_no NUMBER(3) NOT NULL, /* 브랜드번호 */
-	bi_biznum VARCHAR2(50), /* 사업자번호 */
-	bi_name VARCHAR2(50), /* 업체명 */
-	bi_tel VARCHAR2(50), /* 업체연락처 */
-	bi_repr VARCHAR2(20), /* 대표자 이름 */
-	bi_commnum VARCHAR2(50), /* 통신매입번호 */
-	bi_addr VARCHAR2(100), /* 업체주소 */
-	bi_desc VARCHAR2(500), /* 설명글 */
-	bi_bizlic VARCHAR2(100), /* 사업자등록증 */
-	bi_shop VARCHAR2(100), /* 운영중쇼핑몰 */
-	bi_insta VARCHAR2(100), /* SNS(인스) */
-	bi_sns VARCHAR2(100), /* SNS(기타) */
-	bi_fax VARCHAR2(50), /* 팩스번호 */
-	bi_date DATE DEFAULT SYSDATE /* 등록일 */
-);
-
-COMMENT ON TABLE brandInfo IS '브랜드 정보';
-
-COMMENT ON COLUMN brandInfo.bm_no IS '브랜드번호';
-
-COMMENT ON COLUMN brandInfo.bi_biznum IS '사업자번호';
-
-COMMENT ON COLUMN brandInfo.bi_name IS '업체명';
-
-COMMENT ON COLUMN brandInfo.bi_tel IS '업체연락처';
-
-COMMENT ON COLUMN brandInfo.bi_repr IS '대표자 이름';
-
-COMMENT ON COLUMN brandInfo.bi_commnum IS '통신매입번호';
-
-COMMENT ON COLUMN brandInfo.bi_addr IS '업체주소';
-
-COMMENT ON COLUMN brandInfo.bi_desc IS '설명글';
-
-COMMENT ON COLUMN brandInfo.bi_bizlic IS '사업자등록증';
-
-COMMENT ON COLUMN brandInfo.bi_shop IS '운영중쇼핑몰';
-
-COMMENT ON COLUMN brandInfo.bi_insta IS 'SNS(인스)';
-
-COMMENT ON COLUMN brandInfo.bi_sns IS 'SNS(기타)';
-
-COMMENT ON COLUMN brandInfo.bi_fax IS '팩스번호';
-
-COMMENT ON COLUMN brandInfo.bi_date IS '등록일';
-
-CREATE UNIQUE INDEX PK_brandInfo
-	ON brandInfo (
-		bm_no ASC
-	);
-
-ALTER TABLE brandInfo
-	ADD
-		CONSTRAINT PK_brandInfo
-		PRIMARY KEY (
-			bm_no
-		);
 
 /* 리뷰댓글 */
 CREATE TABLE comments (

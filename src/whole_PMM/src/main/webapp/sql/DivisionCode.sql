@@ -1,8 +1,7 @@
 
-
 /* 코드분류 */
 CREATE TABLE divisionCode (
-	dc_pcno VARCHAR2(50) NOT NULL, /* 코드분류번호 */
+	dc_pcno NUMBER(3) NOT NULL, /* 코드분류번호 */
 	dc_name VARCHAR2(100), /* 코드분류명 */
 	dc_ex VARCHAR2(500) /* 코드분류설명 */
 );

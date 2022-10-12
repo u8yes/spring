@@ -58,6 +58,8 @@
 		<br>
 		<a href="insertDelivery.d">글쓰기</a>
 		
+		
+		<img src="http://ecsupport.cafe24.com/web/upload/NNEditor/20170802/%EB%B0%B0%EC%86%A1%ED%9B%84%20%EC%B7%A8%EC%86%8C1_shop1_175540.png">		
 	</center>
 	
 	

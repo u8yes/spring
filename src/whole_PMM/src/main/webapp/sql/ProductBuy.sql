@@ -1,17 +1,17 @@
 
 /* 주문상품 */
 CREATE TABLE productbuy (
-	o_odno VARCHAR2(20) NOT NULL, /* 주문상품번호 */
-	p_pno VARCHAR2(50), /* 상품코드번호 */
+	o_odno NUMBER(3) NOT NULL, /* 주문상품번호 */
+	p_pno NUMBER(3), /* 상품코드번호 */
 	o_pquantity NUMBER(3), /* 주문 수량 */
-	s_no VARCHAR2(50), /* 장바구니번호 */
+	s_no NUMBER(3), /* 장바구니번호 */
 	o_pno1 VARCHAR2(50), /* 주문상품1 */
 	o_pno2 VARCHAR2(50), /* 주문상품2 */
 	o_pno3 VARCHAR2(50), /* 주문상품3 */
 	o_pno1qu NUMBER(3), /* 주문상품1 수량 */
 	o_pno2qu NUMBER(3), /* 주문상품2 수량 */
 	o_pno3qu NUMBER(3), /* 주문상품3 수량 */
-	um_no VARCHAR2(50), /* 회원번호 */
+	um_no NUMBER(3), /* 회원번호 */
 	o_date DATE DEFAULT SYSDATE /* 등록일시 */
 );
 
@@ -52,37 +52,9 @@ ALTER TABLE productbuy
 		PRIMARY KEY (
 			o_odno
 		);
-
-
-ALTER TABLE productbuy
-	ADD
-		CONSTRAINT FK_PRODUCT_TO_productbuy
-		FOREIGN KEY (
-			p_pno
-		)
-		REFERENCES PRODUCT (
-			p_pno
-		);
-
-ALTER TABLE productbuy
-	ADD
-		CONSTRAINT FK_userMember_TO_productbuy
-		FOREIGN KEY (
-			um_no
-		)
-		REFERENCES userMember (
-			um_no
-		);
-
-ALTER TABLE productbuy
-	ADD
-		CONSTRAINT FK_basket_TO_productbuy
-		FOREIGN KEY (
-			s_no
-		)
-		REFERENCES basket (
-			s_no
-		);
+		
+		
+		
 		
 	
 
