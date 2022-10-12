@@ -41,7 +41,7 @@
 			
 			output = '주문상태 : '+strPo_status+'\n';
 			
-			alert(output);
+			alert(strPo_status);
 			
 		};
 	};
