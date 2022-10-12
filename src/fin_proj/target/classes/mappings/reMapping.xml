@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Re">
+
+	<insert id="insertRe" parameterType="re">
+	<![CDATA[
+		insert into reply(r_no,cm_bdno,um_no,r_content,r_del) values((select nvl(max(r_no),0)+1) from reply), #{cm_bdno}, #{um_no}, #{r_content}, #{r_del}
+	]]>
+	</insert>
+	
+	<select id="getReList" resultType="re">
+		
+		select * 
+		from reply 
+		where 1 = 1
+		<if test="searchCondition == 'USER'">
+			and um_no like '%'||#{searchKeyword}||'%' 
+		</if>
+		<if test="searchCondition == 'CONTENT'">
+			and r_content like '%'||#{searchKeyword}||'%'
+		</if>
+		order by r_no desc
+	
+	</select>
+	
+	<select id="getRe" resultType="re">
+	<![CDATA[
+		select * from reply where r_no = #{r_no}
+	]]>
+	</select>
+	
+	<update id="updateRe">
+	<![CDATA[
+		update reply set r_content = #{r_content} where r_no = #{r_no}
+	]]>
+	</update>
+	
+	<delete id="deleteRe">
+	<![CDATA[
+		delete from reply where r_no = #{r_no}
+	]]>
+	</delete>
+
+</mapper>

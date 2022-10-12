@@ -45,6 +45,7 @@ public class DivisionCodeDAOMybatis {
 	public void updateDivisionCode(DivisionCodeVO dc) {	// DTO(DO)
 		mybatis.update("DivisionCode.updateDivisionCode", dc);
 		
+		System.out.println("updateDivisionCode DAO => " + dc);
 	}
 	
 	// 글 삭제(delete문)

@@ -34,7 +34,7 @@ public class DivisionCodeController {
 	public String insertDivisionCode() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "insertDivisionCode";
+		return "brand/insertDivisionCode";
 	}
 	
 	
@@ -71,7 +71,7 @@ public class DivisionCodeController {
 		
 		model.addAttribute("divisionCode", dc);
 		
-		return "getDivisionCode";
+		return "brand/getDivisionCode";
 	}
 	
 	// 검색 조건 목록 설정
@@ -106,7 +106,7 @@ public class DivisionCodeController {
 
 		model.addAttribute("divisionCodeList", list);
 				
-		return "getDivisionCodeList";
+		return "brand/getDivisionCodeList";
 	}
 	
 		
@@ -141,6 +141,7 @@ public class DivisionCodeController {
 		
 		
 		divisionCodeService.updateService(divisionCode);
+		System.out.println("updateDivisionCode controller => "+divisionCode );
 		return "redirect:getDivisionCodeList.dc";
 	}
 	

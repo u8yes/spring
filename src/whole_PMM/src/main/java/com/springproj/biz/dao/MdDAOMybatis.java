@@ -44,7 +44,7 @@ public class MdDAOMybatis {
 	// 글 수정(update문)
 	public void updateMd(MdVO md) {	// DTO(DO)
 		mybatis.update("Md.updateMd", md);
-		
+		System.out.println("updateMd DAO => " + md);
 	}
 	
 	// 글 삭제(delete문)

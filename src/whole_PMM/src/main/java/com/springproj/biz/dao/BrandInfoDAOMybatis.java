@@ -44,7 +44,7 @@ public class BrandInfoDAOMybatis {
 	// 글 수정(update문)
 	public void updateBrandInfo(BrandInfoVO bi) {	// DTO(DO)
 		mybatis.update("BrandInfo.updateBrandInfo", bi);
-		
+		System.out.println("dao brandinfo => " + bi);
 	}
 	
 	// 글 삭제(delete문)

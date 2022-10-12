@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BrandMember">
+	<insert id="insertBrandMember">
+		<!-- 비교연산자 > < 는 엘리멘트로 인식 할 수 있기 때문에 <![CDATA[]]> 아래와 같이 처리한다 -->
+	<![CDATA[
+	INSERT into brandmember(bm_no, bm_id, bm_password,bm_manager,bm_email, bm_tel, bm_ars, bm_agree)
+	values((select nvl(max(bm_no),0)+1 from brandmember),#{bm_id},#{bm_password},#{bm_manager},#{bm_email}, #{bm_tel},'not','5') 
+	]]>
+	</insert>
+
+	<select id="getBrandMember" resultType="brandMember">
+	<![CDATA[
+	SELECT * FROM brandmember  WHERE bm_no = #{bm_no}
+	]]>
+	</select>
+
+
+	<select id="getBrandMemberList" 
+		resultType="brandMember">
+
+		SELECT *
+		FROM brandmember
+		WHERE 1 = 1
+		<if test="searchBrandCondition == 'BM_NO'">
+			and bm_NO like '%'||#{searchBrandKeyword}||'%'
+		</if>
+		<if test="searchBrandCondition == 'BM_ID'">
+			and bM_iD like '%'||#{searchBrandKeyword}||'%'
+		</if>
+		ORDER BY bM_NO DESC
+
+	</select>
+
+
+
+
+	<update id="updateBrandMember">
+	<![CDATA[
+	UPDATE brandmember set bm_password = #{bm_password} WHERE bm_no = #{bm_no}
+	]]>
+	</update>
+
+	<delete id="deleteBrandMember">
+	<![CDATA[
+	DELETE FROM brandmember  WHERE bm_no = #{bm_no}
+	]]>
+	</delete>
+
+
+</mapper>
+
+ 

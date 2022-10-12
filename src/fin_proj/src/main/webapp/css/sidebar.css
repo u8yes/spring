@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+@font-face {
+    font-family: 'KoPubWorldDotum';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.ttf') format("truetype");
+    font-display: swap;
+}
+
+body{
+  margin : 0; 
+}
+
+.sidebar{
+  margin-top : 160px;
+  padding-top : 50px;
+  position:absolute;
+  top : 0px;
+  left : 0px;
+  width : 170px;
+  height : 100%;
+  top : 0;
+  left: 0;
+  bottom : 0;
+  background-color : #92bd51;
+  overflow: auto;
+  
+}
+
+.brandside{
+  font-family: 'KoPubWorldDotum';
+  color : white;
+  list-style-type: none;
+  
+}
+
+.sidebar a{
+  display : block;
+  font-family: 'KoPubWorldDotum';
+  text-decoration: none;
+  color : white;
+  font-size : 13px;
+}
+
+.sidebar a:hover {
+  background: #729F39;
+  color: #fff;
+}
+
+h1{
+  text-align : center;
+  color : white;
+  font-family: 'KoPubWorldDotum';
+  font-size : 15px;
+  margin-bottom : 2px;
+ 
+  
+}
+
+.list{
+  margin-bottom : 25px;
+  text-align : center;
+}
+
+hr {
+  width : 70%;
+  color : #FFF;
+  border : none;
+  border-top : 1px solid #fff;
+
+}
+
+.contents {
+margin-top : 80px;
+margin-left : 220px;
+margin-right : 10%;
+}

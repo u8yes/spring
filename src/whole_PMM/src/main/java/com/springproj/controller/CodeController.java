@@ -33,7 +33,7 @@ public class CodeController {
 	public String insertCode() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "insertCode";
+		return "brand/insertCode";
 	}
 	
 	
@@ -70,7 +70,7 @@ public class CodeController {
 		
 		model.addAttribute("code", co);
 		
-		return "getCode";
+		return "brand/getCode";
 	}
 	
 	// 검색 조건 목록 설정
@@ -105,21 +105,10 @@ public class CodeController {
 
 		model.addAttribute("codeList", list);
 				
-		return "getCodeList";
+		return "brand/getCodeList";
 	}
 	
-		
-	/*
-	 * @RequestMapping("/updateBrand.do") // /insertBrand.do를 부르면 바로 Controller 작업
-	 * 들어가라 public String updateBrandProc(@ModelAttribute("brand") BrandVO vo) {
-	 * //System.out.println("글 수정 처리");
-	 * 
-	 * brandService.updateService(vo);
-	 * 
-	 * System.out.println("브랜드컨트롤 => "+vo);
-	 * 
-	 * return "redirect:getBrandList.do"; }
-	 */
+	
 	
 	@PostMapping("/updateCode.co")
 	public String updateCode(CodeVO code, HttpSession session) throws IOException{
@@ -140,6 +129,8 @@ public class CodeController {
 		
 		
 		codeService.updateService(code);
+		System.out.println("updateCode Controller =>"+code);
+
 		return "redirect:getCodeList.co";
 	}
 	

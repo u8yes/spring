@@ -30,6 +30,30 @@ ALTER TABLE code
 		);
 
 
+ALTER TABLE code
+	ADD
+		CONSTRAINT FK_divisionCode_TO_code
+		FOREIGN KEY (
+			dc_pcno
+		)
+		REFERENCES divisionCode (
+			dc_pcno
+		);
+
+ALTER TABLE code
+	ADD
+		CONSTRAINT FK_PRODUCT_TO_code
+		FOREIGN KEY (
+			p_pno
+		)
+		REFERENCES PRODUCT (
+			p_pno
+		);
+
+
+		
+		
+		
 		
 select * from code order by p_pno desc;
 

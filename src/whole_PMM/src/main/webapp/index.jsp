@@ -15,10 +15,10 @@
    
    <div align="center">
       <a href="login.me">로그인</a>
+       
+      <br><br> 
       
-      <br><br>
-      
-      <a href="getBrandInfoList.bi">글 목록 바로가기</a>
+      <a href="getBuyList.po">글 목록 바로가기</a>
    </div>
 
 </body>

@@ -31,9 +31,8 @@ public class BrandThemeController {
 	//@RequestMapping(value = "/insertBrand.do", method = RequestMethod.GET)	// /insertBrand.do를 부르면 바로 Controller 작업 들어가라
 	@GetMapping("/insertBrandTheme.bt")
 	public String insertBrandTheme() {
-		System.out.println("글 등록 화면 처리");
 		
-		return "insertBrandTheme";
+		return "brand/insertBrandTheme";
 	}
 	
 	
@@ -58,6 +57,8 @@ public class BrandThemeController {
 		
 		
 		brandThemeService.insertService(brandTheme);
+		
+		System.out.println("브랜드 테마 controller=>"+ brandTheme);
 		return "redirect:getBrandThemeList.bt";
 	}
 		
@@ -70,7 +71,7 @@ public class BrandThemeController {
 		
 		model.addAttribute("brandTheme", bt);
 		
-		return "getBrandTheme";
+		return "brand/getBrandTheme";
 	}
 	
 	// 검색 조건 목록 설정
@@ -78,8 +79,8 @@ public class BrandThemeController {
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
 		
-		conditionMap.put("BM_NO", "BM_NO");
-		conditionMap.put("BT_NO", "BT_NO");
+		conditionMap.put("BT_FONT", "BT_FONT");
+		conditionMap.put("BT_COLOR", "BT_COLOR");
 		
 		return conditionMap;
 	}
@@ -94,7 +95,7 @@ public class BrandThemeController {
 		System.out.println("검색 조건 : " + bt.getSearchKeyword());
 		
 		if(bt.getSearchCondition() == null) {
-			bt.setSearchCondition("BM_NO");
+			bt.setSearchCondition("BT_FONT");
 		}
 		
 		if(bt.getSearchKeyword() == null) {
@@ -105,7 +106,7 @@ public class BrandThemeController {
 
 		model.addAttribute("brandThemeList", list);
 				
-		return "getBrandThemeList";
+		return "brand/getBrandThemeList";
 	}
 	
 		

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">	
+  <!-- 쿼리가 담기는 설정 파일이다 -->
+  
+  <mapper namespace="ProductBuy">
+	  <insert id="insertProductBuy" parameterType="productBuy"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
+	  <![CDATA[
+	  	insert into productbuy(o_odno, p_pno, o_pquantity,s_no,o_pno1,o_pno2,o_pno3,o_pno1qu,o_pno2qu,o_pno3qu,um_no) 
+		values((select nvl(max(o_odno),0)+1 from productbuy), #{p_pno}, #{o_pquantity}, #{s_no}, #{o_pno1}, #{o_pno2}, #{o_pno3}, #{o_pno1qu}, #{o_pno2qu}, 
+		#{o_pno3qu}, #{um_no})
+	  ]]>
+	  </insert>	
+	 
+	  
+	  <!-- Mybatis가 제공하는 동적(Dynamic) SQL 쿼리문을 추가적으로 제공해줌. Spring(X) -->
+	  <!-- resultType="Brand" 반환받는 타입을 명시하고 있어야 한다. 짧게 별명alias로 Brand로 -->
+	  <select id="getProductBuyList" resultType="productBuy">	
+		select * 
+	  	from productBuy 
+	  	where 1 = 1
+	  	<if test="searchCondition == 'O_ODNO'">
+	  		and o_odno like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	<if test="searchCondition == 'P_PNO'">
+	  		and p_pno like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	order by o_odno desc
+	  </select>
+	  
+	  
+	  <!-- List 보여주기 -->
+	  <select id="getProductBuy" resultType="productBuy">
+	  <![CDATA[
+	  	select * from productBuy where o_odno = #{o_odno}
+	  ]]>
+	  </select>
+	  
+	  
+	  <update id="updateProductBuy">
+	  <![CDATA[
+	  	update productBuy set o_odno = #{o_odno}, p_pno = #{p_pno}, o_pquantity = #{o_pquantity}, s_no = #{s_no}, 
+	  	o_pno1 = #{o_pno1}, o_pno2 = #{o_pno2}, o_pno3 = #{o_pno3}, o_pno1qu = #{o_pno1qu}, o_pno2qu = #{o_pno2qu}, o_pno3qu = #{o_pno3qu}, 
+	  	um_no = #{um_no} where o_odno = #{o_odno}
+	  ]]>
+	  </update>
+	  
+	  <delete id="deleteProductBuy">
+	  <![CDATA[
+	  	delete from productBuy where o_odno = #{o_odno}
+	  ]]>
+	  </delete>
+	  
+  </mapper>
+	  
+    	
+			
+	

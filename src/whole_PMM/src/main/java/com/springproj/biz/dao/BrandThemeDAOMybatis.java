@@ -19,6 +19,7 @@ public class BrandThemeDAOMybatis {
 	public void insertBrandTheme(BrandThemeVO bt) {	// DTO(DO), 매개변수를 파라미터라고도 한다. 전달되어지는 타입 (BoardVO vo)
 		
 		mybatis.insert("BrandTheme.insertBrandTheme", bt);	// get메서드로 요청하면 마이바티스가 반환해준다.
+		System.out.println("brandTheme insertDAO => "+ bt);
 	}
 	
 	// 목록보기(select문)

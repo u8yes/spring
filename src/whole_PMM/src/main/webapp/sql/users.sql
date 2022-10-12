@@ -1,3 +1,5 @@
+/* 선생님과 한 실습임 프로젝트랑 상관없음. */
+
 drop table users purge;
 
 create table users(

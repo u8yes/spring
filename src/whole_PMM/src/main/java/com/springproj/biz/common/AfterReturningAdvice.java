@@ -22,7 +22,7 @@ public class AfterReturningAdvice {
 		String method = jp.getSignature().getName();
 		
 		if(returnObj instanceof BrandInfoVO) {
-			BrandInfoVO board = (BrandInfoVO) returnObj;
+			BrandInfoVO boardInfo = (BrandInfoVO) returnObj;
 			
 			
 		}

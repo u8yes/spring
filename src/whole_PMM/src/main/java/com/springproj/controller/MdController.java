@@ -33,7 +33,7 @@ public class MdController {
 	public String mdBrand() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "insertMd";
+		return "brand/insertMd";
 	}
 	
 	
@@ -70,7 +70,7 @@ public class MdController {
 		
 		model.addAttribute("md", md);
 		
-		return "getMd";
+		return "brand/getMd";
 	}
 	
 	// 검색 조건 목록 설정
@@ -78,7 +78,7 @@ public class MdController {
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
 		
-		conditionMap.put("회사", "MD_NO");
+		conditionMap.put("회사", "P_PNO");
 		conditionMap.put("설명", "BM_NO");
 		
 		return conditionMap;
@@ -94,7 +94,7 @@ public class MdController {
 		System.out.println("검색 조건 : " + md.getSearchKeyword());
 		
 		if(md.getSearchCondition() == null) {
-			md.setSearchCondition("MD_NO");
+			md.setSearchCondition("P_PNO");
 		}
 		
 		if(md.getSearchKeyword() == null) {
@@ -105,7 +105,7 @@ public class MdController {
 
 		model.addAttribute("mdList", list);
 				
-		return "getMdList";
+		return "brand/getMdList";
 	}
 	
 		

@@ -20,6 +20,7 @@ public class BrandThemeServiceImpl implements BrandThemeService {
 	@Override
 	public void insertService(BrandThemeVO bt) {
 		dao.insertBrandTheme(bt);
+		System.out.println("Ipml insert brandTheme => "+ bt);
 		
 	}
 

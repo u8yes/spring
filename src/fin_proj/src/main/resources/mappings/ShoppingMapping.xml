@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Shopping">
+
+	<insert id="insertShopping" >
+	<!-- insert into enter(seq,title,writer,content) values((select nvl(max(seq),0)+1 from board), #{title}, #{writer}, #{content}) -->
+	<![CDATA[
+		
+		insert into shoppingBasket(s_no,um_no,p_pno,s_quantity) values(#{s_no},#{um_no},#{p_pno},#{s_quantity})
+	]]>
+	</insert>
+	
+	<!-- 
+	<select id="getBoardList_T" resultType="board">
+	<![CDATA[
+		select * from board where title like '%'||#{searchKeyword}||'%' order by seq desc
+	]]>
+	</select>
+	
+	<select id="getBoardList_C" resultType="board">
+	<![CDATA[
+		select * from board where content like '%'||#{searchKeyword}||'%' order by seq desc
+	]]>
+	</select> 
+	-->
+	<!-- 검색기능 --> 
+	 <select id="getBoardList2" resultType="shopping">
+	
+	<!-- 	select * 
+		from product 
+		where 1 = 1
+		<if test="searchCondition == 'P_PNO'">
+			and p_pno like '%'||#{searchKeyword}||'%' 
+		</if>
+		<if test="searchCondition == 'G_CNO'">
+			and g_cno like '%'||#{searchKeyword}||'%'
+		</if>
+		order by p_pno desc  -->
+ 		<![CDATA[
+		select * from shoppingBasket order by s_no asc
+		]]>
+	
+	</select> 
+	
+	<select id="getBoard2" resultType="shopping">
+	<![CDATA[
+		select * from shoppingBasket where s_no = #{s_no}
+	]]>
+	</select>
+	
+	 <update id="updateBoard">
+	<![CDATA[
+		update shoppingBasket set um_no = #{um_no}, s_quantity = #{s_quantity} where s_no = #{s_no}
+	]]>
+	</update> 
+	
+	 <delete id="deleteBoard">
+	<![CDATA[
+		delete from shoppingBasket where s_no = #{s_no}
+	]]>
+	</delete>
+	
+</mapper>  
+
+<!-- ' <![CDATA[ sql query문 ]]> ' : sql query안의 연산자를 elements로 인식하지 않도록 붙여줘야 하는 것. -->
+  

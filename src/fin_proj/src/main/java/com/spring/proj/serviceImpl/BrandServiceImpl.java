@@ -1,0 +1,48 @@
+package com.spring.proj.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spring.proj.dao.BrandDAOMybatis;
+import com.spring.proj.domain.BrandVO;
+import com.spring.proj.service.BrandService;
+
+@Service("brandService")	// 다른 클래스에서 @Autowired를 통해 사용할 수 있게 해줌
+public class BrandServiceImpl implements BrandService {
+	
+	@Autowired
+	//private BrandDAO dao;
+	private BrandDAOMybatis dao;
+		
+	
+	@Override
+	public void insertService(BrandVO vo) {
+		dao.insertBrand(vo);
+		
+	}
+
+	@Override
+	public BrandVO getService(int b_no) {
+		BrandVO brand = dao.getBrand(b_no);
+		
+		return brand;
+	}
+
+	@Override
+	public List<BrandVO> getServiceList(BrandVO vo) {
+		return dao.getBrandList(vo);
+	}
+
+	@Override
+	public void updateService(BrandVO vo) {
+		dao.updateBrand(vo);// BoardDAO에서 가져오고 있음
+	}
+
+	@Override
+	public void deleteService(int b_no) {
+		dao.deleteBrand(b_no);
+	}
+	
+}

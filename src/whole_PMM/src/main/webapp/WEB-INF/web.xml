@@ -56,10 +56,14 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 		<url-pattern>*.md</url-pattern> 
 		<url-pattern>*.bt</url-pattern> 
 		<url-pattern>*.bi</url-pattern> 
-		<url-pattern>*.bc</url-pattern> 
 		<url-pattern>*.co</url-pattern> 
-		<url-pattern>*.ka</url-pattern> 
 		<url-pattern>*.dc</url-pattern> 
+		<url-pattern>*.p</url-pattern>
+		<url-pattern>*.d</url-pattern>
+		<url-pattern>*.zo</url-pattern>
+		<url-pattern>*.doo</url-pattern> 
+		<url-pattern>*.o</url-pattern> 
+		<url-pattern>*.po</url-pattern> 
 	</servlet-mapping>
 
 </web-app>

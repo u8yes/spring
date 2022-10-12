@@ -13,6 +13,14 @@
   		<typeAlias alias="brandInfo" type="com.springproj.biz.domain.BrandInfoVO"/>
   		<typeAlias alias="code" type="com.springproj.biz.domain.CodeVO"/>
   		<typeAlias alias="divisionCode" type="com.springproj.biz.domain.DivisionCodeVO"/>
+  		<typeAlias alias="product" type="com.springproj.biz.domain.ProductVO"/>
+  		<typeAlias alias="productBuy" type="com.springproj.biz.domain.ProductBuyVO" />
+  		<typeAlias alias="delivery" type="com.springproj.biz.domain.DeliveryVO" />
+  		
+  		
+  		<!-- 강승주 -->
+		<typeAlias alias="buy" type="com.springproj.biz.domain.BuyVO" />
+  		
   	</typeAliases>
   	
   	<!-- SQL Mapper 설정 -->
@@ -22,6 +30,12 @@
   		<mapper resource="mappings/brandInfoMapping.xml"/>
   		<mapper resource="mappings/codeMapping.xml"/>
   		<mapper resource="mappings/divisionCodeMapping.xml"/>
+  		<mapper resource="mappings/ProductMapping.xml"/>
+  		<mapper resource="mappings/productBuyMapping.xml" />
+  		<mapper resource="mappings/deliveryMapping.xml" />
+  		
+  		<!-- 강승주 -->
+		<mapper resource="mappings/buyMapping.xml" />
   	</mappers>
   
   </configuration>

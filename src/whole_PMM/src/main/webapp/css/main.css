@@ -1,0 +1,88 @@
+<style>
+/* 브랜드 박스 관련 CSS */
+	.brand{
+     	background-color: gray;
+        border-radius: 10px;
+        min-width: 200px;
+        height: 200px;
+        text-align: center;
+        display: inline-block;
+        margin: 20px;
+        scroll-snap-align: center;
+     }
+/* 브랜드 박스 배열 관련 */
+     .brand_list{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+	}
+	/* 브랜드 스크롤 */
+	.brand_list::-webkit-scrollbar {
+  height: .5rem;
+  background-color: #E7F6A7;
+	}
+	.brand_list::-webkit-scrollbar-thumb{
+  background-color: #ADDB62;
+  border-radius: 10px;
+	}
+	
+	/*마우스커서over 브랜드 부각, 다른브랜드 밀리기   */
+	.brand:hover{
+  transform: translateY(-.5rem);
+
+	}
+	.brand:hover ~ .brand{
+  transform: translateX(1rem);
+	}
+	/* 이벤트 id CSS */
+	#event{
+	background-color: gray;
+	padding: 10px;
+	width: 100%;
+	height: 300px;
+	}
+	
+/* 상품 카드 관련 CSS */
+	.productcard{
+     	background-color: gray;
+     	width: 250px;
+        height: 300px;
+        display: center;
+        border-radius:10px;
+     }
+/* 상품 박스 배열 관련 */
+     .productcard_list{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+	}
+		/* 상품 스크롤 */
+	.productcard_list::-webkit-scrollbar {
+  height: .5rem;
+  background-color: #E7F6A7;
+	}
+	.productcard_list::-webkit-scrollbar-thumb{
+  background-color: #ADDB62;
+  border-radius: 10px;
+	}
+	
+	/*마우스커서over 상품 부각, 다른상품 밀리기   */
+	
+	.productcard_box:hover{
+  transform: translateY(-.5rem);
+	}
+	.productcard_box:hover ~ .productcard{
+  transform: translateX(1rem);
+	}
+	
+	.productcard_box{
+     	background-color: lightgray;
+        border-radius: 10px;
+        width: 250px;
+        height: 400px;
+        text-align: left;
+        display: inline-block;
+        margin: 20px;
+        scroll-snap-align: center;
+	}
+</style>

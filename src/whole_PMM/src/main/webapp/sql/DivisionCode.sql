@@ -1,4 +1,5 @@
 
+
 /* 코드분류 */
 CREATE TABLE divisionCode (
 	dc_pcno VARCHAR2(50) NOT NULL, /* 코드분류번호 */
@@ -28,7 +29,10 @@ ALTER TABLE divisionCode
 
 
 
+
+
 select * from divisionCode;
+
 
 drop table divisionCode;
 

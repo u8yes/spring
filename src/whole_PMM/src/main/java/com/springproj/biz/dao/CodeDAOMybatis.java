@@ -44,7 +44,8 @@ public class CodeDAOMybatis {
 	// 글 수정(update문)
 	public void updateCode(CodeVO co) {	// DTO(DO)
 		mybatis.update("Code.updateCode", co);
-		
+		System.out.println("updateCode DAOMyBatis =>"+co);
+
 	}
 	
 	// 글 삭제(delete문)

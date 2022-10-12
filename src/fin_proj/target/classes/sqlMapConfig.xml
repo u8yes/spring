@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+	<!-- Alias 설정 -->
+	<typeAliases>
+		<!-- 허영강 -->
+
+		<typeAlias alias="usermember"
+			type="com.spring.proj.domain.UserMemberVO" />
+		<typeAlias alias="brandmember"
+			type="com.spring.proj.domain.BrandMemberVO" />
+
+		<!-- 정한솔 -->
+		<typeAlias alias="product"
+			type="com.spring.proj.domain.ProductVO" />
+		<typeAlias alias="shopping"
+			type="com.spring.proj.domain.ShoppingVO" />
+
+
+		<!-- 김예주 -->
+		<typeAlias alias="ask" type="com.spring.proj.domain.AskVO" />
+		<typeAlias alias="rv" type="com.spring.proj.domain.ReviewVO" />
+		<typeAlias alias="ar" type="com.spring.proj.domain.AskRvVO" />
+		<typeAlias alias="coms"
+			type="com.spring.proj.domain.CommentsVO" />
+		<typeAlias alias="re" type="com.spring.proj.domain.ReplyVO" />
+		<typeAlias alias="commu"
+			type="com.spring.proj.domain.CommunityVO" />
+
+
+		<!-- 강승주 -->
+
+		<typeAlias alias="buy" type="com.spring.proj.domain.BuyVO" />
+		<typeAlias alias="point"
+			type="com.spring.proj.domain.PointVO" />
+		<typeAlias alias="pay" type="com.spring.proj.domain.PayVO" />
+		<typeAlias alias="delivery"
+			type="com.spring.proj.domain.DeliveryVO" />
+		<typeAlias alias="productbuy"
+			type="com.spring.proj.domain.ProductbuyVO" />
+		<typeAlias alias="keep" type="com.spring.proj.domain.KeepVO" />
+
+
+		<!-- 민용기 -->
+		<typeAlias alias="brand"
+			type="com.spring.proj.domain.BrandVO" />  	<!-- 만들 때 나타나는 속성(type)은 무조건 써줘야 하는 속성 -->
+		<typeAlias alias="md" type="com.spring.proj.domain.MdVO" />
+		<typeAlias alias="brandTheme"
+			type="com.spring.proj.domain.BrandThemeVO" />
+		<typeAlias alias="brandInfo"
+			type="com.spring.proj.domain.BrandInfoVO" />
+		<typeAlias alias="brandCheck"
+			type="com.spring.proj.domain.BrandCheckVO" />
+		<typeAlias alias="code" type="com.spring.proj.domain.CodeVO" />
+		<typeAlias alias="divisionCode"
+			type="com.spring.proj.domain.DivisionCodeVO" />
+
+
+
+	</typeAliases>
+
+	<!-- Sql Mapper의 위치 설정 -->
+	<mappers>
+		<mapper resource="mappings/usermemberMapping.xml" />
+		<mapper resource="mappings/brandmemberMapping.xml" />
+
+		<!-- 정한솔 -->
+		<mapper resource="mappings/ProductMapping.xml" />
+		<mapper resource="mappings/ShoppingMapping.xml" />
+
+		<!-- 김예주 -->
+		<mapper resource="mappings/askMapping.xml" />
+		<mapper resource="mappings/rvMapping.xml" />
+		<mapper resource="mappings/arMapping.xml" />
+		<mapper resource="mappings/comsMapping.xml" />
+		<mapper resource="mappings/reMapping.xml" />
+		<mapper resource="mappings/commuMapping.xml" />
+
+		<!-- 강승주 -->
+		<mapper resource="mappings/buyMapping.xml" />
+		<mapper resource="mappings/pointMapping.xml" />
+		<mapper resource="mappings/payMapping.xml" />
+		<mapper resource="mappings/deliveryMapping.xml" />
+		<mapper resource="mappings/productbuyMapping.xml" />
+		<mapper resource="mappings/keepMapping.xml" />
+
+		<!-- 민용기 -->
+
+		<mapper resource="mappings/brandMapping.xml" />
+		<mapper resource="mappings/mdMapping.xml" />
+		<mapper resource="mappings/brandThemeMapping.xml" />
+		<mapper resource="mappings/brandInfoMapping.xml" />
+		<mapper resource="mappings/brandCheckMapping.xml" />
+		<mapper resource="mappings/codeMapping.xml" />
+		<mapper resource="mappings/divisionCodeMapping.xml" />
+
+
+	</mappers>
+
+
+
+</configuration>
+  
