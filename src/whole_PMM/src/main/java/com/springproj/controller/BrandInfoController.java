@@ -33,7 +33,7 @@ public class BrandInfoController {
 	public String insertBrandInfo() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "brand/insertBrandInfo";
+		return "adminBrand/insertBrandInfo";
 	}
 	
 	
@@ -71,7 +71,7 @@ public class BrandInfoController {
 		
 		model.addAttribute("brandInfo", bi);
 		
-		return "brand/getBrandInfo";
+		return "adminBrand/getBrandInfo";
 	}
 	
 	// 검색 조건 목록 설정
@@ -106,7 +106,7 @@ public class BrandInfoController {
 
 		model.addAttribute("brandInfoList", list);
 				
-		return "brand/getBrandInfoList";
+		return "adminBrand/getBrandInfoList";
 	}
 	
 		

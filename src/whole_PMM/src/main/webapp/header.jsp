@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <head>
-<%@ include file = "css/header.css" %>
+<%@ include file = "/css/header.css" %>
 </head>
 <body>
 <header>
@@ -15,8 +15,8 @@
       <!--  -->
       <div class="head_util">
       <ul class="navbar_menu">
-      		<li class="nav_item"><a href="signIn.jsp"><img class="pictogram" src="../img/signin.png"></a></li> 
-      		<li class="dropdown"><a href="#"><img class="pictogram" src="../img/mypage.png"></a>
+      		<li class="nav_item"><a href="signIn.jsp"><img class="pictogram" src="img/signin.png"></a></li> 
+      		<li class="dropdown"><a href="#"><img class="pictogram" src="img/mypage.png"></a>
       			<ul class="dropdown-content"> <!--제이쿼리로 로그인 상태에따라 다르게 보이기 설정 해야함 -->
       				<ul class= "userLogin"><a href="#">개인정보수정</a></ul>
       				<ul class= "userLogin"><a href="#">활동관리</a></ul>
@@ -35,7 +35,7 @@
       				<ul class= "pmmLogin"><a href="#">혜택관리</a></ul>
       			</ul>
       		</li>
-      		<li class="nav_item"><a href="#"><img class="pictogram" src="../img/cart.png"></a></li> 
+      		<li class="nav_item"><a href="#"><img class="pictogram" src="img/cart.png"></a></li> 
       	</ul>
       </div>
 </nav>

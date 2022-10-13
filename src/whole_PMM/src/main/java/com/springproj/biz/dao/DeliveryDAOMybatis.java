@@ -20,7 +20,7 @@ public class DeliveryDAOMybatis {
 	}
 	
 
-	public DeliveryVO getDelivery(String d_dno) {
+	public DeliveryVO getDelivery(int d_dno) {
 		return mybatis.selectOne("Delivery.getDelivery", d_dno); 
 		}
 	
@@ -39,7 +39,7 @@ public class DeliveryDAOMybatis {
 	}
 	
 	
-	public void deleteDelivery(String d_dno) {
+	public void deleteDelivery(int d_dno) {
 		
 		mybatis.delete("Delivery.deleteDelivery", d_dno);
 	}

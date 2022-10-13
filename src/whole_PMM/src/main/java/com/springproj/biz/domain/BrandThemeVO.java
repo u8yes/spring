@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class BrandThemeVO {	// javaBean
 	
-	private String bm_no;
+	private int bm_no;
 	private String bt_color;
 	private String bt_font;
 	private String bt_logo;

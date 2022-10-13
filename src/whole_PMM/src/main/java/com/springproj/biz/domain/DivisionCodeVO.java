@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class DivisionCodeVO {	// javaBean
-	private String dc_pcno;
+	private int dc_pcno;
 	private String dc_name;
 	private String dc_ex;
 	

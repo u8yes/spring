@@ -9,6 +9,15 @@
 <meta charset="UTF-8">
 <title>글 목록</title>
 
+<style type="text/css">
+	table{
+		margin-left: 70px;
+	}
+	.totalList{
+		margin-left: 200px;
+	}
+</style>
+
 <script>
 	window.onload = function(){	
 		document.getElementById('myForm').onsubmit=function(){
@@ -57,18 +66,20 @@
 <%@ include file = "/sharedFunction/header.jsp" %>
 <%@ include file = "/sharedFunction/adminSidebar.jsp" %>
 
+<br><br><br>
 
-
-	
+	<div class="totalList" bgcolor="gray" align="" style="background-color: gray; padding: 5px;">전체목록 | 전체주문내역 5건</div>
 	<center>
+	
+	
 		
 		<!-- select 검색 시작 -->
 		<div>
 		<form action="getBuyList.po" method="post">
 		
-			<table border="1" cellpadding="5" cellspacing="0" width="1200" bgcolor="#92bd51;">
+			<table border="0" cellpadding="5" cellspacing="0" width="1200" bgcolor="">
 				<tr>
-					<th align="left">검색어</th>
+					
 					<td align="left">
 						<select name="searchCondition">
 							<!-- conditionMap데이터를 option 변수에 저장 -->
@@ -77,18 +88,18 @@
 							</c:forEach>
 						</select>
 						<input type="search" name="searchKeyword">	<!-- text를 search로 바꾼 상태 -->
-						<input type="submit" value="검색">
+						<input type="submit" value="검색" style="background-color: #996666;">
 					</td>
 				</tr>
 				</table>
 			</form>
 		</div>
 		<!-- 검색 종료 -->
-		
-		<!-- select 검색 시작 -->
+		<hr>
+		<!-- 검색 시작 -->
 		<div>
 		<form action="getBuyList.po" method="post" id="myForm">
-			<table border="0" cellpadding="5" cellspacing="0" width="1200" bgcolor="">
+			<table border="1" cellpadding="5" cellspacing="0" width="1200"">
 				<tr>
 					<th>주문상태</th>
 					<td>
@@ -100,7 +111,49 @@
 					<input type="radio" name="po_status" value="5">배송완료
 					<input type="radio" name="po_status" value="6">거래완료
 					<input type="radio" name="po_status" value="7">환불
-					<input type="submit" value="검색하기">
+					<input type="submit" value="검색하기" style="">
+					</td>
+				</tr>
+				<tr>
+					<th>결제수단</th>
+					<td>
+					<input type="radio" name="" value="" checked>전체       
+					<input type="radio" name="" value="1">무통장
+					<input type="radio" name="" value="2">가상계좌
+					<input type="radio" name="" value="3">계좌이체
+					<input type="radio" name="" value="4">휴대폰
+					<input type="radio" name="" value="5">신용카드
+					<input type="radio" name="" value="6">PG간편결제
+					<input type="radio" name="" value="7">KAKAOPAY
+					<input type="submit" value="검색하기" style="">
+					</td>
+				</tr>
+				<tr>
+					<th>기타선택</th>
+					<td>
+					<input type="radio" name="" value="" checked>전체       
+					<input type="radio" name="" value="1">기타선택
+					<input type="radio" name="" value="2">미수금
+					<input type="radio" name="" value="3">반품,품절
+					<input type="radio" name="" value="4">환불
+					<input type="radio" name="" value="5">포인트주문
+					<input type="radio" name="" value="6">쿠폰
+					<input type="submit" value="검색하기" style="">
+					</td>
+				</tr>
+				<tr>
+					<th>주문일자</th>
+					<td>
+					<input type="date" name="" value=""> ~        
+					<input type="date" name="" value="">
+					<input type="button" name="" value="오늘">       
+					<input type="button" name="" value="어제">
+					<input type="button" name="" value="이번주">
+					<input type="button" name="" value="이번달">
+					<input type="button" name="" value="지난주">
+					<input type="button" name="" value="지난달">
+					<input type="button" name="" value="전체" checked>
+					<input type="submit" value="검색하기" style="background-color: #996666;">
 					</td>
 				</tr>
 				</table>
@@ -109,7 +162,8 @@
 		<!-- 검색 종료 -->
 				
 		
-		<br><br>
+		
+		<br><br>              
 		
 		<!-- 목록 출력 -->
 		<form action="getBuyList.po" method="post">
@@ -180,9 +234,7 @@
 		<a href="insertBuy.po">글쓰기</a>
 		
 	</center>
-	<center>
-	<img src="https://ycart.kr/data/editor/1701/fe7fbc1213411ac1c9db227ec2ed282c_1485221468_1848.png">
-	</center>
+	
 <%@ include file = "/sharedFunction/footer.jsp" %>
 
 </body>

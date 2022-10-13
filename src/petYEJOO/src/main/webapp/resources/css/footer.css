@@ -1,0 +1,79 @@
+<style>
+
+html, body{
+	margin : 0px;
+	padding : 0px;
+	height: 100%;
+	
+}
+
+@font-face{
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KoPubWorldDotum';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/kopus/KoPubWorldDotumLight.ttf') format("truetype");
+    font-display: swap;
+}
+
+.footer-wrap{
+	
+    width: 100%;
+    position:fixed;
+	bottom : 0;
+
+}
+
+.footer_nav{
+	background-color: lightgrey;
+	width: 100%;
+	height: 30px;
+	
+}
+
+ul li {
+	font-family: 'MICEGothic Bold';
+    list-style: none;
+    list-style-type: none;
+    display:inline;
+    margin-left:20px;
+  }
+  
+.footer_bottom {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    font-family: 'KoPubWorldDotum';
+    background-color: lightgrey;
+}
+.copyright {
+	font-size: 10px;
+}
+.copyright a{
+	text-decoration: none;
+}
+.footer_total{
+	color : black;
+}
+.footer_total ul li a{
+	color : black;
+}
+
+</style>

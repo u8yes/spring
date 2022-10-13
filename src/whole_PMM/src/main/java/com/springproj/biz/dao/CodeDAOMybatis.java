@@ -22,7 +22,7 @@ public class CodeDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public CodeVO getCode(String p_pno) {
+	public CodeVO getCode(int p_pno) {
 		return mybatis.selectOne("Code.getCode", p_pno);
 	}
 
@@ -49,7 +49,7 @@ public class CodeDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteCode(String p_pno) {
+	public void deleteCode(int p_pno) {
 		mybatis.delete("Code.deleteCode", p_pno);
 		
 	}

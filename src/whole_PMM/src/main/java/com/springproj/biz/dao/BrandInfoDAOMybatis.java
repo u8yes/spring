@@ -22,7 +22,7 @@ public class BrandInfoDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public BrandInfoVO getBrandInfo(String bm_no) {
+	public BrandInfoVO getBrandInfo(int bm_no) {
 		return mybatis.selectOne("BrandInfo.getBrandInfo", bm_no);
 	}
 
@@ -48,7 +48,7 @@ public class BrandInfoDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteBrandInfo(String bm_no) {
+	public void deleteBrandInfo(int bm_no) {
 		mybatis.delete("BrandInfo.deleteBrandInfo", bm_no);
 		
 	}

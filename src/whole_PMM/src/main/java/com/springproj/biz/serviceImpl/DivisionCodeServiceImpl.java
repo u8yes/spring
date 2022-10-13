@@ -24,7 +24,7 @@ public class DivisionCodeServiceImpl implements DivisionCodeService {
 	}
 
 	@Override
-	public DivisionCodeVO getService(String dc_pcno) {
+	public DivisionCodeVO getService(int dc_pcno) {
 		DivisionCodeVO divisionCode = dao.getDivisionCode(dc_pcno);
 		
 		return divisionCode;
@@ -41,7 +41,7 @@ public class DivisionCodeServiceImpl implements DivisionCodeService {
 	}
 
 	@Override
-	public void deleteService(String dc_pcno) {
+	public void deleteService(int dc_pcno) {
 		dao.deleteDivisionCode(dc_pcno);
 	}
 	

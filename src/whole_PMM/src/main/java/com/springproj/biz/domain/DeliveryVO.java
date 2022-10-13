@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class DeliveryVO { // JavaBean
-	private String d_dno;
+	private int d_dno;
 	private String d_cpname;
 	private String d_odno;
 	private String d_rpnname;

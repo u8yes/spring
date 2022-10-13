@@ -24,7 +24,7 @@ public class ProductDAOMybatis {
 	}
 	
 	// 목록보기(select문) //상세보기
-	public ProductVO getProduct(String p_pno) {
+	public ProductVO getProduct(int p_pno) {
 		return mybatis.selectOne("Product.getProduct", p_pno);
 	}
 	//리스트보기
@@ -39,7 +39,7 @@ public class ProductDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteProduct(String p_pno) {
+	public void deleteProduct(int p_pno) {
 		mybatis.delete("Product.deleteProduct", p_pno);
 	}
 

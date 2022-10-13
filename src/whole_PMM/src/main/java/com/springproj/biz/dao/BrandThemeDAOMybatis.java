@@ -23,7 +23,7 @@ public class BrandThemeDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public BrandThemeVO getBrandTheme(String bm_no) {
+	public BrandThemeVO getBrandTheme(int bm_no) {
 		return mybatis.selectOne("BrandTheme.getBrandTheme", bm_no);
 	}
 
@@ -49,7 +49,7 @@ public class BrandThemeDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteBrandTheme(String bm_no) {
+	public void deleteBrandTheme(int bm_no) {
 		mybatis.delete("BrandTheme.deleteBrandTheme", bm_no);
 		
 	}

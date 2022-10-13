@@ -10,10 +10,10 @@ public interface ProductBuyService {
 	// 글 등록
 	void insertService(ProductBuyVO o); 
 	// 글 목록 조회
-	ProductBuyVO getService(String o_odno);
+	ProductBuyVO getService(int o_odno);
 	List<ProductBuyVO> getServiceList(ProductBuyVO o);
 	// 글 수정
 	void updateService(ProductBuyVO o);
 	// 글 삭제
-	void deleteService(String o_odno);
+	void deleteService(int o_odno);
 }

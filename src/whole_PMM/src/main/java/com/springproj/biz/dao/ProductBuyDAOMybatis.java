@@ -23,7 +23,7 @@ public class ProductBuyDAOMybatis {
 	}
 	
 	// 목록보기(select문)
-	public ProductBuyVO getProductBuy(String o_odno) {
+	public ProductBuyVO getProductBuy(int o_odno) {
 		return mybatis.selectOne("ProductBuy.getProductBuy", o_odno);
 	}
 
@@ -42,7 +42,7 @@ public class ProductBuyDAOMybatis {
 	}
 	
 	// 글 삭제(delete문)
-	public void deleteProductBuy(String o_odno) {
+	public void deleteProductBuy(int o_odno) {
 		mybatis.delete("ProductBuy.deleteProductBuy", o_odno);
 		
 	}

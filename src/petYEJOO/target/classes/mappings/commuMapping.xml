@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Commu">
+
+	<insert id="insertCommu" parameterType="commu">
+	<![CDATA[
+		insert into community(cm_bdno,um_no,cm_title,cm_desc) values((select nvl(max(cm_bdno),0)+1 from community), #{um_no}, #{cm_title}, #{cm_desc})
+	]]>
+	</insert>
+	
+	<select id="getCommuList" resultType="commu">
+		
+		select * 
+		from community 
+		where 1 = 1
+		<if test="searchCondition == 'TITLE'">
+			and cm_title like '%'||#{searchKeyword}||'%' 
+		</if>
+		<if test="searchCondition == 'CONTENT'">
+			and cm_desc like '%'||#{searchKeyword}||'%'
+		</if>
+		order by cm_bdno desc
+	
+	</select>
+	
+	<select id="getCommu" resultType="commu">
+	<![CDATA[
+		select * from community where cm_bdno = #{cm_bdno}
+	]]>
+	</select>
+	
+	<update id="updateCommu">
+	<![CDATA[
+		update community set cm_title = #{cm_title}, cm_desc = #{cm_desc} where cm_bdno = #{cm_bdno}
+	]]>
+	</update>
+	
+	<update id="updateCnt">
+	<![CDATA[
+		update community set cm_cnt = cm_cnt + 1 where cm_bdno = #{cm_bdno}
+	]]>
+	</update>
+	
+	<delete id="deleteCommu">
+	<![CDATA[
+		delete from community where cm_bdno = #{cm_bdno}
+	]]>
+	</delete>
+	
+</mapper>

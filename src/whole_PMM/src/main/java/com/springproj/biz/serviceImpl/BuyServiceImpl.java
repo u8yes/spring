@@ -25,7 +25,7 @@ public class BuyServiceImpl implements BuyService {
 	}
 
 	@Override
-	public BuyVO getService(String po_no) {
+	public BuyVO getService(int po_no) {
 
 		BuyVO buy = dao.getBuy(po_no);
 		
@@ -45,7 +45,7 @@ public class BuyServiceImpl implements BuyService {
 	}
 
 	@Override
-	public void deleteService(String po_no) {
+	public void deleteService(int po_no) {
 		dao.deleteBuy(po_no);
 	}
 

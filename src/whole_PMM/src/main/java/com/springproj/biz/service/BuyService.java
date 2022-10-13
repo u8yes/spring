@@ -8,10 +8,10 @@ public interface BuyService {
 
 	public void insertService(BuyVO vo);
 
-	public BuyVO getService(String po_no);
+	public BuyVO getService(int po_no);
 	public List<BuyVO> getServiceList(BuyVO vo);
 
 	public void updateService(BuyVO vo);
 
-	 public void deleteService(String po_no);
+	 public void deleteService(int po_no);
 }

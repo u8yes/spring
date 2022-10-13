@@ -20,7 +20,7 @@ public class BuyDAOMybatis {
 	}
 	
 
-	public BuyVO getBuy(String po_no) {
+	public BuyVO getBuy(int po_no) {
 		return mybatis.selectOne("Buy.getBuy", po_no); //  반환하는게 한개일때 selectOne 
 		}
 	
@@ -34,7 +34,7 @@ public class BuyDAOMybatis {
 	public void updateBuy(BuyVO vo) {
 		mybatis.update("Buy.updateBuy", vo);
 	}
-	public void deleteBuy(String po_no) {
+	public void deleteBuy(int po_no) {
 		mybatis.delete("Buy.deleteBuy", po_no);
 		
 	}

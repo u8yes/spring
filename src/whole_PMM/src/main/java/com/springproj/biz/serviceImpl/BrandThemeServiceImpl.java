@@ -25,7 +25,7 @@ public class BrandThemeServiceImpl implements BrandThemeService {
 	}
 
 	@Override
-	public BrandThemeVO getService(String bm_no) {
+	public BrandThemeVO getService(int bm_no) {
 		BrandThemeVO brandTheme = dao.getBrandTheme(bm_no);
 		
 		return brandTheme;
@@ -42,7 +42,7 @@ public class BrandThemeServiceImpl implements BrandThemeService {
 	}
 
 	@Override
-	public void deleteService(String bm_no) {
+	public void deleteService(int bm_no) {
 		dao.deleteBrandTheme(bm_no);
 	}
 	

@@ -10,10 +10,10 @@ public interface MdService {
 	// 글 등록
 	void insertService(MdVO md); 
 	// 글 목록 조회
-	MdVO getService(String md_no);
+	MdVO getService(int md_no);
 	List<MdVO> getServiceList(MdVO md);
 	// 글 수정
 	void updateService(MdVO md);
 	// 글 삭제
-	void deleteService(String md_no);
+	void deleteService(int md_no);
 }

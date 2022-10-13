@@ -17,7 +17,7 @@
        
       <br><br> 
       
-      <a href="getBuyList.po">글 목록 바로가기</a>
+      <a href="getBasketList.ba">글 목록 바로가기</a>
    </div>
 </body>
 </html>

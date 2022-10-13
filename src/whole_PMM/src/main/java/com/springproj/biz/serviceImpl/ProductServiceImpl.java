@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductVO getService(String p_pno) {
+	public ProductVO getService(int p_pno) {
 		//log.printLog("= getService() =");
 		System.out.println(p_pno);
 		ProductVO product = dao.getProduct(p_pno);
@@ -48,7 +48,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void deleteService(String p_pno) {
+	public void deleteService(int p_pno) {
 		//log.printLog("= deleteService() =");
 		dao.deleteProduct(p_pno);
 	}

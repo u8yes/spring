@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Ask">
+
+	<insert id="insertBAsk" parameterType="ask">
+	<![CDATA[
+		insert into ask(a_no,a_title,a_content,bm_no,a_pmm) values((select nvl(max(a_no),0)+1 from ask), #{a_title}, #{a_content}, #{bm_no}, #{a_pmm})
+	]]>
+	</insert>
+	
+	<insert id="insertUAsk" parameterType="ask">
+	<![CDATA[
+		insert into ask(a_no,a_title,a_content,um_no,bm_no) values((select nvl(max(a_no),0)+1 from ask), #{a_title}, #{a_content}, #{um_no}, #{bm_no})
+	]]>
+	</insert>
+	
+	<select id="getBAskList" resultType="ask">
+	
+		select * 
+		from ask 
+		where 1 = 1
+		<if test="bm_no != null"><!-- 브랜드 세션으로 로그인 된 경우일 때 조회되도록. -->
+			and
+			<if test="searchCondition == 'TITLE'">
+				and a_title like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="searchCondition == 'CONTENT'">
+				and a_content like '%'||#{searchKeyword}||'%'
+			</if>
+		</if>
+		order by a_no desc
+	
+	</select>
+	
+	<select id="getUAskList" resultType="ask">
+	
+		select * 
+		from ask 
+		where 1 = 1
+		<if test="um_no != null"><!-- 유저 세션으로 로그인 된 경우일 때 조회되도록. -->
+			and
+			<if test="searchCondition == 'TITLE'">
+				and a_title like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="searchCondition == 'CONTENT'">
+				and a_content like '%'||#{searchKeyword}||'%'
+			</if>
+		</if>
+		order by a_no desc
+	
+	</select>
+	
+	<select id="getPAskList" resultType="ask">
+	
+		select * 
+		from ask 
+		where 1 = 1
+		<if test="a_pmm != null"><!-- 여기에 관리자인지 아닌지 확인하는 조건이 들어와야 함. -->
+			and
+			<if test="searchCondition == 'TITLE'">
+				and a_title like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="searchCondition == 'CONTENT'">
+				and a_content like '%'||#{searchKeyword}||'%'
+			</if>
+		</if>
+		order by a_no desc
+	
+	</select>
+	
+	<!-- 
+	<select id="getAskList" resultType="ask">
+	
+		select * from ask where 1 = 1
+		<if test="um_no != null">
+			and um_no = #{um_no}
+		</if>
+		<if test="a_pmm != null">
+			and bm_no = #{bm_no}
+		</if>
+		order by a_no desc
+	
+	</select> 
+	-->
+	
+	<select id="getAsk" resultType="ask">
+	<![CDATA[
+		select * from ask where a_no = #{a_no}
+	]]>
+	</select>
+	
+	<update id="updateAsk">
+	<![CDATA[
+		update ask set a_title = #{a_title}, a_content = #{a_content} where a_no = #{a_no}
+	]]>
+	</update>
+	
+	<update id="deleteAsk">
+	<![CDATA[
+		update ask set a_status = #{a_status} where a_no = #{a_no}
+	]]>
+	</update>
+	
+</mapper>  
+
+<!-- ' <![CDATA[ sql query문 ]]> ' : sql query안의 연산자를 elements로 인식하지 않도록 붙여줘야 하는 것. -->
+  

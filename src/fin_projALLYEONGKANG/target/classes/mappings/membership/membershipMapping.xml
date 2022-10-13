@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="membership">
+  	<insert id="insertMembership" parameterType="membership"> <!-- parameter(매개변수) -->
+  		<![CDATA[      
+  		insert into membership(ms_grade,ms_desc,ms_sale)
+  		values('1','배송비 면제', '3000')
+  		]]> <!-- 안쪽 코드는 엘리먼트를 쿼리문내 비교연산자로 인식   -->
+  	</insert>
+  	 <select id="getMembership" resultType="membership"> <!-- select문은 결과를 받는 문구  무조건 resultType 필요-->
+  		<![CDATA[  
+  		select * from membership where ms_grade = #{ms_grade}
+  		]]>
+  	</select>
+  	<!--코드 바꿔야함  -->
+  	<select id="getMembershipList" resultType="membership"> <!-- 동적SQL, MyBatis자체 제공 -->
+ 	<![CDATA[ 
+  		select * 
+  		from membership 
+	]]>
+  	</select>
+  	<update id="updateMembership"> 
+  	  	<![CDATA[ 
+  	  	 update from membership set ms_grade = "2"
+  		]]>
+  	</update>
+  	<delete id="deleteMembership">
+  	  	<![CDATA[ 
+  	  	delete from getMembership where ms_grade = #{ms_grade}
+  		]]>
+  	</delete>
+  </mapper>
+
+

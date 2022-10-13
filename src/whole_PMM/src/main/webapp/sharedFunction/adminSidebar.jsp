@@ -7,6 +7,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta charset="utf-8">
 <title>마이페이지 - 관리자 사이드바</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
 <style>
 @charset "UTF-8";
 
@@ -92,15 +94,53 @@ margin-left : 220px;
 margin-right : 10%;
 }
 
+
+
 </style>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // Most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 50 };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 200, height: 60 } };
+      }
+ 
+      // Run the effect
+      $( "#effect" ).toggle( selectedEffect, options, 1000, callback );
+    };
+    
+    // Callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $( "#effect" ).toggleSlide( "style" ).hide().fadeIn();
+      }, 1000 );
+    };
+ 
+    // Set effect from select menu value
+    $( "#button" ).on( "click", function() {
+      runEffect();
+    });
+  } );
+  </script>
 </head>
 <body>
 
 
-<main>
+<main class="toggler">
 
-<div class ="sidebar">
+<div class ="sidebar" id="effect" class="ui-widget-content ui-corner-all">
+
 	<div class = "sidebaradmin list">
   <h1>유저 관리</h1>
      <hr> 
@@ -144,10 +184,21 @@ margin-right : 10%;
     <a href="#">이벤트</a>
    </div>
 </div>
+</div>
+</main>
 
+<!-- toggle -->
+
+ 
+<select name="effects" id="effectTypes">
+  <option value="slide">Slide</option>
+</select>
+ 
+<button id="button" class="ui-state-default ui-corner-all" >메뉴 넣기</button>
+ 
 
    
-</main>
+
 
 
 </body>

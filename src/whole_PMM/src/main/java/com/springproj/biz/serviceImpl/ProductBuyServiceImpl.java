@@ -24,7 +24,7 @@ public class ProductBuyServiceImpl implements ProductBuyService {
 	}
 
 	@Override
-	public ProductBuyVO getService(String o_odno) {
+	public ProductBuyVO getService(int o_odno) {
 		ProductBuyVO productBuy = dao.getProductBuy(o_odno);
 		
 		return productBuy;
@@ -41,7 +41,7 @@ public class ProductBuyServiceImpl implements ProductBuyService {
 	}
 
 	@Override
-	public void deleteService(String o_odno) {
+	public void deleteService(int o_odno) {
 		dao.deleteProductBuy(o_odno);
 	}
 	

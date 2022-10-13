@@ -13,8 +13,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ProductVO { // JavaBean
-	private String p_pno;
-	private String bm_no;
+	private int p_pno;
+	private int bm_no;
 	private String p_name;
 	private String p_detail;
 	private int p_price;

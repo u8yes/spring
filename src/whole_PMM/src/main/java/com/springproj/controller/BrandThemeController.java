@@ -32,7 +32,7 @@ public class BrandThemeController {
 	@GetMapping("/insertBrandTheme.bt")
 	public String insertBrandTheme() {
 		
-		return "brand/insertBrandTheme";
+		return "adminBrand/insertBrandTheme";
 	}
 	
 	
@@ -71,7 +71,7 @@ public class BrandThemeController {
 		
 		model.addAttribute("brandTheme", bt);
 		
-		return "brand/getBrandTheme";
+		return "adminBrand/getBrandTheme";
 	}
 	
 	// 검색 조건 목록 설정
@@ -106,7 +106,7 @@ public class BrandThemeController {
 
 		model.addAttribute("brandThemeList", list);
 				
-		return "brand/getBrandThemeList";
+		return "adminBrand/getBrandThemeList";
 	}
 	
 		

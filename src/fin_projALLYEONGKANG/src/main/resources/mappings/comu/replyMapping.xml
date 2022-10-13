@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Reply">
+  
+  	<!-- r_no NUMBER로 바꿔~~~~~~ -->
+  	<insert id="insertReply" parameterType="reply">
+  	<![CDATA[
+      insert into reply(r_no, cm_bdno, r_content, r_writer) 
+      values((select nvl(max(r_no),0)+1 from reply), #{cm_bdno}, #{r_content}, #{r_writer})
+   ]]>
+  	</insert>
+  
+  
+  <select id="getReplyList" resultType="reply">
+  
+  	<![CDATA[
+  	select r_no, cm_bdno, r_content, r_del, TO_CHAR(r_date, 'YYYY-MM-DD HH24:MI:SS') as r_date, r_writer from reply 
+  			where cm_bdno = #{cm_bdno}  
+  			order by r_no 
+  	 ]]>
+  </select>
+  
+  
+  
+  <update id="deleteReply">
+   <![CDATA[
+      update reply set r_del = 1 where r_del = 0
+   ]]>
+   </update>
+   
+  
+  
+  
+  </mapper>

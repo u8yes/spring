@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+	<!-- Alias 설정 -->
+	<typeAliases>
+		<!-- 허영강 -->
+
+		<typeAlias alias="usermember"
+			type="com.spring.proj.domain.user.UserMemberVO" />
+		<typeAlias alias="brandmember"
+			type="com.spring.proj.domain.brand.BrandMemberVO" />
+
+<!-- 곽은영 -->
+<typeAlias alias="commu" type="com.spring.proj.domain.comu.CommunityVO"/>
+  		<typeAlias alias="reply" type="com.spring.proj.domain.comu.ReplyVO"/>
+
+<!-- 		 정한솔 -->
+		<typeAlias alias="product"
+			type="com.spring.proj.domain.product.ProductVO" />
+			
+			<!-- 민용기 -->
+			<typeAlias alias="brandTheme" type="com.spring.proj.domain.brandmain.BrandThemeVO"/>
+			<typeAlias alias="buy" type="com.spring.proj.domain.brandmain.BuyVO" />
+			<typeAlias alias="basket" type="com.spring.proj.domain.basket.BasketVO" />
+			
+			<!-- 김예주 -->
+			
+				<typeAlias alias="ask" type="com.spring.proj.domain.ask.AskVO"/>
+			
+			
+<!-- 고현서 -->
+
+
+
+
+	</typeAliases>
+
+	<!-- Sql Mapper의 위치 설정 -->
+	<mappers>
+		<mapper resource="mappings/user/usermemberMapping.xml" />
+		<mapper resource="mappings/brand/brandmemberMapping.xml" />
+		
+		<!-- 곽은영  -->
+		
+			<mapper resource="mappings/comu/commuMapping.xml"/>
+  		<mapper resource="mappings/comu/replyMapping.xml"/>
+		
+<!--
+		정한솔  -->
+		<mapper resource="mappings/product/ProductMapping.xml" />
+		
+		<!--민용기  -->
+		
+		<mapper resource="mappings/brandmain/buyMapping.xml" />
+		<mapper resource="mappings/brandmain/brandThemeMapping.xml"/>
+		<mapper resource="mappings/basket/basketMapping.xml"/>
+		
+		
+		
+		<!-- 김예주 -->
+			<mapper resource="mappings/ask/askMapping.xml"/>
+			
+			<!-- 고현서 -->
+			
+		
+  		
+  
+	
+	
+	</mappers>
+
+
+
+</configuration>
+  

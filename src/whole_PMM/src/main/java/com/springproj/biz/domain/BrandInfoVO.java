@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class BrandInfoVO {	// javaBean
-	private String bm_no;
+	private int bm_no;
 	private String bi_biznum;
 	private String bi_name;
 	private String bi_tel;

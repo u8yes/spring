@@ -64,6 +64,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 		<url-pattern>*.doo</url-pattern> 
 		<url-pattern>*.o</url-pattern> 
 		<url-pattern>*.po</url-pattern> 
+		<url-pattern>*.ba</url-pattern> 
 	</servlet-mapping>
 
 </web-app>

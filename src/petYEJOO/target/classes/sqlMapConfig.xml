@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+
+	<!-- Alias 설정 -->
+	<typeAliases>
+		<typeAlias alias="board" type="com.springproj.biz.domain.BoardVO"/>
+		<typeAlias alias="ask" type="com.springproj.biz.domain.AskVO"/>
+		<typeAlias alias="rv" type="com.springproj.biz.domain.ReviewVO"/>
+		<typeAlias alias="ar" type="com.springproj.biz.domain.AskRvVO"/>
+		<typeAlias alias="coms" type="com.springproj.biz.domain.CommentsVO"/>
+		<typeAlias alias="re" type="com.springproj.biz.domain.ReplyVO"/>
+		<typeAlias alias="commu" type="com.springproj.biz.domain.CommunityVO"/>
+	</typeAliases>
+	
+	<!-- sql Mapper 설정 -->
+	<mappers>
+		<mapper resource="mappings/boardMapping.xml"/>
+		<mapper resource="mappings/askMapping.xml"/>
+		<mapper resource="mappings/rvMapping.xml"/>
+		<mapper resource="mappings/arMapping.xml"/>
+		<mapper resource="mappings/comsMapping.xml"/>
+		<mapper resource="mappings/reMapping.xml"/>
+		<mapper resource="mappings/commuMapping.xml"/>
+	</mappers>
+	
+</configuration>

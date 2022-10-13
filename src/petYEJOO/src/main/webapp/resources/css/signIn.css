@@ -1,0 +1,55 @@
+<style>
+.siginall{
+	  display : flex;
+  	justify-content : center;
+  	align-items : center;
+  	margin-top: 60px;
+}
+.signintop{
+	display: flex;
+	width: 720px;
+}
+
+.usersignin {
+	width: 250px;
+	height: 370px;
+	border: solid 1px lightgrey;
+	border-radius: 10px;
+	margin: auto;
+	padding:10px;
+}
+
+.signinbutton{
+	width: 200px;
+	height: 30px;
+	margin:5px;
+	background-color: #88B04B;
+	color : white;
+	border: solid 1px #88B04B;
+	border-radius: 10px;
+}
+.form-control{
+	border: solid 2px #88B04B;
+	border-radius: 10px;
+	width: 200px;
+	height: 30px;
+	margin: 5px;
+	padding:0px;
+}
+.form-control-brand{
+	border: solid 2px #88B04B;
+	border-radius: 10px;
+	width: 300px;
+	height: 30px;
+	margin: 5px;
+	padding:0px;
+}
+.signintitle{
+	text-align: center;
+	
+}
+
+a {
+	text-decoration: none;
+}
+</style>

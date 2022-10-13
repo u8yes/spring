@@ -24,7 +24,7 @@ public class DeliveryServiceImpl implements DeliveryService {
 	}
 
 	@Override
-	public DeliveryVO getService(String d_dno) {
+	public DeliveryVO getService(int d_dno) {
 
 		DeliveryVO delivery = dao.getDelivery(d_dno);
 		
@@ -44,7 +44,7 @@ public class DeliveryServiceImpl implements DeliveryService {
 	}
 
 	@Override
-	public void deleteService(String d_dno) {
+	public void deleteService(int d_dno) {
 		dao.deleteDelivery(d_dno);
 	}
 

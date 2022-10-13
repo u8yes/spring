@@ -16,10 +16,8 @@
   		<typeAlias alias="product" type="com.springproj.biz.domain.ProductVO"/>
   		<typeAlias alias="productBuy" type="com.springproj.biz.domain.ProductBuyVO" />
   		<typeAlias alias="delivery" type="com.springproj.biz.domain.DeliveryVO" />
-  		
-  		
-  		<!-- 강승주 -->
-		<typeAlias alias="buy" type="com.springproj.biz.domain.BuyVO" />
+  		<typeAlias alias="basket" type="com.springproj.biz.domain.BasketVO" />
+  		<typeAlias alias="buy" type="com.springproj.biz.domain.BuyVO" />
   		
   	</typeAliases>
   	
@@ -33,9 +31,8 @@
   		<mapper resource="mappings/ProductMapping.xml"/>
   		<mapper resource="mappings/productBuyMapping.xml" />
   		<mapper resource="mappings/deliveryMapping.xml" />
-  		
-  		<!-- 강승주 -->
-		<mapper resource="mappings/buyMapping.xml" />
+  		<mapper resource="mappings/basketMapping.xml" />
+  		<mapper resource="mappings/buyMapping.xml" />
   	</mappers>
   
   </configuration>

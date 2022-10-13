@@ -12,9 +12,9 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MdVO {	// javaBean
-	private String md_no;
-	private String bm_no;
-	private String p_pno;
+	private int md_no;
+	private int bm_no;
+	private int p_pno;
 	private Date md_date;
 	
 	// 검색 기능 추가

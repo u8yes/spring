@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">	
+  <!-- 쿼리가 담기는 설정 파일이다 -->
+  
+  <mapper namespace="BrandTheme">
+	  <insert id="insertBrandTheme" parameterType="brandTheme"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
+	  <![CDATA[
+	  		insert into brandTheme(bm_no, bt_color, bt_font, bt_logo) 
+	  		values (#{bm_no}, #{bt_color}, #{bt_font}, #{bt_logo})
+	  ]]>
+	  </insert>	
+	  
+	  
+	  <!-- Mybatis가 제공하는 동적(Dynamic) SQL 쿼리문을 추가적으로 제공해줌. Spring(X) -->
+	  <!-- resultType="Brand" 반환받는 타입을 명시하고 있어야 한다. 짧게 별명alias로 Brand로 -->
+	  <select id="getBrandThemeList" resultType="brandTheme">	
+		select * 
+	  	from brandTheme 
+	  	where 1 = 1
+	  	<if test="searchCondition == 'BT_FONT'">
+	  		and bt_font like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	<if test="searchCondition == 'BT_COLOR'">
+	  		and bt_color like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	order by bm_no desc
+	  </select>
+	  
+	  
+	  <!-- List 보여주기 -->
+	  <select id="getBrandTheme" resultType="brandTheme">
+	  <![CDATA[
+	  	select * from brandTheme where bm_no = #{bm_no}
+	  ]]>
+	  </select>
+	  
+	  
+	  <update id="updateBrandTheme">
+	  <![CDATA[
+	  	update brandTheme set bm_no = #{bm_no}, bt_color = #{bt_color}, 
+	  	bt_font = #{bt_font}, bt_logo = #{bt_logo} where bm_no = #{bm_no}
+	  ]]>
+	  </update>
+	  
+	  
+	  <delete id="deleteBrandTheme">
+	  <![CDATA[
+	  	delete from brandTheme where bm_no = #{bm_no}
+	  ]]>
+	  </delete>
+	  
+  </mapper>
+	  
+    	
+			
+	

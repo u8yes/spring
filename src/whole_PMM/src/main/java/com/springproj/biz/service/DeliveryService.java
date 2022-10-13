@@ -8,11 +8,11 @@ public interface DeliveryService {
 
 	public void insertService(DeliveryVO vo);
 
-	public DeliveryVO getService(String d_dno);
+	public DeliveryVO getService(int d_dno);
 	
 	public List<DeliveryVO> getServiceList(DeliveryVO vo);
 
 	public void updateService(DeliveryVO vo);
 
-	 public void deleteService(String d_dno);
+	 public void deleteService(int d_dno);
 }
