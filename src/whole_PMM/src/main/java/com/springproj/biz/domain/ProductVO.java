@@ -2,7 +2,6 @@ package com.springproj.biz.domain;
 
 import java.sql.Date;
 
-
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">	
+  <!-- 쿼리가 담기는 설정 파일이다 -->
+  
+  <mapper namespace="Md">
+	  <insert id="insertMd" parameterType="md"> <!-- DAO에서 MdVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
+	  <![CDATA[
+	  		insert into md(md_no, bm_no, p_pno) 
+	  		values ((select nvl(max(md_no),0)+1 from md), #{bm_no}, #{p_pno})
+	  ]]>
+	  </insert>	
+	  
+	  	
+	  
+	  <!-- Mybatis가 제공하는 동적(Dynamic) SQL 쿼리문을 추가적으로 제공해줌. Spring(X) -->
+	  <!-- resultType="Md" 반환받는 타입을 명시하고 있어야 한다. 짧게 별명alias로 Brand로 -->
+	  <select id="getMdList" resultType="md">	
+		select * 
+	  	from md 
+	  	where 1 = 1
+	  	<if test="searchCondition == 'MD_NO'">
+	  		and md_no like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	<if test="searchCondition == 'BM_NO'">
+	  		and bm_no like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	order by md_no desc
+	  </select>
+	  
+	  
+	  <!-- List 보여주기 -->
+	  <select id="getMd" resultType="md">
+	  <![CDATA[
+	  	select * from md where md_no = #{md_no}
+	  ]]>
+	  </select>
+	  
+	  
+	  <update id="updateMd">
+	  <![CDATA[
+	  	update md set md_no = #{md_no}, bm_no = #{bm_no}, p_pno = #{p_pno} where md_no = #{md_no}
+	  ]]>
+	  </update>
+	  
+	  
+	  <delete id="deleteMd">
+	  <![CDATA[
+	  	delete from md where md_no = #{md_no}
+	  ]]>
+	  </delete>
+	  
+  </mapper>
+	  
+    
+			
+	

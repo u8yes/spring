@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="Point">
+  
+  
+  	<insert id="insertPoint" parameterType="point">
+  		<![CDATA[      
+  		insert into point(pp_payno,pp_name,pp_desc)
+  		values((select nvl(max(pp_payno),100)+1 from point), #{pp_name}, #{pp_desc})
+  		]]> 
+  	</insert>
+  	
+  	<select id="getPointList" resultType="point"> 
+  		<![CDATA[
+  		select * from point order by pp_payno 
+  		]]>
+  	</select>
+  	
+  	 <select id="getPoint" resultType="point"> 
+  		<![CDATA[  
+  		select * from point where pp_payno = #{pp_payno}
+  		]]>
+  	</select>
+  	
+  	<update id="updatePoint">
+  	  	<![CDATA[ 
+  	  	 update point set pp_name = #{pp_name}, pp_desc = #{pp_desc} where pp_payno = #{pp_payno}
+  		]]>
+  	</update>
+  	
+  	<delete id="deletePoint">
+  	  	<![CDATA[ 
+  	  	delete from point where pp_payno = #{pp_payno}
+  		]]>
+  	</delete>
+  
+  </mapper>

@@ -64,11 +64,9 @@ public class productController {
 			product.setP_dimg(fileName);
 
 		}
-		
-		
+				
 		productService.insertService(product);
 		
-
 		return "redirect:getProductList.p";
 	}
 	
@@ -92,17 +90,16 @@ public class productController {
 		
 		return conditionMap;
 	}
-	
-	
+		
 	@RequestMapping(value = "/getProductList.p")
-	public String getList(ProductVO vo, Model model) {
+	public String getProductList(ProductVO vo, Model model) {
 		//System.out.println("글 목록 검색 처리");
 		
 		System.out.println("검색 조건: "+vo.getSearchCondition());
 		System.out.println("검색 단어: "+vo.getSearchKeyword());
 		
 		if(vo.getSearchCondition() == null) {
-			vo.setSearchCondition("e_no");
+			vo.setSearchCondition("P_PNO");
 		}
 		
 		if(vo.getSearchKeyword() == null) {
@@ -113,9 +110,9 @@ public class productController {
 		
 		model.addAttribute("productList", list);
 		
-		return "adminProduct/getProductList";
+		return "adminProduct/getBasketList";
 	}
-	
+		
 	@RequestMapping(value = "/updateProduct.p")
 	public String updateProductProc(@ModelAttribute("product") ProductVO vo) {
 		//System.out.println("글 수정 처리.");

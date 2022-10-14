@@ -33,7 +33,7 @@ public class CodeController {
 	public String insertCode() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "brand/insertCode";
+		return "adminBrand/insertCode";
 	}
 	
 	
@@ -70,7 +70,7 @@ public class CodeController {
 		
 		model.addAttribute("code", co);
 		
-		return "brand/getCode";
+		return "adminBrand/getCode";
 	}
 	
 	// 검색 조건 목록 설정
@@ -105,7 +105,7 @@ public class CodeController {
 
 		model.addAttribute("codeList", list);
 				
-		return "brand/getCodeList";
+		return "adminBrand/getCodeList";
 	}
 	
 	

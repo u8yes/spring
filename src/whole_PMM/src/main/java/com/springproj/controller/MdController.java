@@ -33,7 +33,7 @@ public class MdController {
 	public String mdBrand() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "brand/insertMd";
+		return "adminBrand/insertMd";
 	}
 	
 	
@@ -70,7 +70,7 @@ public class MdController {
 		
 		model.addAttribute("md", md);
 		
-		return "brand/getMd";
+		return "adminBrand/getMd";
 	}
 	
 	// 검색 조건 목록 설정
@@ -105,7 +105,7 @@ public class MdController {
 
 		model.addAttribute("mdList", list);
 				
-		return "brand/getMdList";
+		return "adminBrand/getMdList";
 	}
 	
 		

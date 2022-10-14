@@ -34,7 +34,7 @@ public class DivisionCodeController {
 	public String insertDivisionCode() {
 		System.out.println("글 등록 화면 처리");
 		
-		return "brand/insertDivisionCode";
+		return "adminBrand/insertDivisionCode";
 	}
 	
 	
@@ -71,7 +71,7 @@ public class DivisionCodeController {
 		
 		model.addAttribute("divisionCode", dc);
 		
-		return "brand/getDivisionCode";
+		return "adminBrand/getDivisionCode";
 	}
 	
 	// 검색 조건 목록 설정
@@ -106,7 +106,7 @@ public class DivisionCodeController {
 
 		model.addAttribute("divisionCodeList", list);
 				
-		return "brand/getDivisionCodeList";
+		return "adminBrand/getDivisionCodeList";
 	}
 	
 		

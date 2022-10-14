@@ -1,73 +1,167 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>글 목록</title>
+<title>장바구니</title>
+<%@ include file="/css/basic.css" %>
+<style>
+	.productcard{
+ 	background-color: gray;
+ 	width: 100px;
+    height: 150px;
+    display: center;
+    border-radius:10px;
+     }
+  	.productcard_box:hover{
+ 	transform: translateY(-.5rem);
+	}
+	.productcard_box:hover ~ .productcard{
+  	transform: translateX(1rem);
+	}
+	
+	.productcard_box{
+ 	background-color: lightgray;
+    border-radius: 10px;
+    width: 100px;
+    height: 200px;
+    text-align: left;
+    display: inline-block;
+    margin: 20px;
+    scroll-snap-align: center;
+	}
+	.addtocart{
+	background-color: gray;
+	border: solid gray;
+	border-radius: 5px;
+	height:20px;
+	width:75px;
+	color:white;
+	}
+	.buy{
+	background-color: #92bd51;
+	border: solid #92bd51;
+	border-radius: 5px;
+	height:20px;
+	width:75px;
+	color:white;
+	}
+	.product-newandbest{
+	display: flex;
+	margin-left:200px;
+	}
+	.product-all{
+	display: flex;
+	margin-left:200px;
+	}
+	h5{
+	font-size: 10px;
+	}
+	.productcard_body_title{
+	margin: 5px; 
+	}
+	.brand-logo{
+	margin-top: 30px;
+	margin-left:200px;
+	border-radius:10px;
+	width: 200px;
+	height: 100px;
+	}
+	.brand-history{
+	background-color: lightgray;
+	margin-left:200px;
+	border-radius:10px;
+	width: 900px;
+	height: 150px;
+	}
+	ul {
+  	float: right;
+	}
+	.shoppinghead{
+	background-color:#92bd51;
+	color : white;
+	}
+	.buttonarea{
+	text-align: right;
+	}
+	</style>
+	
+	<script>
+	function selectAll(selectAll)  {
+		  const checkboxes 
+		       = document.getElementsByName('product');
+		  
+		  checkboxes.forEach((checkbox) => {
+		    checkbox.checked = selectAll.checked;
+		  })
+		}
+	</script>
 </head>
 <body>
+<header>
+<%@ include file="/sharedFunction/header.jsp" %>
+<%-- <%@ include file="../../../header.jsp" %> --%>
+</header> 
 	
+	<div class = "outline">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	
+
+		<div class="getShoppingList_page">
+		<div class="title">장바구니</div>
+	</div>
+	<hr>
+	<br>
+	<br>
 	
-	<center>
-		<h1>글 목록</h1>
-		<h3>${userName}님! 게시판에 오신 걸 환영합니다<a href="logout.me">로그아웃</a></h3>
-		
-		<!-- 검색 시작 -->
-		<div class="container w-50" >
-		<form action="getBasketList.ba" method="post">
-			<table border="1" cellpadding="0" cellspacing="0" width="700" class="table table-striped table-sm text-center">
-				<tr>
-					<td align="right">
-						<select name="searchCondition">
-							<!-- conditionMap데이터를 option 변수에 저장 -->
-							<c:forEach items="${conditionMap}" var="option">	
-								<option value="${option.value}">${option.key}</option>
-							</c:forEach>
-						</select>
-						<input type="search" name="searchKeyword">	<!-- text를 search로 바꾼 상태 -->
-						<input type="submit" value="검색">
-					</td>
+		<form action="getProductList.p" method="post">
+		<table>
+                
+                <tr class="shoppinghead" style="text-align: center;">
+                    <td>상품코드번호</td>
+                    <td>상품명</td>
+                    <td>상품상세정보</td>
+                    <td>상품금액</td>
+                    <td>주문수량</td>
+                </tr>
+                
+                
+                <c:forEach items="${productList}" var="basket" >
+                <tr class="cart__list__detail">
+	                <td bgcolor="#92bd51;">${basket.p_pno}</td>
+					<td bgcolor="#92bd51;">${basket.p_name}</td>
+					<td bgcolor="#92bd51;">${basket.p_detail}</td>
+					<td bgcolor="#92bd51;">${basket.p_disprice}</td>
+					<td bgcolor="#92bd51;">${basket.p_count}</td>
 				</tr>
-			</table>
-		</form>
+                </c:forEach>
+                
+        </table>
+       
+       <br><br><br>
+       <div class="buttonarea">
+		<button type = "submit" class="submitbutton">선택상품 구매</button>
+		<button onclick="location.href='entryend.jsp'" class="backbutton">선택상품 삭제</button>	
 		</div>
+        </form>
 		
-		<!-- 검색 종료 -->
-		
-		<!-- 목록 출력 -->
-		<div class="container w-50 table-responsive"  >
-		<table border="1" cellpadding="0" cellspacing="0" width="800" >
-			<tr>
-				<th bgcolor="#92bd51;" width="200">s_no</th>
-				<th bgcolor="#92bd51;" width="150">um_no</th>
-				<th bgcolor="#92bd51;" width="150">p_pno</th>
-				<th bgcolor="#92bd51;" width="100">s_quantity</th>
-				<th bgcolor="#92bd51;" width="100">s_date</th>
-			</tr>
-			<c:forEach items="${basketList}" var="basket">	<!-- 1. JSTL 기능 중 items는 데이터, 2. var는 새 변수 선언 -->
-			<tr>
-				<td align="center"><a href="getBasket.ba?s_no=${basket.s_no}">${basket.s_no}</a></td>	
-				<td align="center">${basket.um_no}</td>
-				<td align="center">${basket.p_pno}</td>
-				<td align="center">${basket.s_quantity}</td>
-				<td align="center">${basket.s_date}</td>
-				
-			</tr>
-			</c:forEach>
-		</table>
-		</div>
+		<br>
+		<br>
 		<br>
 		<a href="insertBasket.ba">글쓰기</a>
-		
-		
-		
-	</center>
 
-
+	
+	</div>
+	
+	
+	<footer>
+<%@ include file="/sharedFunction/footer.jsp" %>
+</footer>
 </body>
 </html>

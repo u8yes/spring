@@ -17,7 +17,7 @@
        
       <br><br> 
       
-      <a href="getBasketList.ba">글 목록 바로가기</a>
+      <a href="getBrandInfoList.bi">글 목록 바로가기</a>
    </div>
 </body>
 </html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">	
+  <!-- 쿼리가 담기는 설정 파일이다 -->
+  	
+  	
+  
+  <mapper namespace="DivisionCode">
+	  <insert id="insertDivisionCode" parameterType="divisionCode"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
+	  <![CDATA[
+	  		insert into divisionCode(dc_pcno, dc_name, dc_ex) 
+	  		values ((select nvl(max(dc_pcno),0)+1 from divisionCode), #{dc_name}, #{dc_ex})
+	  ]]>
+	  </insert>	
+	  <!-- '<', '>'는 비교 연산자로 인식하지 않고 여기에서는 꺽쇠로 본다. 설정을 <![CDATA[]]>로 --> <!-- // SQL문 - nvl: Null값이면 0으로 실행해라 -->
+	  <!-- ${}는 변수를 바로 가져온다. #{}은 실행되어지는 시점에 변수를 가져온다. 둘이 같다고 생각해도 상관없다. -->
+  	  
+	  
+	  
+	  <!-- Mybatis가 제공하는 동적(Dynamic) SQL 쿼리문을 추가적으로 제공해줌. Spring(X) -->
+	  <!-- resultType="DivisionCode" 반환받는 타입을 명시하고 있어야 한다. 짧게 별명alias로 Brand로 -->
+	 
+	  <select id="getDivisionCodeList" resultType="divisionCode">	
+		select * 
+	  	from divisionCode 
+	  	where 1 = 1
+	  	<if test="searchCondition == 'DC_PCNO'">
+	  		and dc_pcno like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	<if test="searchCondition == 'DC_NAME'">
+	  		and dc_name like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	order by dc_pcno desc
+	  </select>
+	  
+	  
+	  <!-- List 보여주기 -->
+	  <select id="getDivisionCode" resultType="divisionCode">
+	  <![CDATA[
+	  	select * from divisionCode where dc_pcno = #{dc_pcno}
+	  ]]>
+	  </select>
+	  
+	  
+	  <update id="updateDivisionCode">
+	  <![CDATA[
+	  	update divisionCode set dc_pcno = #{dc_pcno}, dc_name = #{dc_name}, dc_ex = #{dc_ex} where dc_pcno = #{dc_pcno}
+	  ]]>
+	  </update>
+
+	  
+	  <delete id="deleteDivisionCode">
+	  <![CDATA[
+	  	delete from divisionCode where dc_pcno = #{dc_pcno}
+	  ]]>
+	  </delete>
+	  
+  </mapper>
+	  
+    	
+			
+	

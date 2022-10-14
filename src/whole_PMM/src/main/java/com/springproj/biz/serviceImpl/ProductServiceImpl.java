@@ -15,13 +15,11 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	//private BoardDAO dao;
 	private ProductDAOMybatis dao;
-	
-	
+		
 	@Override
 	public void insertService(ProductVO vo) {
 		System.out.println("impl" + vo);
-		
-		
+				
 		dao.insertProduct(vo); // 핵심 로직.
 		
 	}
@@ -29,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ProductVO getService(int p_pno) {
 		//log.printLog("= getService() =");
-		System.out.println(p_pno);
+		System.out.println("getService (int p_pno) => "+p_pno);
 		ProductVO product = dao.getProduct(p_pno);
 		
 		return product;

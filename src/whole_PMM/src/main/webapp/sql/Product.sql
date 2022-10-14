@@ -1,3 +1,5 @@
+insert into product (p_pno,bm_no,p_name,p_detail,p_price,p_disprice,p_delivery,p_as,p_ox,p_pimg,p_dimg,p_deldis,p_count) 
+values(1,1,1,1,1,1,1,1,1,1,1,1,1);
 
 /* 상품 */
 CREATE TABLE PRODUCT (
@@ -72,8 +74,8 @@ select * from PRODUCT;
 
 
 
-drop table PRODUCT;
 
 
-insert into product (p_pno,bm_no,p_name,p_detail,p_price,p_disprice,p_delivery,p_as,p_ox,p_pimg,p_dimg,p_deldis,p_count) 
-values(1,1,1,1,1,1,1,1,1,1,1,1,1);
+
+
+delete from PRODUCT where p_pno = 1;

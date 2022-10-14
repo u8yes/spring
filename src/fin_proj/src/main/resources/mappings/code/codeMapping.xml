@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">	
+  <!-- 쿼리가 담기는 설정 파일이다 -->
+  
+  <mapper namespace="Code">
+	  <insert id="insertCode" parameterType="code"> <!-- DAO에서 BrandVO vo(파라미터)에 담아져있기에 parameterType="Brand"생략가능함 -->
+	  <![CDATA[
+	  		insert into code(p_pno, dc_pcno, c_name, c_ex) 
+	  		values (#{p_pno}, #{dc_pcno}, #{c_name}, #{c_ex})
+	  ]]>
+	  </insert>	
+	  
+	  
+	  <select id="getCodeList" resultType="code">	
+		select * 
+	  	from code 
+	  	where 1 = 1
+	  	<if test="searchCondition == 'P_PNO'">
+	  		and P_PNO like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	<if test="searchCondition == 'DC_PCNO'">
+	  		and DC_PCNO like '%'||#{searchKeyword}||'%' 
+	  	</if>
+	  	order by p_pno desc
+	  </select>
+	  
+	  
+	  <!-- List 보여주기 -->
+	  <select id="getCode" resultType="code">
+	  <![CDATA[
+	  	select * from code where p_pno = #{p_pno}
+	  ]]>
+	  </select>
+	  
+	  
+	  <update id="updateCode">
+	  <![CDATA[
+	  	update code set p_pno = #{p_pno}, dc_pcno = #{dc_pcno}, c_name = #{c_name}, c_ex = #{c_ex} where p_pno = #{p_pno}
+	  ]]>
+	  </update>
+	  
+	  
+	  <delete id="deleteCode">
+	  <![CDATA[
+	  	delete from code where p_pno = #{p_pno}
+	  ]]>
+	  </delete>
+	  
+  </mapper>
+	  
+    	
+			
+	
