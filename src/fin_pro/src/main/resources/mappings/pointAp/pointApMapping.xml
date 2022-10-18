@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PointAp">
+
+	<insert id="insertPointAp" parameterType="pointAp">
+	<![CDATA[
+		insert into pointap(pa_no, pp_payno, um_no,pa_point,pa_status) values((select nvl(max(pa_no),0)+1 from pointap),
+					 #{um_no}, #{pa_point}, #{pa_status}) 
+	]]>
+	</insert>
+
+	 <select id="getPointApList" resultType="pointAp">
+		<![CDATA[
+		select * from pointap order by pa_no asc
+		]]>
+	</select> 
+	
+	 <select id="getPointAp" resultType="pointAp">
+	<![CDATA[
+		select * from pointap where pa_no = #{pa_no}
+	]]>
+	</select> 
+	
+	 <update id="updatePointAp">
+	<![CDATA[
+		update pointAp set pa_point = #{pa_point}, pa_status = #{pa_status} where pp_payno = #{pa_no}
+	]]>
+	</update> 
+
+	
+	<delete id="deletePointAp">
+	<![CDATA[
+		delete from point where pa_no = #{pa_no}
+	]]>
+	</delete>
+	
+</mapper>
+
+
+
+	
+	
+	
+
+	
+
+ 

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+	<!-- Alias 설정 -->
+	<typeAliases>
+		<!-- 허영강 -->
+
+		<typeAlias alias="usermember"
+			type="com.spring.proj.domain.user.UserMemberVO" />
+ 		<typeAlias alias="brandmember"
+			type="com.spring.proj.domain.brand.BrandMemberVO" /> 
+		<typeAlias alias="brandinfo"
+			type="com.spring.proj.domain.brand.BrandInfoVO" /> 
+
+		<!-- 정한솔 -->
+		<typeAlias alias="product"
+		type="com.spring.proj.domain.product.ProductVO" />
+		
+		<!-- 		곽은영 -->
+		<typeAlias alias="commu" type="com.spring.proj.domain.comu.CommunityVO"/>
+  		<typeAlias alias="reply" type="com.spring.proj.domain.comu.ReplyVO"/>
+		
+		<typeAlias alias="buy" type="com.spring.proj.domain.buy.BuyVO"/>
+		<typeAlias alias="pointAp" type="com.spring.proj.domain.pointAp.PointApVO" />
+		
+		<typeAlias alias="basket" type="com.spring.proj.domain.basket.BasketVO" />
+
+
+		<typeAlias alias="ask" type="com.spring.proj.domain.ask.AskVO"/>
+
+
+		<typeAlias alias="brandTheme" type="com.spring.proj.domain.brandmain.BrandThemeVO"/>
+<!-- 
+
+
+		
+		민용기
+	
+		<typeAlias alias="basket" type="com.spring.proj.domain.basket.BasketVO" />
+		<typeAlias alias="code" type="com.spring.proj.domain.code.CodeVO" />
+		<typeAlias alias="divisionCode" type="com.spring.proj.domain.divisioncode.DivisionCodeVO" />
+		<typeAlias alias="md" type="com.spring.proj.domain.md.MdVO" />
+	
+
+
+		김예주
+			
+			
+			
+		고현서
+
+
+		고의석
+
+  		<typeAlias alias="point" type="com.spring.proj.domain.PMM.PointVO"/>
+  	
+
+
+ -->
+		</typeAliases>
+	
+		<!-- Sql Mapper의 위치 설정 -->
+		<mappers>
+		<mapper resource="mappings/user/usermemberMapping.xml" />
+		<mapper resource="mappings/brand/brandmemberMapping.xml" /> 
+		<mapper resource="mappings/brand/brandinfoMapping.xml" /> 
+		
+		
+		
+		
+<!-- 		정한솔 -->
+		<mapper resource="mappings/product/ProductMapping.xml" />
+		
+		
+		
+		<!-- 	곽은영  -->
+		
+			<mapper resource="mappings/comu/commuMapping.xml"/>
+  		<mapper resource="mappings/comu/replyMapping.xml"/>	
+		
+		
+		
+		<mapper resource="mappings/buy/BuyMapping.xml"/>
+		<mapper resource="mappings/pointAp/pointApMapping.xml"/>
+			
+		<mapper resource="mappings/basket/basketMapping.xml"/>
+	 	
+	 	
+	 	<mapper resource="mappings/ask/askMapping.xml"/>
+	 	
+	 		<mapper resource="mappings/brandmain/brandThemeMapping.xml"/>
+	 	
+<!-- 		
+
+		
+		
+		
+		민용기 
+		
+
+	
+		
+		
+		<mapper resource="mappings/md/mdMapping.xml"/>
+		<mapper resource="mappings/code/codeMapping.xml"/>
+		<mapper resource="mappings/divisioncode/divisionCodeMapping.xml"/>
+		
+		
+		
+		김예주
+			
+			
+			고현서
+
+		고의석
+  		
+
+  		<mapper resource="mappings/point/pointMapping.xml"/>
+  		
+  	 -->
+	
+	
+	</mappers>
+
+
+
+</configuration>
+  
