@@ -2,8 +2,8 @@ package com.spring.proj.service.brand;
 
 import java.util.List;
 
-import com.spring.proj.domain.brand.BrandInfoVO;
 import com.spring.proj.domain.brand.BrandMemberVO;
+import com.spring.proj.domain.brandmain.BrandInfoVO;
 
 public interface BrandMemberService {
 	

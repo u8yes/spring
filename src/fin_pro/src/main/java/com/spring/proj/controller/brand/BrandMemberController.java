@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.spring.proj.domain.brand.BrandInfoVO;
 import com.spring.proj.domain.brand.BrandMemberVO;
+import com.spring.proj.domain.brandmain.BrandInfoVO;
 import com.spring.proj.domain.user.UserMemberVO;
-import com.spring.proj.service.brand.BrandInfoService;
 import com.spring.proj.service.brand.BrandMemberService;
+import com.spring.proj.service.brandmain.BrandInfoService;
 
 @Controller
 @SessionAttributes("brandmember")

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.spring.proj.domain.brand.BrandInfoVO;
+import com.spring.proj.domain.brandmain.BrandInfoVO;
 
 
 @Repository

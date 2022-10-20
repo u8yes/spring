@@ -59,7 +59,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 		<url-pattern>*.doo</url-pattern>
 		<url-pattern>*.ba</url-pattern>
 		<url-pattern>*.rp</url-pattern>
-		
+		<url-pattern>*.ba</url-pattern>
 	</servlet-mapping>
 
 </web-app>
