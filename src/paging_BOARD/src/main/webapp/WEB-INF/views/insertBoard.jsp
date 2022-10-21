@@ -37,7 +37,7 @@
 			</table>
 		</form>
 		<hr>
-		<a href="getBoardList.do">글 목록 가기</a>
+		<a href="boardList.do">글 목록 가기</a>
 	</center>
 </body>
 </html>

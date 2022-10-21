@@ -1,5 +1,7 @@
 package com.springproj.biz.domain;
 
+import java.sql.Date;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
@@ -14,7 +16,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class PagingVO {	// javaBean
-	
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
 	private int cntPage = 5;
 	
@@ -48,11 +49,5 @@ public class PagingVO {	// javaBean
 		setEnd(nowPage * cntPerPage);
 		setStart(getEnd() - cntPerPage + 1);
 	}
-	
-	// 검색 기능 추가
-	private String searchCondition;
-	private String searchKeyword;
-	// 파일 업로드 추가
-	private MultipartFile uploadFile;
 	
 }

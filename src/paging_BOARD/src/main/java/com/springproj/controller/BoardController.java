@@ -124,7 +124,8 @@ public class BoardController {
 		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		model.addAttribute("paging", vo);
 		model.addAttribute("viewAll", boardService.selectBoard(vo));
-		return "board/boardPaging";
+		System.out.println("controller selectBoard => "+ vo);
+		return "boardPaging";
 	}
 	
 	

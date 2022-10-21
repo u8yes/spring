@@ -51,7 +51,6 @@
 			</tr>
 			<c:forEach items="${boardList}" var="board">	<!-- 1. JSTL 기능 중 items는 데이터, 2. var는 새 변수 선언 -->
 			<tr>
-				
 				<td align="center">${board.seq}</td>
 				<td><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>	<!-- ?seq= 라는 건 바로 쿼리문으로 연결되는 것 -->
 				<td align="center">${board.writer}</td>

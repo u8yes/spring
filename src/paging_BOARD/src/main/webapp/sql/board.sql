@@ -14,3 +14,17 @@ insert into BOARD(seq,title,writer,content) values(1,1,1,1);
 delete from board;
 
 INSERT INTO BOARD SELECT BOARD_SEQ.NEXTVAL, TITLE, WRITER, CONTENT, REGDATE, CNT FROM BOARD;
+
+drop table board purge;
+
+SELECT b.* FROM (
+				SELECT ROWNUM RN, A.* FROM (
+					SELECT * 
+					FROM BOARD 
+				ORDER BY seq DESC ) A ) b
+		WHERE RN BETWEEN 0 AND 10;
+		
+		
+		
+		
+		

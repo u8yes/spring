@@ -54,8 +54,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> selectBoard(PagingVO vo) {
-		
 		return dao.selectBoard(vo);
+		
 	}
 	
 }

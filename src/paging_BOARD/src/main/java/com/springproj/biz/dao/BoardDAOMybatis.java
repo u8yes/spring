@@ -61,8 +61,9 @@ public class BoardDAOMybatis {
 	}
 	
 	public List<BoardVO> selectBoard(PagingVO vo) {
-		
-		return mybatis.selectList("Board.selectBoard", vo);
+		System.out.println("mybatis boardPaging DAO =>" + vo);
+
+		return mybatis.selectList("Board.selectBoardList", vo);
 	}
 		
 }

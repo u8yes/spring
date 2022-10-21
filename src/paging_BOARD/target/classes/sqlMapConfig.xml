@@ -8,6 +8,7 @@
   	<!-- Alias(별명, 가명) 설정 -->
   	<typeAliases>
   		<typeAlias alias="board" type="com.springproj.biz.domain.BoardVO"/>  	<!-- 만들 때 나타나는 속성(type)은 무조건 써줘야 하는 속성 -->
+  		<typeAlias alias="paging" type="com.springproj.biz.domain.PagingVO"/>  	
   	</typeAliases>
   	
   	<!-- SQL Mapper 설정 -->

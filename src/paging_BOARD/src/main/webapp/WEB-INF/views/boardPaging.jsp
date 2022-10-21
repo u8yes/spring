@@ -28,7 +28,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="boardList?nowPage=${paging.nowPage}&cntPerPage="+sel;
+		location.href="boardList.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
 	}
 </script>
 <body>
@@ -55,21 +55,23 @@
 			<td>등록일</td>
 			<td>조회수</td>		
 		</tr>
-		<c:forEach items="${viewAll }" var="list">
+		<c:forEach items="${viewAll}" var="board">	
 			<tr>
-				<td>${list.seq }</td>
-				<td><a href='detail?seq=${list.seq }'>${list.title }</a></td>
-				<td>${list.writer }</td>
-				<td><fmt:formatDate value="${list.regdate }" pattern="yyyy.MM.dd"/> </td>
-				<td>${list.cnt }</td>
+				<td align="center">${board.seq}</td>
+				<td><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>	<!-- ?seq= 라는 건 바로 쿼리문으로 연결되는 것 -->
+				<td align="center">${board.writer}</td>
+				<td align="center">${board.regdate}</td>
+				<td align="center">${board.cnt}</td>
 			</tr>
-		</c:forEach>
+			</c:forEach>
 	</table>
-	<input type="button" value="글쓰기" style="float: right;" onclick="location.href='/write'"><br>
+	<input type="button" value="글쓰기" style="float: right;" onclick="location.href='insertBoard.do'"><br>
+	
+	
 	
 	<div style="display: block; text-align: center;">		
 		<c:if test="${paging.startPage != 1 }">
-			<a href="/boardList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+			<a href="/boardList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
 		</c:if>
 		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 			<c:choose>
@@ -77,12 +79,12 @@
 					<b>${p }</b>
 				</c:when>
 				<c:when test="${p != paging.nowPage }">
-					<a href="/boardList?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+					<a href="/boardList.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
 				</c:when>
 			</c:choose>
 		</c:forEach>
 		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="/boardList?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+			<a href="/boardList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 		</c:if>
 	</div>
 </div>
